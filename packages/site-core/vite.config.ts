@@ -10,7 +10,7 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', '@iconify/vue', 'axios', 'pinia', '@mwheeler/ui'],
+      external: ['vue', 'vue-router', '@iconify/vue', 'axios', 'pinia', '@mwheeler91/ui'],
     },
   },
 })

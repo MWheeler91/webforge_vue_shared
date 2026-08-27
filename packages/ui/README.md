@@ -1,4 +1,4 @@
-# `@mwheeler/ui`
+# `@mwheeler91/ui`
 
 Reusable Vue components, styles, theme tokens, and UI configuration.
 

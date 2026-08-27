@@ -1,4 +1,4 @@
-import type { ThemeColors } from '@mwheeler/ui'
+import type { ThemeColors } from '@mwheeler91/ui'
 import type {
   ButtonAs,
   ButtonHtmlType,
@@ -10,7 +10,7 @@ import type {
   NavbarSize,
   NavbarVariant,
   SharedFooterProps,
-} from '@mwheeler/ui'
+} from '@mwheeler91/ui'
 
 export type Site = {
   name: string

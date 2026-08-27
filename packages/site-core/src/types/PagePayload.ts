@@ -12,7 +12,7 @@ import type {
   SectionVariant,
   SectionTitleAs,
   SectionTitleEmphasis,
-} from '@mwheeler/ui'
+} from '@mwheeler91/ui'
 
 export type PageJsonObject = Record<string, unknown>
 export type PageComponentConfig = Record<string, string | number | boolean | null>

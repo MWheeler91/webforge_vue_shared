@@ -1,4 +1,4 @@
-# `@mwheeler/site-core`
+# `@mwheeler91/site-core`
 
 Shared application behavior for the base project and client sites.
 
