@@ -16,3 +16,5 @@ export * from './utils/formatPhone'
 export * from './utils/geo'
 export * from './utils/media'
 export * from './utils/useToast'
+
+export type { PlaygroundOption, PlaygroundOptionsPayload } from './api/playground.api'

@@ -11,6 +11,8 @@ export * from './config/ui.defaults.ts'
 export * from './config/ui.config.ts'
 export * from './config/ui.resolve.ts'
 export * from './config/ui.runtime.ts'
+export { buildUiThemeAttrs } from './config/buildUiThemeAttrs.ts'
+export type { ColorThemeSource } from './config/color.types.ts'
 
 // ---------------------------------------------------------
 // Button
@@ -244,7 +246,7 @@ export { default as FooterLegalBar } from './components/primitives/footer/Footer
 // ---------------------------------------------------------
 
 export * from './components/patterns/footer/index.ts'
-export type { FooterBrandData, FooterLinkItem, FooterSectionItem, FooterSocialItem, FooterTemplateProps, SharedFooterProps, FooterColumnPayload } from './components/primitives/footer/footer.types.ts'
+export type { FooterBrandData, FooterLinkItem, FooterSectionItem, FooterSocialItem, FooterTemplateProps, SharedFooterProps, FooterColumnPayload, FooterVariant } from './components/primitives/footer/footer.types.ts'
 
 // ---------------------------------------------------------
 // Toast
