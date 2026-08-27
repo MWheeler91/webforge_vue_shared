@@ -1,0 +1,167 @@
+/* =========================================================
+   Base
+   ========================================================= */
+
+.ui-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  background: var(--bg_surface);
+  color: var(--ui-current-text-primary);
+  isolation: isolate;
+
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease,
+    filter 160ms ease;
+}
+
+.ui-card-unstyled {
+  position: relative;
+}
+
+/* Whole-card links should not look like text links. */
+.ui-card--link {
+  text-decoration: none;
+}
+
+.ui-card--link:hover {
+  text-decoration: none;
+}
+
+/* Disabled link cards cannot use a native disabled attribute. */
+.ui-card--disabled,
+.ui-card[aria-disabled='true'] {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   Radius - resolved from card.radius/global.radius
+   ========================================================= */
+
+.ui-card--radius-square {
+  border-radius: 0;
+}
+
+.ui-card--radius-soft {
+  border-radius: 0.5rem;
+}
+
+.ui-card--radius-rounded {
+  border-radius: 1rem;
+}
+
+.ui-card--radius-pill {
+  border-radius: 1.5rem;
+}
+
+/* =========================================================
+   Variants - props
+   ========================================================= */
+
+.ui-card--variant-surface {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+}
+
+.ui-card--variant-muted {
+  background: var(--bg_muted);
+  border-color: var(--border_muted);
+}
+
+.ui-card--variant-outline {
+  background: transparent;
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-card--variant-elevated {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+  box-shadow: 0 0.625rem 1.5rem var(--shadow_rgba);
+}
+
+.ui-card--variant-ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ui-card--variant-inverse {
+  background: var(--bg_inverse);
+  color: var(--text_inverse);
+  border-color: color-mix(in srgb, var(--text_inverse) 18%, transparent);
+}
+
+/* =========================================================
+   Padding - props
+   ========================================================= */
+
+.ui-card--padding-none {
+  padding: 0;
+}
+
+.ui-card--padding-sm {
+  padding: 1rem;
+}
+
+.ui-card--padding-md {
+  padding: 1.25rem;
+}
+
+.ui-card--padding-lg {
+  padding: 1.75rem;
+}
+
+/* =========================================================
+   Density - resolved from card.density/global.density
+   ========================================================= */
+
+.ui-card--density-compact.ui-card--padding-sm {
+  padding: 0.75rem;
+}
+
+.ui-card--density-compact.ui-card--padding-md {
+  padding: 1rem;
+}
+
+.ui-card--density-compact.ui-card--padding-lg {
+  padding: 1.25rem;
+}
+
+.ui-card--density-spacious.ui-card--padding-sm {
+  padding: 1.25rem;
+}
+
+.ui-card--density-spacious.ui-card--padding-md {
+  padding: 1.75rem;
+}
+
+.ui-card--density-spacious.ui-card--padding-lg {
+  padding: 2.25rem;
+}
+
+/* =========================================================
+   Interactive whole-card link
+   ========================================================= */
+
+.ui-card--interactive {
+  cursor: pointer;
+}
+
+.ui-card--interactive:hover:not([aria-disabled='true']) {
+  transform: translateY(-4px);
+}
+
+.ui-card--interactive:focus-visible {
+  outline: 2px solid var(--border_focus);
+  outline-offset: 3px;
+}

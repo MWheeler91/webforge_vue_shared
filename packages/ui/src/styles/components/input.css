@@ -1,0 +1,1832 @@
+.ui-input,
+.ui-textarea {
+  width: auto;
+  min-width: 0;
+  font: inherit;
+  color: var(--text_primary);
+  background: var(--bg_field);
+  border: 1px solid var(--border_default);
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.ui-input::placeholder,
+.ui-textarea::placeholder {
+  color: var(--text_muted);
+}
+
+.ui-input:disabled,
+.ui-textarea:disabled,
+.ui-input--disabled,
+.ui-textarea--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: var(--bg_disabled);
+  color: var(--text_disabled);
+}
+
+.ui-input:read-only,
+.ui-textarea:read-only,
+.ui-input--readonly,
+.ui-textarea--readonly {
+  cursor: default;
+}
+
+.ui-input--full-width,
+.ui-textarea--full-width {
+  width: 100%;
+}
+
+/* -----------------------------------------
+   Input Shell
+----------------------------------------- */
+
+.ui-input-shell {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  min-width: 0;
+  color: var(--text_primary);
+  background: var(--bg_field);
+  border: 1px solid var(--border_default);
+  overflow: hidden;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.ui-input-shell--full-width {
+  width: 100%;
+}
+
+.ui-input-shell--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: var(--bg_disabled);
+  color: var(--text_disabled);
+}
+
+.ui-input-shell--readonly {
+  cursor: default;
+}
+
+.ui-input--in-shell {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.ui-input--in-shell:focus,
+.ui-input--in-shell:focus-visible {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Slot containers */
+
+.ui-input__leading,
+.ui-input__trailing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  align-self: stretch;
+  color: var(--text_muted);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Size-aware shell slot padding */
+
+.ui-input-shell--size-sm .ui-input__leading {
+  padding-left: 0.75rem;
+}
+
+.ui-input-shell--size-sm .ui-input__trailing {
+  padding-right: 0.75rem;
+}
+
+.ui-input-shell--size-md .ui-input__leading {
+  padding-left: 1rem;
+}
+
+.ui-input-shell--size-md .ui-input__trailing {
+  padding-right: 1rem;
+}
+
+.ui-input-shell--size-lg .ui-input__leading {
+  padding-left: 1.125rem;
+}
+
+.ui-input-shell--size-lg .ui-input__trailing {
+  padding-right: 1.125rem;
+}
+
+/* -----------------------------------------
+   Input Shell Sizes
+----------------------------------------- */
+
+.ui-input-shell--size-sm {
+  min-height: 2.25rem;
+  font-size: 0.875rem;
+}
+
+.ui-input-shell--size-md {
+  min-height: 2.75rem;
+  font-size: 0.9375rem;
+}
+
+.ui-input-shell--size-lg {
+  min-height: 3rem;
+  font-size: 1rem;
+}
+
+.ui-input--in-shell.ui-input--size-sm {
+  min-height: 2.25rem;
+  padding-block: 0;
+  padding-inline: 0.75rem;
+}
+
+.ui-input--in-shell.ui-input--size-md {
+  min-height: 2.75rem;
+  padding-block: 0;
+  padding-inline: 1rem;
+}
+
+.ui-input--in-shell.ui-input--size-lg {
+  min-height: 3rem;
+  padding-block: 0;
+  padding-inline: 1.125rem;
+}
+
+.ui-input__leading + .ui-input--in-shell {
+  padding-left: 0.5rem;
+}
+
+.ui-input--in-shell:has(+ .ui-input__trailing) {
+  padding-right: 0.5rem;
+}
+
+/* -----------------------------------------
+   Input Shell Radius
+----------------------------------------- */
+
+.ui-input-shell--radius-square {
+  border-radius: 0;
+}
+
+.ui-input-shell--radius-soft {
+  border-radius: 0.5rem;
+}
+
+.ui-input-shell--radius-rounded {
+  border-radius: 0.875rem;
+}
+
+.ui-input-shell--radius-pill {
+  border-radius: 999px;
+}
+
+/* -----------------------------------------
+   Input Shell Variants
+----------------------------------------- */
+
+.ui-input-shell--variant-default {
+  color: var(--text_primary);
+  background: var(--bg_field);
+  border-color: var(--border_default);
+}
+
+.ui-input-shell--variant-error {
+  border-color: var(--error);
+}
+
+.ui-input-shell--variant-success {
+  border-color: var(--success);
+}
+
+.ui-input-shell--variant-warning {
+  border-color: var(--warning);
+}
+
+/* -----------------------------------------
+   Input Shell Density
+----------------------------------------- */
+
+.ui-input-shell--density-compact.ui-input-shell--size-sm {
+  min-height: 2rem;
+}
+
+.ui-input-shell--density-compact.ui-input-shell--size-md {
+  min-height: 2.375rem;
+}
+
+.ui-input-shell--density-compact.ui-input-shell--size-lg {
+  min-height: 2.75rem;
+}
+
+.ui-input-shell--density-comfortable.ui-input-shell--size-sm {
+  min-height: 2.25rem;
+}
+
+.ui-input-shell--density-comfortable.ui-input-shell--size-md {
+  min-height: 2.75rem;
+}
+
+.ui-input-shell--density-comfortable.ui-input-shell--size-lg {
+  min-height: 3rem;
+}
+
+.ui-input-shell--density-spacious.ui-input-shell--size-sm {
+  min-height: 2.5rem;
+}
+
+.ui-input-shell--density-spacious.ui-input-shell--size-md {
+  min-height: 3rem;
+}
+
+.ui-input-shell--density-spacious.ui-input-shell--size-lg {
+  min-height: 3.375rem;
+}
+
+/* -----------------------------------------
+   BaseInput
+----------------------------------------- */
+
+.ui-input {
+  display: inline-flex;
+}
+
+.ui-input--size-sm {
+  min-height: 2.25rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ui-input--size-md {
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  font-size: 0.9375rem;
+}
+
+.ui-input--size-lg {
+  min-height: 3rem;
+  padding: 0 1.125rem;
+  font-size: 1rem;
+}
+
+/* -----------------------------------------
+   BaseTextarea
+----------------------------------------- */
+
+.ui-textarea {
+  display: block;
+  line-height: 1.5;
+}
+
+.ui-textarea--size-sm {
+  min-height: 5rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ui-textarea--size-md {
+  min-height: 6rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+}
+
+.ui-textarea--size-lg {
+  min-height: 7rem;
+  padding: 0.875rem 1.125rem;
+  font-size: 1rem;
+}
+
+/* -----------------------------------------
+   Textarea Resize
+----------------------------------------- */
+
+.ui-textarea--resize-none {
+  resize: none;
+}
+
+.ui-textarea--resize-vertical {
+  resize: vertical;
+}
+
+.ui-textarea--resize-horizontal {
+  resize: horizontal;
+}
+
+.ui-textarea--resize-both {
+  resize: both;
+}
+
+/* -----------------------------------------
+   Variants
+----------------------------------------- */
+
+.ui-input--variant-default,
+.ui-textarea--variant-default {
+  color: var(--text_primary);
+  background: var(--bg_field);
+  border-color: var(--border_default);
+}
+
+.ui-input--variant-error,
+.ui-textarea--variant-error {
+  border-color: var(--error);
+}
+
+.ui-input--variant-success,
+.ui-textarea--variant-success {
+  border-color: var(--success);
+}
+
+.ui-input--variant-warning,
+.ui-textarea--variant-warning {
+  border-color: var(--warning);
+}
+
+/* -----------------------------------------
+   Radius
+----------------------------------------- */
+
+.ui-input--radius-square,
+.ui-textarea--radius-square {
+  border-radius: 0;
+}
+
+.ui-input--radius-soft,
+.ui-textarea--radius-soft {
+  border-radius: 0.5rem;
+}
+
+.ui-input--radius-rounded,
+.ui-textarea--radius-rounded {
+  border-radius: 0.875rem;
+}
+
+.ui-input--radius-pill {
+  border-radius: 999px;
+}
+
+.ui-textarea--radius-pill {
+  border-radius: 1.25rem;
+}
+
+/* -----------------------------------------
+   Density
+----------------------------------------- */
+
+.ui-input--density-compact.ui-input--size-sm {
+  min-height: 2rem;
+  padding-inline: 0.625rem;
+}
+
+.ui-input--density-compact.ui-input--size-md {
+  min-height: 2.375rem;
+  padding-inline: 0.75rem;
+}
+
+.ui-input--density-compact.ui-input--size-lg {
+  min-height: 2.75rem;
+  padding-inline: 1rem;
+}
+
+.ui-input--density-comfortable.ui-input--size-sm {
+  min-height: 2.25rem;
+}
+
+.ui-input--density-comfortable.ui-input--size-md {
+  min-height: 2.75rem;
+}
+
+.ui-input--density-comfortable.ui-input--size-lg {
+  min-height: 3rem;
+}
+
+.ui-input--density-spacious.ui-input--size-sm {
+  min-height: 2.5rem;
+  padding-inline: 1rem;
+}
+
+.ui-input--density-spacious.ui-input--size-md {
+  min-height: 3rem;
+  padding-inline: 1.125rem;
+}
+
+.ui-input--density-spacious.ui-input--size-lg {
+  min-height: 3.375rem;
+  padding-inline: 1.25rem;
+}
+
+.ui-textarea--density-compact.ui-textarea--size-sm {
+  min-height: 4.5rem;
+  padding: 0.5rem 0.625rem;
+}
+
+.ui-textarea--density-compact.ui-textarea--size-md {
+  min-height: 5.5rem;
+  padding: 0.625rem 0.75rem;
+}
+
+.ui-textarea--density-compact.ui-textarea--size-lg {
+  min-height: 6.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.ui-textarea--density-comfortable.ui-textarea--size-sm {
+  min-height: 5rem;
+}
+
+.ui-textarea--density-comfortable.ui-textarea--size-md {
+  min-height: 6rem;
+}
+
+.ui-textarea--density-comfortable.ui-textarea--size-lg {
+  min-height: 7rem;
+}
+
+.ui-textarea--density-spacious.ui-textarea--size-sm {
+  min-height: 5.5rem;
+  padding: 0.875rem 1rem;
+}
+
+.ui-textarea--density-spacious.ui-textarea--size-md {
+  min-height: 7rem;
+  padding: 1rem 1.125rem;
+}
+
+.ui-textarea--density-spacious.ui-textarea--size-lg {
+  min-height: 8rem;
+  padding: 1.125rem 1.25rem;
+}
+
+/* -----------------------------------------
+   Unstyled
+----------------------------------------- */
+
+.ui-input-unstyled,
+.ui-textarea-unstyled {
+  width: auto;
+  min-width: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  outline: none;
+  padding: 0;
+}
+
+.ui-input-unstyled::placeholder,
+.ui-textarea-unstyled::placeholder {
+  color: var(--text_muted);
+}
+
+/* -----------------------------------------
+   BaseSelect
+----------------------------------------- */
+
+.ui-select {
+  width: auto;
+  min-width: 0;
+  font: inherit;
+  color: var(--text_primary);
+  background: var(--bg_field);
+  border: 1px solid var(--border_default);
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.ui-select option {
+  color: var(--text_primary);
+  background: var(--bg_surface);
+}
+
+.ui-select:disabled,
+.ui-select--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: var(--bg_disabled);
+  color: var(--text_disabled);
+}
+
+.ui-select--full-width {
+  width: 100%;
+}
+
+.ui-select--multiple {
+  height: auto;
+  padding-block: 0.5rem;
+}
+
+/* -----------------------------------------
+   Select Shell
+----------------------------------------- */
+
+.ui-select-shell {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  min-width: 0;
+  color: var(--text_primary);
+  background: var(--bg_field);
+  border: 1px solid var(--border_default);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.ui-select-shell--full-width {
+  width: 100%;
+}
+
+.ui-select-shell--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: var(--bg_disabled);
+  color: var(--text_disabled);
+}
+
+.ui-select__leading,
+.ui-select__trailing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--text_muted);
+}
+
+.ui-select__leading {
+  padding-left: 0.875rem;
+}
+
+.ui-select__trailing {
+  padding-right: 0.875rem;
+}
+
+.ui-select--in-shell {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+/* -----------------------------------------
+   Select Sizes
+----------------------------------------- */
+
+.ui-select--size-sm {
+  min-height: 2.25rem;
+  padding: 0 2rem 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ui-select--size-md {
+  min-height: 2.75rem;
+  padding: 0 2.25rem 0 1rem;
+  font-size: 0.9375rem;
+}
+
+.ui-select--size-lg {
+  min-height: 3rem;
+  padding: 0 2.5rem 0 1.125rem;
+  font-size: 1rem;
+}
+
+.ui-select--in-shell.ui-select--size-sm,
+.ui-select--in-shell.ui-select--size-md,
+.ui-select--in-shell.ui-select--size-lg {
+  padding-right: 0.5rem;
+}
+
+/* -----------------------------------------
+   Select Shell Sizes
+----------------------------------------- */
+
+.ui-select-shell--size-sm {
+  min-height: 2.25rem;
+  font-size: 0.875rem;
+}
+
+.ui-select-shell--size-md {
+  min-height: 2.75rem;
+  font-size: 0.9375rem;
+}
+
+.ui-select-shell--size-lg {
+  min-height: 3rem;
+  font-size: 1rem;
+}
+
+/* -----------------------------------------
+   Select Variants
+----------------------------------------- */
+
+.ui-select--variant-default,
+.ui-select-shell--variant-default {
+  color: var(--text_primary);
+  background: var(--bg_field);
+  border-color: var(--border_default);
+}
+
+.ui-select--variant-error,
+.ui-select-shell--variant-error {
+  border-color: var(--error);
+}
+
+.ui-select--variant-success,
+.ui-select-shell--variant-success {
+  border-color: var(--success);
+}
+
+.ui-select--variant-warning,
+.ui-select-shell--variant-warning {
+  border-color: var(--warning);
+}
+
+/* -----------------------------------------
+   Select Radius
+----------------------------------------- */
+
+.ui-select--radius-square,
+.ui-select-shell--radius-square {
+  border-radius: 0;
+}
+
+.ui-select--radius-soft,
+.ui-select-shell--radius-soft {
+  border-radius: 0.5rem;
+}
+
+.ui-select--radius-rounded,
+.ui-select-shell--radius-rounded {
+  border-radius: 0.875rem;
+}
+
+.ui-select--radius-pill,
+.ui-select-shell--radius-pill {
+  border-radius: 999px;
+}
+
+/* -----------------------------------------
+   Select Density
+----------------------------------------- */
+
+.ui-select--density-compact.ui-select--size-sm {
+  min-height: 2rem;
+  padding-left: 0.625rem;
+}
+
+.ui-select--density-compact.ui-select--size-md {
+  min-height: 2.375rem;
+  padding-left: 0.75rem;
+}
+
+.ui-select--density-compact.ui-select--size-lg {
+  min-height: 2.75rem;
+  padding-left: 1rem;
+}
+
+.ui-select--density-comfortable.ui-select--size-sm {
+  min-height: 2.25rem;
+}
+
+.ui-select--density-comfortable.ui-select--size-md {
+  min-height: 2.75rem;
+}
+
+.ui-select--density-comfortable.ui-select--size-lg {
+  min-height: 3rem;
+}
+
+.ui-select--density-spacious.ui-select--size-sm {
+  min-height: 2.5rem;
+  padding-left: 1rem;
+}
+
+.ui-select--density-spacious.ui-select--size-md {
+  min-height: 3rem;
+  padding-left: 1.125rem;
+}
+
+.ui-select--density-spacious.ui-select--size-lg {
+  min-height: 3.375rem;
+  padding-left: 1.25rem;
+}
+
+.ui-select-shell--density-compact.ui-select-shell--size-sm {
+  min-height: 2rem;
+}
+
+.ui-select-shell--density-compact.ui-select-shell--size-md {
+  min-height: 2.375rem;
+}
+
+.ui-select-shell--density-compact.ui-select-shell--size-lg {
+  min-height: 2.75rem;
+}
+
+.ui-select-shell--density-comfortable.ui-select-shell--size-sm {
+  min-height: 2.25rem;
+}
+
+.ui-select-shell--density-comfortable.ui-select-shell--size-md {
+  min-height: 2.75rem;
+}
+
+.ui-select-shell--density-comfortable.ui-select-shell--size-lg {
+  min-height: 3rem;
+}
+
+.ui-select-shell--density-spacious.ui-select-shell--size-sm {
+  min-height: 2.5rem;
+}
+
+.ui-select-shell--density-spacious.ui-select-shell--size-md {
+  min-height: 3rem;
+}
+
+.ui-select-shell--density-spacious.ui-select-shell--size-lg {
+  min-height: 3.375rem;
+}
+
+/* -----------------------------------------
+   Select Unstyled
+----------------------------------------- */
+
+.ui-select-unstyled {
+  width: auto;
+  min-width: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  outline: none;
+  padding: 0;
+}
+
+.ui-select-shell-unstyled {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  min-width: 0;
+}
+
+.ui-select-shell-unstyled.ui-select-shell--full-width,
+.ui-select-unstyled.ui-select--full-width {
+  width: 100%;
+}
+
+/* -----------------------------------------
+   BaseCheckbox
+----------------------------------------- */
+
+.ui-checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  width: auto;
+  min-width: 0;
+  color: var(--ui-current-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ui-checkbox--full-width {
+  width: 100%;
+}
+
+.ui-checkbox--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ui-checkbox__control-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.ui-checkbox__input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.ui-checkbox__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: transparent;
+  background: var(--bg_field);
+  border: 1px solid var(--border_default);
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.ui-checkbox__check,
+.ui-checkbox__indeterminate {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.ui-checkbox--checked .ui-checkbox__check {
+  display: inline-flex;
+}
+
+.ui-checkbox--indeterminate .ui-checkbox__check {
+  display: none;
+}
+
+.ui-checkbox--indeterminate .ui-checkbox__indeterminate {
+  display: inline-flex;
+}
+
+.ui-checkbox__content {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 0.125rem;
+}
+
+.ui-checkbox__label {
+  line-height: 1.35;
+  color: var(--ui-current-text-primary);
+}
+
+.ui-checkbox__description {
+  line-height: 1.35;
+  color: var(--ui-current-text-muted);
+}
+
+/* -----------------------------------------
+   Checkbox Sizes
+----------------------------------------- */
+
+.ui-checkbox--size-sm {
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.ui-checkbox--size-sm .ui-checkbox__control {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ui-checkbox--size-sm .ui-checkbox__check,
+.ui-checkbox--size-sm .ui-checkbox__indeterminate {
+  font-size: 0.75rem;
+}
+
+.ui-checkbox--size-md {
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+}
+
+.ui-checkbox--size-md .ui-checkbox__control {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.ui-checkbox--size-md .ui-checkbox__check,
+.ui-checkbox--size-md .ui-checkbox__indeterminate {
+  font-size: 0.8125rem;
+}
+
+.ui-checkbox--size-lg {
+  gap: 0.75rem;
+  font-size: 1rem;
+}
+
+.ui-checkbox--size-lg .ui-checkbox__control {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ui-checkbox--size-lg .ui-checkbox__check,
+.ui-checkbox--size-lg .ui-checkbox__indeterminate {
+  font-size: 0.875rem;
+}
+
+/* -----------------------------------------
+   Checkbox Variants
+----------------------------------------- */
+
+.ui-checkbox--variant-default.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--variant-default.ui-checkbox--indeterminate .ui-checkbox__control {
+  color: var(--text_on_brand);
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.ui-checkbox--variant-error .ui-checkbox__control {
+  border-color: var(--error);
+}
+
+.ui-checkbox--variant-error.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--variant-error.ui-checkbox--indeterminate .ui-checkbox__control {
+  color: var(--text_inverse);
+  background: var(--error);
+  border-color: var(--error);
+}
+
+.ui-checkbox--variant-success .ui-checkbox__control {
+  border-color: var(--success);
+}
+
+.ui-checkbox--variant-success.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--variant-success.ui-checkbox--indeterminate .ui-checkbox__control {
+  color: var(--text_inverse);
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.ui-checkbox--variant-warning .ui-checkbox__control {
+  border-color: var(--warning);
+}
+
+.ui-checkbox--variant-warning.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--variant-warning.ui-checkbox--indeterminate .ui-checkbox__control {
+  color: var(--text_inverse);
+  background: var(--warning);
+  border-color: var(--warning);
+}
+
+/* -----------------------------------------
+   Checkbox Radius
+----------------------------------------- */
+
+.ui-checkbox--radius-square .ui-checkbox__control {
+  border-radius: 0;
+}
+
+.ui-checkbox--radius-soft .ui-checkbox__control {
+  border-radius: 0.25rem;
+}
+
+.ui-checkbox--radius-rounded .ui-checkbox__control {
+  border-radius: 0.375rem;
+}
+
+.ui-checkbox--radius-pill .ui-checkbox__control {
+  border-radius: 999px;
+}
+
+/* Keep checked states stronger than pack backgrounds */
+.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--indeterminate .ui-checkbox__control {
+  box-shadow: none;
+}
+
+/* -----------------------------------------
+   Checkbox Unstyled
+----------------------------------------- */
+
+.ui-checkbox-unstyled {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: auto;
+  min-width: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ui-checkbox-unstyled.ui-checkbox--full-width {
+  width: 100%;
+}
+
+/* -----------------------------------------
+   BaseRadioGroup
+----------------------------------------- */
+
+.ui-radio-group {
+  display: block;
+  width: auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--ui-current-text-primary);
+}
+
+.ui-radio-group--full-width {
+  width: 100%;
+}
+
+.ui-radio-group--disabled {
+  opacity: 0.6;
+}
+
+.ui-radio-group__legend {
+  display: block;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  color: var(--ui-current-text-primary);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.ui-radio-group__required {
+  color: var(--error);
+  margin-left: 0.125rem;
+}
+
+.ui-radio-group__description {
+  margin: -0.25rem 0 0.75rem;
+  color: var(--ui-current-text-muted);
+  line-height: 1.4;
+}
+
+.ui-radio-group__items {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.ui-radio-group--orientation-vertical .ui-radio-group__items {
+  flex-direction: column;
+}
+
+.ui-radio-group--orientation-horizontal .ui-radio-group__items {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ui-radio-group--size-sm .ui-radio-group__legend {
+  font-size: 0.875rem;
+}
+
+.ui-radio-group--size-sm .ui-radio-group__description {
+  font-size: 0.8125rem;
+}
+
+.ui-radio-group--size-md .ui-radio-group__legend {
+  font-size: 0.9375rem;
+}
+
+.ui-radio-group--size-md .ui-radio-group__description {
+  font-size: 0.875rem;
+}
+
+.ui-radio-group--size-lg .ui-radio-group__legend {
+  font-size: 1rem;
+}
+
+.ui-radio-group--size-lg .ui-radio-group__description {
+  font-size: 0.9375rem;
+}
+
+/* -----------------------------------------
+   BaseRadio
+----------------------------------------- */
+
+.ui-radio {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  width: auto;
+  min-width: 0;
+  color: var(--ui-current-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ui-radio--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ui-radio__control-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.ui-radio__input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.ui-radio__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  background: var(--bg_field);
+  border: 1px solid var(--border_default);
+  border-radius: 999px;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.ui-radio__dot {
+  display: block;
+  width: 45%;
+  height: 45%;
+  border-radius: 999px;
+  background: transparent;
+  transform: scale(0);
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.ui-radio--checked .ui-radio__dot {
+  background: currentColor;
+  transform: scale(1);
+}
+
+.ui-radio__content {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 0.125rem;
+}
+
+.ui-radio__label {
+  line-height: 1.35;
+  color: var(--ui-current-text-primary);
+}
+
+.ui-radio__description {
+  line-height: 1.35;
+  color: var(--ui-current-text-muted);
+}
+
+/* -----------------------------------------
+   Radio Sizes
+----------------------------------------- */
+
+.ui-radio--size-sm {
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.ui-radio--size-sm .ui-radio__control {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ui-radio--size-md {
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+}
+
+.ui-radio--size-md .ui-radio__control {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.ui-radio--size-lg {
+  gap: 0.75rem;
+  font-size: 1rem;
+}
+
+.ui-radio--size-lg .ui-radio__control {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* -----------------------------------------
+   Radio Variants
+----------------------------------------- */
+
+.ui-radio--variant-default.ui-radio--checked .ui-radio__control {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+.ui-radio--variant-error .ui-radio__control {
+  border-color: var(--error);
+}
+
+.ui-radio--variant-error.ui-radio--checked .ui-radio__control {
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.ui-radio--variant-success .ui-radio__control {
+  border-color: var(--success);
+}
+
+.ui-radio--variant-success.ui-radio--checked .ui-radio__control {
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.ui-radio--variant-warning .ui-radio__control {
+  border-color: var(--warning);
+}
+
+.ui-radio--variant-warning.ui-radio--checked .ui-radio__control {
+  color: var(--warning);
+  border-color: var(--warning);
+}
+
+/* -----------------------------------------
+   Radio Unstyled
+----------------------------------------- */
+
+.ui-radio-group-unstyled {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ui-radio-unstyled {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* -----------------------------------------
+   BaseSwitch
+----------------------------------------- */
+
+.ui-switch {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  width: auto;
+  min-width: 0;
+  color: var(--ui-current-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ui-switch--full-width {
+  width: 100%;
+}
+
+.ui-switch--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ui-switch__control-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.ui-switch__input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.ui-switch__track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  background: var(--bg_muted);
+  border: 1px solid var(--border_default);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.ui-switch__thumb {
+  position: absolute;
+  display: block;
+  background: var(--bg_surface);
+  border: 1px solid var(--border_muted);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--shadow_rgba) 20%, transparent);
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.ui-switch__content {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 0.125rem;
+}
+
+.ui-switch__label {
+  line-height: 1.35;
+  color: var(--ui-current-text-primary);
+}
+
+.ui-switch__description {
+  line-height: 1.35;
+  color: var(--ui-current-text-muted);
+}
+
+/* -----------------------------------------
+   Switch Sizes
+----------------------------------------- */
+
+.ui-switch--size-sm {
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.ui-switch--size-sm .ui-switch__control-wrap,
+.ui-switch--size-sm .ui-switch__track {
+  width: 2rem;
+  height: 1.125rem;
+}
+
+.ui-switch--size-sm .ui-switch__thumb {
+  width: 0.875rem;
+  height: 0.875rem;
+  left: 0.125rem;
+}
+
+.ui-switch--size-sm.ui-switch--checked .ui-switch__thumb {
+  transform: translateX(0.875rem);
+}
+
+.ui-switch--size-md {
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+}
+
+.ui-switch--size-md .ui-switch__control-wrap,
+.ui-switch--size-md .ui-switch__track {
+  width: 2.5rem;
+  height: 1.375rem;
+}
+
+.ui-switch--size-md .ui-switch__thumb {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  left: 0.125rem;
+}
+
+.ui-switch--size-md.ui-switch--checked .ui-switch__thumb {
+  transform: translateX(1.125rem);
+}
+
+.ui-switch--size-lg {
+  gap: 0.75rem;
+  font-size: 1rem;
+}
+
+.ui-switch--size-lg .ui-switch__control-wrap,
+.ui-switch--size-lg .ui-switch__track {
+  width: 3rem;
+  height: 1.625rem;
+}
+
+.ui-switch--size-lg .ui-switch__thumb {
+  width: 1.3125rem;
+  height: 1.3125rem;
+  left: 0.125rem;
+}
+
+.ui-switch--size-lg.ui-switch--checked .ui-switch__thumb {
+  transform: translateX(1.375rem);
+}
+
+/* -----------------------------------------
+   Switch Variants
+----------------------------------------- */
+
+.ui-switch--variant-default.ui-switch--checked .ui-switch__track {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.ui-switch--variant-error .ui-switch__track {
+  border-color: var(--error);
+}
+
+.ui-switch--variant-error.ui-switch--checked .ui-switch__track {
+  background: var(--error);
+  border-color: var(--error);
+}
+
+.ui-switch--variant-success .ui-switch__track {
+  border-color: var(--success);
+}
+
+.ui-switch--variant-success.ui-switch--checked .ui-switch__track {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.ui-switch--variant-warning .ui-switch__track {
+  border-color: var(--warning);
+}
+
+.ui-switch--variant-warning.ui-switch--checked .ui-switch__track {
+  background: var(--warning);
+  border-color: var(--warning);
+}
+
+/* -----------------------------------------
+   Switch Radius
+----------------------------------------- */
+
+.ui-switch--radius-square .ui-switch__track,
+.ui-switch--radius-square .ui-switch__thumb {
+  border-radius: 0;
+}
+
+.ui-switch--radius-soft .ui-switch__track,
+.ui-switch--radius-rounded .ui-switch__track,
+.ui-switch--radius-pill .ui-switch__track {
+  border-radius: 999px;
+}
+
+.ui-switch--radius-soft .ui-switch__thumb,
+.ui-switch--radius-rounded .ui-switch__thumb,
+.ui-switch--radius-pill .ui-switch__thumb {
+  border-radius: 999px;
+}
+
+/* Keep checked state stronger than pack background */
+.ui-switch--checked .ui-switch__track {
+  box-shadow: none;
+}
+
+/* -----------------------------------------
+   Switch Unstyled
+----------------------------------------- */
+
+.ui-switch-unstyled {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: auto;
+  min-width: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ui-switch-unstyled.ui-switch--full-width {
+  width: 100%;
+}
+
+/* -----------------------------------------
+   BaseFileInput
+----------------------------------------- */
+
+.ui-file-input {
+  position: relative;
+  display: inline-flex;
+  width: auto;
+  min-width: 0;
+  color: var(--text_primary);
+  cursor: pointer;
+}
+
+.ui-file-input--full-width {
+  width: 100%;
+}
+
+.ui-file-input--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ui-file-input__native {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.ui-file-input__control {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  color: var(--text_primary);
+  background: var(--bg_field);
+  border: 1px solid var(--border_default);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.ui-file-input__leading,
+.ui-file-input__trailing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--text_muted);
+}
+
+.ui-file-input__leading {
+  padding-left: 0.875rem;
+}
+
+.ui-file-input__trailing {
+  padding-right: 0.875rem;
+}
+
+.ui-file-input__text {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1 1 auto;
+  gap: 0.5rem;
+}
+
+.ui-file-input__label {
+  flex: 0 0 auto;
+  font-weight: 600;
+  color: var(--text_primary);
+}
+
+.ui-file-input__filename {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text_muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* -----------------------------------------
+   File Input Sizes
+----------------------------------------- */
+
+.ui-file-input--size-sm .ui-file-input__control {
+  min-height: 2.25rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ui-file-input--size-md .ui-file-input__control {
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  font-size: 0.9375rem;
+}
+
+.ui-file-input--size-lg .ui-file-input__control {
+  min-height: 3rem;
+  padding: 0 1.125rem;
+  font-size: 1rem;
+}
+
+/* -----------------------------------------
+   File Input Variants
+----------------------------------------- */
+
+.ui-file-input--variant-default .ui-file-input__control {
+  color: var(--text_primary);
+  background: var(--bg_field);
+  border-color: var(--border_default);
+}
+
+.ui-file-input--variant-error .ui-file-input__control {
+  border-color: var(--error);
+}
+
+.ui-file-input--variant-success .ui-file-input__control {
+  border-color: var(--success);
+}
+
+.ui-file-input--variant-warning .ui-file-input__control {
+  border-color: var(--warning);
+}
+
+/* -----------------------------------------
+   File Input Radius
+----------------------------------------- */
+
+.ui-file-input--radius-square .ui-file-input__control {
+  border-radius: 0;
+}
+
+.ui-file-input--radius-soft .ui-file-input__control {
+  border-radius: 0.5rem;
+}
+
+.ui-file-input--radius-rounded .ui-file-input__control {
+  border-radius: 0.875rem;
+}
+
+.ui-file-input--radius-pill .ui-file-input__control {
+  border-radius: 999px;
+}
+
+/* -----------------------------------------
+   File Input Density
+----------------------------------------- */
+
+.ui-file-input--density-compact.ui-file-input--size-sm .ui-file-input__control {
+  min-height: 2rem;
+  padding-inline: 0.625rem;
+}
+
+.ui-file-input--density-compact.ui-file-input--size-md .ui-file-input__control {
+  min-height: 2.375rem;
+  padding-inline: 0.75rem;
+}
+
+.ui-file-input--density-compact.ui-file-input--size-lg .ui-file-input__control {
+  min-height: 2.75rem;
+  padding-inline: 1rem;
+}
+
+.ui-file-input--density-comfortable.ui-file-input--size-sm .ui-file-input__control {
+  min-height: 2.25rem;
+}
+
+.ui-file-input--density-comfortable.ui-file-input--size-md .ui-file-input__control {
+  min-height: 2.75rem;
+}
+
+.ui-file-input--density-comfortable.ui-file-input--size-lg .ui-file-input__control {
+  min-height: 3rem;
+}
+
+.ui-file-input--density-spacious.ui-file-input--size-sm .ui-file-input__control {
+  min-height: 2.5rem;
+  padding-inline: 1rem;
+}
+
+.ui-file-input--density-spacious.ui-file-input--size-md .ui-file-input__control {
+  min-height: 3rem;
+  padding-inline: 1.125rem;
+}
+
+.ui-file-input--density-spacious.ui-file-input--size-lg .ui-file-input__control {
+  min-height: 3.375rem;
+  padding-inline: 1.25rem;
+}
+
+/* -----------------------------------------
+   File Input Unstyled
+----------------------------------------- */
+
+.ui-file-input-unstyled {
+  position: relative;
+  display: inline-flex;
+  width: auto;
+  min-width: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ui-file-input-unstyled.ui-file-input--full-width {
+  width: 100%;
+}
+
+/* -----------------------------------------
+   Input Wrapper Helpers
+   Used by PasswordInput, SearchInput,
+   CurrencyInput, PercentInput, etc.
+----------------------------------------- */
+
+.ui-input-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: max-content;
+  min-height: 1.75rem;
+  padding: 0 0.375rem;
+  color: var(--text_muted);
+  background: transparent;
+  border: 0;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-size: 0.8125em;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.ui-input-action:hover:not(:disabled) {
+  color: var(--text_primary);
+  background: var(--bg_muted);
+}
+
+.ui-input-action:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-input-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ui-input-icon,
+.ui-input-prefix,
+.ui-input-suffix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--text_muted);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ui-input-icon {
+  font-size: 1em;
+}
+
+.ui-input-prefix,
+.ui-input-suffix {
+  font-size: 0.9375em;
+  font-weight: 600;
+}
+
+/* Size-aware action tuning */
+
+.ui-input-shell--size-sm .ui-input-action {
+  min-height: 1.5rem;
+  padding-inline: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.ui-input-shell--size-md .ui-input-action {
+  min-height: 1.75rem;
+  font-size: 0.8125rem;
+}
+
+.ui-input-shell--size-lg .ui-input-action {
+  min-height: 2rem;
+  font-size: 0.875rem;
+}

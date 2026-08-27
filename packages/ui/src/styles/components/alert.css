@@ -1,0 +1,31 @@
+.ui-alert {
+  padding: 1rem;
+  border: var(--ui-composite-border-width, 1px) solid var(--border_default);
+  border-left: 0.25rem solid var(--info);
+  border-radius: var(--ui-composite-radius, 0.375rem);
+  background: var(--bg_surface);
+  box-shadow: var(--ui-composite-shadow, none);
+  color: var(--text_primary);
+}
+
+.ui-alert--success {
+  border-left-color: var(--success);
+}
+
+.ui-alert--warning {
+  border-left-color: var(--warning);
+}
+
+.ui-alert--error {
+  border-left-color: var(--error);
+}
+
+.ui-alert__title {
+  display: block;
+  letter-spacing: var(--ui-composite-letter-spacing, normal);
+}
+
+.ui-alert__description {
+  margin-top: 0.25rem;
+  color: var(--text_secondary);
+}

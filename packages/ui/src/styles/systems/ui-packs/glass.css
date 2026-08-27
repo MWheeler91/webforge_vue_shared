@@ -1,0 +1,239 @@
+/* =========================================================
+   Glass Pack
+   translucent, blurred, layered, modern
+   ========================================================= */
+
+.ui-btn--pack-glass,
+.ui-badge--pack-glass,
+.ui-card--pack-glass,
+.ui-input--pack-glass,
+.ui-textarea--pack-glass,
+.ui-input-shell--pack-glass,
+.ui-select--pack-glass,
+.ui-select-shell--pack-glass,
+.ui-file-input--pack-glass .ui-file-input__control,
+.ui-toast--pack-glass {
+  background: color-mix(in srgb, var(--bg_surface) 68%, transparent);
+  border-color: color-mix(in srgb, var(--border_default) 60%, white);
+  backdrop-filter: blur(16px) saturate(1.25);
+  box-shadow:
+    0 0.75rem 2rem color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 24%, transparent);
+}
+
+.ui-btn--pack-glass {
+  font-weight: 650;
+}
+
+.ui-btn--pack-glass.ui-btn--variant-primary {
+  background: color-mix(in srgb, var(--brand) 72%, transparent);
+  color: var(--text_on_brand);
+  border-color: color-mix(in srgb, var(--brand) 72%, white);
+}
+
+.ui-btn--pack-glass.ui-btn--variant-secondary,
+.ui-btn--pack-glass.ui-btn--variant-chip {
+  background: color-mix(in srgb, var(--bg_surface) 56%, transparent);
+  color: var(--text_primary);
+}
+
+.ui-btn--pack-glass.ui-btn--variant-ghost,
+.ui-btn--pack-glass.ui-btn--variant-link {
+  background: transparent;
+  box-shadow: none;
+}
+
+.ui-btn--pack-glass:hover:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--bg_surface) 82%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--brand) 58%, white);
+  box-shadow:
+    0 1rem 2.25rem color-mix(in srgb, var(--shadow_rgba) 22%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--brand) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 34%, transparent);
+}
+
+.ui-btn--pack-glass:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(0);
+}
+
+.ui-btn--pack-glass.ui-btn--variant-primary:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--brand_hover) 84%, transparent);
+  border-color: color-mix(in srgb, var(--brand_hover) 70%, white);
+}
+
+.ui-input--pack-glass:focus,
+.ui-textarea--pack-glass:focus,
+.ui-input-shell--pack-glass:focus-within,
+.ui-select--pack-glass:focus,
+.ui-select-shell--pack-glass:focus-within,
+.ui-file-input--pack-glass .ui-file-input__native:focus-visible + .ui-file-input__control {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 16%, transparent),
+    0 1rem 2rem color-mix(in srgb, var(--shadow_rgba) 20%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-btn--pack-glass:focus-visible {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 1rem 2rem color-mix(in srgb, var(--shadow_rgba) 22%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--brand) 20%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 30%, transparent);
+}
+
+.ui-badge--pack-glass {
+  font-weight: 650;
+}
+
+.ui-badge--pack-glass.ui-badge--tone-solid {
+  background: color-mix(in srgb, var(--ui-badge-color) 72%, transparent);
+  color: var(--ui-badge-contrast);
+  border-color: color-mix(in srgb, var(--ui-badge-color) 58%, white);
+}
+
+.ui-badge--pack-glass.ui-badge--tone-soft,
+.ui-badge--pack-glass.ui-badge--tone-outline {
+  background: color-mix(in srgb, var(--ui-badge-color) 10%, transparent);
+  color: var(--ui-badge-color);
+  border-color: color-mix(in srgb, var(--ui-badge-color) 38%, transparent);
+}
+
+.ui-badge--pack-glass.ui-badge--tone-ghost {
+  background: transparent;
+  box-shadow: none;
+}
+
+.ui-card--pack-glass {
+  background: color-mix(in srgb, var(--bg_surface) 66%, transparent);
+  border-color: color-mix(in srgb, var(--border_default) 55%, white);
+  backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.ui-card--pack-glass.ui-card--variant-muted {
+  background: color-mix(in srgb, var(--bg_muted) 66%, transparent);
+}
+
+.ui-card--pack-glass.ui-card--variant-ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ui-card--pack-glass.ui-card--interactive:hover:not([aria-disabled='true']) {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--brand) 48%, white);
+  background: color-mix(in srgb, var(--bg_surface) 74%, transparent);
+  box-shadow:
+    0 1.25rem 2.75rem color-mix(in srgb, var(--shadow_rgba) 26%, transparent),
+    0 0 1.75rem color-mix(in srgb, var(--brand) 16%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 30%, transparent);
+}
+
+.ui-checkbox--pack-glass .ui-checkbox__control,
+.ui-radio--pack-glass .ui-radio__control,
+.ui-switch--pack-glass .ui-switch__track {
+  background: color-mix(in srgb, var(--bg_surface) 56%, transparent);
+  border-color: color-mix(in srgb, var(--border_default) 60%, white);
+  backdrop-filter: blur(12px);
+}
+
+.ui-checkbox--pack-glass .ui-checkbox__input:focus-visible + .ui-checkbox__control,
+.ui-radio--pack-glass .ui-radio__input:focus-visible + .ui-radio__control,
+.ui-switch--pack-glass .ui-switch__input:focus-visible + .ui-switch__track {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 16%, transparent);
+}
+
+.ui-checkbox--pack-glass.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--pack-glass.ui-checkbox--indeterminate .ui-checkbox__control,
+.ui-switch--pack-glass.ui-switch--checked .ui-switch__track {
+  background: color-mix(in srgb, var(--brand) 72%, transparent);
+  border-color: var(--brand);
+  color: var(--text_on_brand);
+}
+
+.ui-radio--pack-glass.ui-radio--checked .ui-radio__control {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+.ui-switch--pack-glass .ui-switch__thumb {
+  background: color-mix(in srgb, var(--bg_surface) 90%, white);
+}
+
+.ui-navbar--pack-glass,
+.ui-footer--pack-glass {
+  background: color-mix(in srgb, var(--bg_surface) 66%, transparent);
+  border-color: color-mix(in srgb, var(--border_default) 55%, white);
+  backdrop-filter: blur(18px) saturate(1.25);
+  box-shadow: 0 0.75rem 2rem color-mix(in srgb, var(--shadow_rgba) 14%, transparent);
+}
+
+.ui-navbar--pack-glass .ui-navbar-link,
+.ui-footer--pack-glass .ui-footer-link {
+  border-radius: 999px;
+}
+
+.ui-navbar--pack-glass .ui-navbar-link:hover,
+.ui-footer--pack-glass .ui-footer-link:hover {
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+.ui-section--pack-glass.ui-section--variant-default,
+.ui-section--pack-glass.ui-section--variant-surface,
+.ui-section--pack-glass.ui-section--variant-muted {
+  background-image: radial-gradient(
+    circle at top left,
+    color-mix(in srgb, var(--brand_soft) 45%, transparent),
+    transparent 34rem
+  );
+}
+
+.ui-section-header--pack-glass .ui-section-header__eyebrow {
+  width: fit-content;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--ui-current-border) 70%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg_surface) 55%, transparent);
+  backdrop-filter: blur(0.75rem);
+}
+
+.ui-section-header--align-center.ui-section-header--pack-glass .ui-section-header__eyebrow {
+  margin-inline: auto;
+}
+
+.ui-section-header--align-right.ui-section-header--pack-glass .ui-section-header__eyebrow {
+  margin-left: auto;
+}
+
+.ui-section--variant-brand .ui-section-header--pack-glass .ui-section-header__eyebrow,
+.ui-section--variant-inverse .ui-section-header--pack-glass .ui-section-header__eyebrow {
+  border-color: color-mix(in srgb, currentColor 36%, transparent);
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.ui-section-divider--pack-glass {
+  background: linear-gradient(90deg, transparent, var(--ui-current-border), transparent);
+}
+
+.ui-toast--pack-glass {
+  background: color-mix(in srgb, var(--bg_surface) 70%, transparent);
+}
+
+.ui-tabs--pack-glass,
+.ui-accordion--pack-glass,
+.ui-dropdown--pack-glass,
+.ui-table-wrap--pack-glass,
+.ui-alert--pack-glass,
+.ui-breadcrumb--pack-glass,
+.ui-location-map--pack-glass {
+  --ui-composite-radius: 0.75rem;
+  --ui-composite-border-width: 1px;
+  --ui-composite-shadow: 0 1rem 2rem color-mix(in srgb, var(--shadow_rgba) 12%, transparent);
+  --ui-composite-filter: saturate(1.08);
+  --ui-breadcrumb-padding: 0.5rem 0.75rem;
+  --ui-breadcrumb-background: color-mix(in srgb, var(--bg_surface) 58%, transparent);
+}

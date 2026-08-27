@@ -1,0 +1,61 @@
+/* =========================================================
+   Button/Card Motion Config Overrides
+   Imported after pack CSS.
+   null = pack default
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Button Motion
+--------------------------------------------------------- */
+
+.ui-btn--motion-none:hover:not(:disabled):not([aria-disabled='true']),
+.ui-btn--motion-none:active:not(:disabled):not([aria-disabled='true']) {
+  transform: none;
+}
+
+.ui-btn--motion-reduced:hover:not(:disabled):not([aria-disabled='true']) {
+  transform: none;
+  filter: brightness(0.98);
+}
+
+.ui-btn--motion-reduced:active:not(:disabled):not([aria-disabled='true']) {
+  transform: none;
+  filter: brightness(0.94);
+}
+
+.ui-btn--motion-normal:hover:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(-1px);
+}
+
+.ui-btn--motion-normal:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(1px);
+}
+
+.ui-btn--motion-expressive:hover:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(-3px) scale(1.025);
+}
+
+.ui-btn--motion-expressive:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* ---------------------------------------------------------
+   Card Motion
+--------------------------------------------------------- */
+
+.ui-card--interactive.ui-card--motion-none:hover:not([aria-disabled='true']) {
+  transform: none;
+}
+
+.ui-card--interactive.ui-card--motion-reduced:hover:not([aria-disabled='true']) {
+  transform: none;
+  filter: brightness(0.99);
+}
+
+.ui-card--interactive.ui-card--motion-normal:hover:not([aria-disabled='true']) {
+  transform: translateY(-4px);
+}
+
+.ui-card--interactive.ui-card--motion-expressive:hover:not([aria-disabled='true']) {
+  transform: translateY(-8px) scale(1.015);
+}

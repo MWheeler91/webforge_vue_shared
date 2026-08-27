@@ -1,0 +1,522 @@
+/* =========================================================
+   Badge Pack: minimal
+   ========================================================= */
+
+.ui-badge--pack-minimal {
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.ui-badge--pack-minimal.ui-badge--tone-solid {
+  background: var(--ui-badge-color);
+  color: var(--ui-badge-contrast);
+  border-color: var(--ui-badge-color);
+}
+
+.ui-badge--pack-minimal.ui-badge--tone-soft {
+  background: color-mix(in srgb, var(--ui-badge-color) 10%, var(--bg_surface));
+  color: var(--ui-badge-color);
+  border-color: color-mix(in srgb, var(--ui-badge-color) 25%, transparent);
+}
+
+.ui-badge--pack-minimal.ui-badge--tone-outline {
+  background: transparent;
+  color: var(--ui-badge-color);
+  border-color: color-mix(in srgb, var(--ui-badge-color) 45%, transparent);
+}
+
+.ui-badge--pack-minimal.ui-badge--tone-ghost {
+  background: transparent;
+  color: var(--ui-badge-color);
+  border-color: transparent;
+}
+
+/* =========================================================
+   Button Pack: minimal
+   ========================================================= */
+
+.ui-btn--pack-minimal {
+  box-shadow: none;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-primary {
+  background: var(--brand);
+  color: var(--text_on_brand);
+  border-color: var(--brand);
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-secondary {
+  background: color-mix(in srgb, var(--bg_surface) 92%, var(--bg_elevated));
+  color: var(--text_primary);
+  border-color: color-mix(in srgb, var(--border_default) 58%, var(--text_primary));
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-ghost {
+  background: transparent;
+  color: var(--text_primary);
+  border-color: transparent;
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-success {
+  background: var(--success);
+  color: var(--text_inverse);
+  border-color: var(--success);
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-warning {
+  background: var(--warning);
+  color: var(--text_on_brand);
+  border-color: var(--warning);
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-danger {
+  background: var(--error);
+  color: var(--text_inverse);
+  border-color: var(--error);
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-chip {
+  background: transparent;
+  color: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 40%, transparent);
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-link {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ui-btn--pack-minimal:hover:not(:disabled):not([aria-disabled='true']) {
+  box-shadow: none;
+  filter: none;
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-primary:hover:not(:disabled):not([aria-disabled='true']) {
+  background: var(--brand_hover);
+  border-color: var(--brand_hover);
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-secondary:hover:not(:disabled):not([aria-disabled='true']) {
+  background: var(--bg_muted);
+  color: var(--text_primary);
+  border-color: color-mix(in srgb, var(--text_primary) 48%, var(--border_default));
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-ghost:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--text_primary) 6%, transparent);
+  border-color: transparent;
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-success:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--success) 85%, black);
+  border-color: color-mix(in srgb, var(--success) 85%, black);
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-warning:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--warning) 85%, black);
+  border-color: color-mix(in srgb, var(--warning) 85%, black);
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-danger:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--error) 85%, black);
+  border-color: color-mix(in srgb, var(--error) 85%, black);
+}
+
+.ui-btn--pack-minimal.ui-btn--variant-chip:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--brand) 8%, transparent);
+}
+
+.ui-btn--pack-minimal:active:not(:disabled):not([aria-disabled='true']) {
+  transform: none;
+  opacity: 0.82;
+}
+
+.ui-btn--pack-minimal:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 14%, transparent);
+}
+
+/* =========================================================
+   Card Pack: minimal
+   ========================================================= */
+
+.ui-card--pack-minimal {
+  box-shadow: none;
+}
+
+.ui-card--pack-minimal.ui-card--variant-surface,
+.ui-card--pack-minimal.ui-card--variant-muted,
+.ui-card--pack-minimal.ui-card--variant-elevated {
+  border-color: var(--border_muted);
+}
+
+.ui-card--pack-minimal.ui-card--variant-outline {
+  background: transparent;
+  border-color: var(--border_default);
+}
+
+.ui-card--pack-minimal.ui-card--variant-elevated {
+  box-shadow: none;
+}
+
+.ui-card--pack-minimal.ui-card--interactive:hover:not([aria-disabled='true']) {
+  box-shadow: none;
+}
+
+/* =========================================================
+   Footer Pack: minimal
+   ========================================================= */
+
+.ui-footer--pack-minimal {
+  background: transparent;
+  border-top-color: transparent;
+  box-shadow: none;
+}
+
+.ui-footer--pack-minimal .ui-footer-link {
+  padding-inline: 0;
+}
+
+.ui-footer--pack-minimal .ui-footer-link:hover {
+  background: transparent;
+  text-decoration-line: underline;
+}
+
+.ui-footer--pack-minimal .ui-footer-link:focus-visible,
+.ui-footer--pack-minimal .ui-footer-social__link:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+/* =========================================================
+   Input Pack: minimal
+   ========================================================= */
+
+.ui-input--pack-minimal,
+.ui-textarea--pack-minimal {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-input--pack-minimal:hover:not(:disabled):not(:read-only),
+.ui-textarea--pack-minimal:hover:not(:disabled):not(:read-only) {
+  background: var(--bg_surface);
+  border-color: color-mix(in srgb, var(--border_default) 70%, var(--text_primary));
+}
+
+.ui-input--pack-minimal:focus,
+.ui-textarea--pack-minimal:focus {
+  background: var(--bg_surface);
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+/* Shell inputs: Password, Search, Currency, Percent */
+
+.ui-input-shell--pack-minimal {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-input-shell--pack-minimal:hover:not(.ui-input-shell--disabled) {
+  background: var(--bg_surface);
+  border-color: color-mix(in srgb, var(--border_default) 70%, var(--text_primary));
+}
+
+.ui-input-shell--pack-minimal:focus-within {
+  background: var(--bg_surface);
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+/* Input variants */
+
+.ui-input--pack-minimal.ui-input--variant-error,
+.ui-textarea--pack-minimal.ui-textarea--variant-error,
+.ui-input-shell--pack-minimal.ui-input-shell--variant-error {
+  border-color: var(--error);
+}
+
+.ui-input--pack-minimal.ui-input--variant-error:focus,
+.ui-textarea--pack-minimal.ui-textarea--variant-error:focus,
+.ui-input-shell--pack-minimal.ui-input-shell--variant-error:focus-within {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--error) 14%, transparent);
+}
+
+.ui-input--pack-minimal.ui-input--variant-success,
+.ui-textarea--pack-minimal.ui-textarea--variant-success,
+.ui-input-shell--pack-minimal.ui-input-shell--variant-success {
+  border-color: var(--success);
+}
+
+.ui-input--pack-minimal.ui-input--variant-success:focus,
+.ui-textarea--pack-minimal.ui-textarea--variant-success:focus,
+.ui-input-shell--pack-minimal.ui-input-shell--variant-success:focus-within {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 14%, transparent);
+}
+
+.ui-input--pack-minimal.ui-input--variant-warning,
+.ui-textarea--pack-minimal.ui-textarea--variant-warning,
+.ui-input-shell--pack-minimal.ui-input-shell--variant-warning {
+  border-color: var(--warning);
+}
+
+.ui-input--pack-minimal.ui-input--variant-warning:focus,
+.ui-textarea--pack-minimal.ui-textarea--variant-warning:focus,
+.ui-input-shell--pack-minimal.ui-input-shell--variant-warning:focus-within {
+  border-color: var(--warning);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--warning) 16%, transparent);
+}
+
+/* =========================================================
+   Select Pack: minimal
+   ========================================================= */
+
+.ui-select--pack-minimal,
+.ui-select-shell--pack-minimal {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-select--pack-minimal:hover:not(:disabled),
+.ui-select-shell--pack-minimal:hover:not(.ui-select-shell--disabled) {
+  background: var(--bg_surface);
+  border-color: color-mix(in srgb, var(--border_default) 70%, var(--text_primary));
+}
+
+.ui-select--pack-minimal:focus,
+.ui-select-shell--pack-minimal:focus-within {
+  background: var(--bg_surface);
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+.ui-select--pack-minimal.ui-select--variant-error,
+.ui-select-shell--pack-minimal.ui-select-shell--variant-error {
+  border-color: var(--error);
+}
+
+.ui-select--pack-minimal.ui-select--variant-success,
+.ui-select-shell--pack-minimal.ui-select-shell--variant-success {
+  border-color: var(--success);
+}
+
+.ui-select--pack-minimal.ui-select--variant-warning,
+.ui-select-shell--pack-minimal.ui-select-shell--variant-warning {
+  border-color: var(--warning);
+}
+
+/* =========================================================
+   Checkbox Pack: minimal
+   ========================================================= */
+
+.ui-checkbox--pack-minimal .ui-checkbox__control {
+  background: transparent;
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-checkbox--pack-minimal:hover .ui-checkbox__control {
+  border-color: var(--brand);
+}
+
+.ui-checkbox--pack-minimal .ui-checkbox__input:focus-visible + .ui-checkbox__control {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+.ui-checkbox--pack-minimal.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--pack-minimal.ui-checkbox--indeterminate .ui-checkbox__control {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--text_on_brand);
+}
+
+/* =========================================================
+   Radio Pack: minimal
+   ========================================================= */
+
+.ui-radio--pack-minimal .ui-radio__control {
+  background: transparent;
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-radio--pack-minimal:hover .ui-radio__control {
+  border-color: var(--brand);
+}
+
+.ui-radio--pack-minimal .ui-radio__input:focus-visible + .ui-radio__control {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+.ui-radio--pack-minimal.ui-radio--checked .ui-radio__control {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* =========================================================
+   Switch Pack: minimal
+   ========================================================= */
+
+.ui-switch--pack-minimal .ui-switch__track {
+  background: transparent;
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-switch--pack-minimal .ui-switch__thumb {
+  background: var(--text_muted);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ui-switch--pack-minimal:hover .ui-switch__track {
+  border-color: var(--brand);
+}
+
+.ui-switch--pack-minimal .ui-switch__input:focus-visible + .ui-switch__track {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+.ui-switch--pack-minimal.ui-switch--checked .ui-switch__track {
+  background: transparent;
+  border-color: var(--brand);
+}
+
+.ui-switch--pack-minimal.ui-switch--checked .ui-switch__thumb {
+  background: var(--brand);
+}
+
+/* =========================================================
+   File Input Pack: minimal
+   ========================================================= */
+
+.ui-file-input--pack-minimal .ui-file-input__control {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-file-input--pack-minimal:hover .ui-file-input__control {
+  background: var(--bg_surface);
+  border-color: color-mix(in srgb, var(--border_default) 70%, var(--text_primary));
+}
+
+.ui-file-input--pack-minimal .ui-file-input__native:focus-visible + .ui-file-input__control {
+  background: var(--bg_surface);
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+.ui-file-input--pack-minimal.ui-file-input--variant-error .ui-file-input__control {
+  border-color: var(--error);
+}
+
+.ui-file-input--pack-minimal.ui-file-input--variant-success .ui-file-input__control {
+  border-color: var(--success);
+}
+
+.ui-file-input--pack-minimal.ui-file-input--variant-warning .ui-file-input__control {
+  border-color: var(--warning);
+}
+
+/* =========================================================
+   Navbar Pack: minimal
+   ========================================================= */
+
+.ui-navbar--pack-minimal {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+
+.ui-navbar--pack-minimal .ui-navbar-link {
+  padding-inline: 0.25rem;
+  border-radius: 0;
+  background: transparent;
+}
+
+.ui-navbar--pack-minimal .ui-navbar-link:hover {
+  background: transparent;
+  text-decoration-line: underline;
+  text-underline-offset: 0.25em;
+}
+
+.ui-navbar--pack-minimal .ui-navbar-link--active {
+  background: transparent;
+  text-decoration-line: underline;
+  text-underline-offset: 0.25em;
+}
+
+.ui-navbar--pack-minimal .ui-navbar-link:focus-visible,
+.ui-navbar--pack-minimal .ui-navbar__mobile-toggle:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+/* =========================================================
+   Section Pack: minimal
+   ========================================================= */
+
+.ui-section--pack-minimal {
+  background-image: none;
+}
+
+.ui-section--pack-minimal.ui-section--variant-surface {
+  border-block: 1px solid var(--ui-current-border-muted);
+}
+
+.ui-section--pack-minimal.ui-section--variant-muted {
+  border-block: 1px solid var(--ui-current-border-muted);
+}
+
+.ui-section-header--pack-minimal {
+  gap: 0.5rem;
+  max-width: 42rem;
+}
+
+.ui-section-header--pack-minimal .ui-section-header__eyebrow {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.ui-section-header--pack-minimal .ui-section-header__title {
+  --section-title-wrap: pretty;
+}
+
+.ui-section-divider--pack-minimal {
+  background: var(--ui-current-border-muted);
+}
+
+/* =========================================================
+   Toast Pack: minimal
+   ========================================================= */
+
+.ui-toast--pack-minimal {
+  border-left-width: 3px;
+  box-shadow: none;
+}
+
+.ui-toast--pack-minimal .ui-toast__dismiss:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.ui-tabs--pack-minimal,
+.ui-accordion--pack-minimal,
+.ui-dropdown--pack-minimal,
+.ui-table-wrap--pack-minimal,
+.ui-alert--pack-minimal,
+.ui-breadcrumb--pack-minimal,
+.ui-location-map--pack-minimal {
+  --ui-composite-radius: 0;
+  --ui-composite-border-width: 1px;
+  --ui-composite-shadow: none;
+}

@@ -1,0 +1,222 @@
+/* =========================================================
+   Corporate Pack
+   practical, enterprise, conservative, predictable
+   ========================================================= */
+
+.ui-btn--pack-corporate {
+  font-weight: 650;
+  letter-spacing: 0;
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--shadow_rgba) 10%, transparent);
+}
+
+.ui-btn--pack-corporate.ui-btn--variant-primary {
+  background: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 82%, black);
+}
+
+.ui-btn--pack-corporate.ui-btn--variant-secondary {
+  background: var(--bg_surface);
+  color: var(--text_primary);
+  border-color: var(--border_default);
+}
+
+.ui-btn--pack-corporate.ui-btn--variant-ghost {
+  background: transparent;
+  border-color: transparent;
+}
+
+.ui-btn--pack-corporate:hover:not(:disabled):not([aria-disabled='true']) {
+  filter: brightness(0.98);
+}
+
+.ui-btn--pack-corporate:focus-visible {
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 1px 2px color-mix(in srgb, var(--shadow_rgba) 10%, transparent);
+}
+
+.ui-badge--pack-corporate {
+  font-weight: 650;
+}
+
+.ui-badge--pack-corporate.ui-badge--tone-solid {
+  border-color: color-mix(in srgb, var(--ui-badge-color) 82%, black);
+}
+
+.ui-badge--pack-corporate.ui-badge--tone-soft,
+.ui-badge--pack-corporate.ui-badge--tone-outline {
+  border-color: color-mix(in srgb, var(--ui-badge-color) 34%, var(--border_default));
+}
+
+.ui-card--pack-corporate {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+  box-shadow: 0 0.375rem 1rem color-mix(in srgb, var(--shadow_rgba) 10%, transparent);
+}
+
+.ui-card--pack-corporate.ui-card--variant-muted {
+  background: var(--bg_muted);
+  border-color: var(--border_muted);
+}
+
+.ui-card--pack-corporate.ui-card--variant-outline {
+  background: transparent;
+  box-shadow: none;
+}
+
+.ui-card--pack-corporate.ui-card--interactive:hover:not([aria-disabled='true']) {
+  box-shadow: 0 0.75rem 1.5rem color-mix(in srgb, var(--shadow_rgba) 12%, transparent);
+}
+
+.ui-input--pack-corporate,
+.ui-textarea--pack-corporate,
+.ui-input-shell--pack-corporate,
+.ui-select--pack-corporate,
+.ui-select-shell--pack-corporate,
+.ui-file-input--pack-corporate .ui-file-input__control {
+  background: var(--bg_field);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-input--pack-corporate:hover:not(:disabled):not(:read-only),
+.ui-textarea--pack-corporate:hover:not(:disabled):not(:read-only),
+.ui-input-shell--pack-corporate:hover:not(.ui-input-shell--disabled),
+.ui-select--pack-corporate:hover:not(:disabled),
+.ui-select-shell--pack-corporate:hover:not(.ui-select-shell--disabled),
+.ui-file-input--pack-corporate:hover .ui-file-input__control {
+  border-color: color-mix(in srgb, var(--border_default) 74%, var(--text_primary));
+}
+
+.ui-input--pack-corporate:focus,
+.ui-textarea--pack-corporate:focus,
+.ui-input-shell--pack-corporate:focus-within,
+.ui-select--pack-corporate:focus,
+.ui-select-shell--pack-corporate:focus-within,
+.ui-file-input--pack-corporate .ui-file-input__native:focus-visible + .ui-file-input__control {
+  border-color: var(--border_focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 16%, transparent);
+}
+
+.ui-input--pack-corporate.ui-input--variant-error,
+.ui-textarea--pack-corporate.ui-textarea--variant-error,
+.ui-input-shell--pack-corporate.ui-input-shell--variant-error,
+.ui-select--pack-corporate.ui-select--variant-error,
+.ui-select-shell--pack-corporate.ui-select-shell--variant-error,
+.ui-file-input--pack-corporate.ui-file-input--variant-error .ui-file-input__control {
+  border-color: var(--error);
+}
+
+.ui-input--pack-corporate.ui-input--variant-success,
+.ui-textarea--pack-corporate.ui-textarea--variant-success,
+.ui-input-shell--pack-corporate.ui-input-shell--variant-success,
+.ui-select--pack-corporate.ui-select--variant-success,
+.ui-select-shell--pack-corporate.ui-select-shell--variant-success,
+.ui-file-input--pack-corporate.ui-file-input--variant-success .ui-file-input__control {
+  border-color: var(--success);
+}
+
+.ui-input--pack-corporate.ui-input--variant-warning,
+.ui-textarea--pack-corporate.ui-textarea--variant-warning,
+.ui-input-shell--pack-corporate.ui-input-shell--variant-warning,
+.ui-select--pack-corporate.ui-select--variant-warning,
+.ui-select-shell--pack-corporate.ui-select-shell--variant-warning,
+.ui-file-input--pack-corporate.ui-file-input--variant-warning .ui-file-input__control {
+  border-color: var(--warning);
+}
+
+.ui-checkbox--pack-corporate .ui-checkbox__control,
+.ui-radio--pack-corporate .ui-radio__control,
+.ui-switch--pack-corporate .ui-switch__track {
+  background: var(--bg_field);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-checkbox--pack-corporate .ui-checkbox__input:focus-visible + .ui-checkbox__control,
+.ui-radio--pack-corporate .ui-radio__input:focus-visible + .ui-radio__control,
+.ui-switch--pack-corporate .ui-switch__input:focus-visible + .ui-switch__track {
+  border-color: var(--border_focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 16%, transparent);
+}
+
+.ui-checkbox--pack-corporate.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--pack-corporate.ui-checkbox--indeterminate .ui-checkbox__control,
+.ui-switch--pack-corporate.ui-switch--checked .ui-switch__track {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--text_on_brand);
+}
+
+.ui-radio--pack-corporate.ui-radio--checked .ui-radio__control {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+.ui-navbar--pack-corporate,
+.ui-footer--pack-corporate {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--shadow_rgba) 10%, transparent);
+}
+
+.ui-navbar--pack-corporate .ui-navbar-link:hover,
+.ui-footer--pack-corporate .ui-footer-link:hover {
+  background: var(--bg_muted);
+}
+
+.ui-navbar--pack-corporate .ui-navbar-link:focus-visible,
+.ui-navbar--pack-corporate .ui-navbar__mobile-toggle:focus-visible,
+.ui-footer--pack-corporate .ui-footer-link:focus-visible,
+.ui-footer--pack-corporate .ui-footer-social__link:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 16%, transparent);
+}
+
+.ui-section--pack-corporate.ui-section--variant-surface,
+.ui-section--pack-corporate.ui-section--variant-muted {
+  border-block: 1px solid var(--border_muted);
+}
+
+.ui-section-header--pack-corporate {
+  padding-left: 1.25rem;
+  border-left: 0.25rem solid var(--brand);
+}
+
+.ui-section-header--align-center.ui-section-header--pack-corporate,
+.ui-section-header--align-right.ui-section-header--pack-corporate {
+  padding-left: 0;
+  border-left: 0;
+  border-top: 0.25rem solid var(--brand);
+  padding-top: 1rem;
+}
+
+.ui-section--variant-brand .ui-section-header--pack-corporate,
+.ui-section--variant-inverse .ui-section-header--pack-corporate {
+  border-color: currentColor;
+}
+
+.ui-section-header--pack-corporate .ui-section-header__eyebrow {
+  letter-spacing: 0.12em;
+}
+
+.ui-section-divider--pack-corporate {
+  background: var(--ui-current-border);
+}
+
+.ui-toast--pack-corporate {
+  border-color: var(--border_default);
+  box-shadow: 0 0.75rem 1.75rem color-mix(in srgb, var(--shadow_rgba) 14%, transparent);
+}
+
+.ui-tabs--pack-corporate,
+.ui-accordion--pack-corporate,
+.ui-dropdown--pack-corporate,
+.ui-table-wrap--pack-corporate,
+.ui-alert--pack-corporate,
+.ui-breadcrumb--pack-corporate,
+.ui-location-map--pack-corporate {
+  --ui-composite-radius: 0.25rem;
+  --ui-composite-border-width: 1px;
+  --ui-composite-shadow: 0 0.5rem 1.25rem color-mix(in srgb, var(--shadow_rgba) 10%, transparent);
+  --ui-composite-letter-spacing: 0.01em;
+}

@@ -1,0 +1,375 @@
+/* =========================================================
+   Base
+   ========================================================= */
+
+.ui-section {
+  position: relative;
+  width: 100%;
+  color: var(--ui-current-text-primary);
+  isolation: isolate;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.ui-section__inner {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.ui-section-unstyled {
+  position: relative;
+}
+
+/* =========================================================
+   Width
+   ========================================================= */
+
+.ui-section--width-sm .ui-section__inner {
+  max-width: 48rem;
+}
+
+.ui-section--width-md .ui-section__inner {
+  max-width: 64rem;
+}
+
+.ui-section--width-lg .ui-section__inner {
+  max-width: 80rem;
+}
+
+.ui-section--width-xl .ui-section__inner {
+  max-width: 96rem;
+}
+
+.ui-section--width-full .ui-section__inner {
+  max-width: none;
+}
+
+/* Horizontal container padding */
+.ui-section__inner {
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .ui-section__inner {
+    padding-inline: 2rem;
+  }
+}
+
+/* =========================================================
+   Spacing
+   ========================================================= */
+
+.ui-section--spacing-none {
+  padding-block: 0;
+}
+
+.ui-section--spacing-sm {
+  padding-block: 2rem;
+}
+
+.ui-section--spacing-md {
+  padding-block: 3rem;
+}
+
+.ui-section--spacing-lg {
+  padding-block: 4.5rem;
+}
+
+.ui-section--spacing-xl {
+  padding-block: 6rem;
+}
+
+/* Density adjustments */
+.ui-section--density-compact.ui-section--spacing-sm {
+  padding-block: 1.5rem;
+}
+
+.ui-section--density-compact.ui-section--spacing-md {
+  padding-block: 2.25rem;
+}
+
+.ui-section--density-compact.ui-section--spacing-lg {
+  padding-block: 3.5rem;
+}
+
+.ui-section--density-compact.ui-section--spacing-xl {
+  padding-block: 4.5rem;
+}
+
+.ui-section--density-spacious.ui-section--spacing-sm {
+  padding-block: 2.75rem;
+}
+
+.ui-section--density-spacious.ui-section--spacing-md {
+  padding-block: 4rem;
+}
+
+.ui-section--density-spacious.ui-section--spacing-lg {
+  padding-block: 5.5rem;
+}
+
+.ui-section--density-spacious.ui-section--spacing-xl {
+  padding-block: 7.5rem;
+}
+
+/* =========================================================
+   Alignment
+   ========================================================= */
+
+.ui-section--align-left {
+  text-align: left;
+}
+
+.ui-section--align-center {
+  text-align: center;
+}
+
+.ui-section--align-right {
+  text-align: right;
+}
+
+/* =========================================================
+   Variants
+   ========================================================= */
+
+.ui-section--variant-default {
+  background-color: var(--bg_canvas);
+}
+
+.ui-section--variant-surface {
+  background-color: var(--bg_surface);
+}
+
+.ui-section--variant-muted {
+  background-color: var(--bg_muted);
+}
+
+.ui-section--variant-inverse {
+  background-color: var(--bg_inverse);
+  color: var(--text_inverse);
+}
+
+.ui-section--variant-brand {
+  background-color: var(--brand);
+  color: var(--text_on_brand);
+}
+
+.ui-section--variant-ghost {
+  background-color: transparent;
+}
+
+/* =========================================================
+   SectionBody
+   ========================================================= */
+
+.ui-section-body {
+  width: 100%;
+}
+
+/* =========================================================
+   Gap
+   ========================================================= */
+
+.ui-section-body--gap-sm {
+  gap: 1rem;
+}
+
+.ui-section-body--gap-md {
+  gap: 1.5rem;
+}
+
+.ui-section-body--gap-lg {
+  gap: 2rem;
+}
+
+/* =========================================================
+   Layouts
+   ========================================================= */
+
+.ui-section-body--layout-default {
+  display: block;
+}
+
+.ui-section-body--layout-stack {
+  display: grid;
+}
+
+.ui-section-body--layout-grid {
+  display: grid;
+}
+
+.ui-section-body--layout-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.ui-section-body--layout-centered {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+/* =========================================================
+   Grid
+   ========================================================= */
+
+.ui-section-body--layout-grid.ui-section-body--grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.ui-section-body--layout-grid.ui-section-body--grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ui-section-body--layout-grid.ui-section-body--grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ui-section-body--layout-grid.ui-section-body--grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ui-section-body--layout-grid.ui-section-body--grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+@media (min-width: 768px) {
+  .ui-section-body--layout-split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .ui-section-body--layout-grid.ui-section-body--grid-3,
+  .ui-section-body--layout-grid.ui-section-body--grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .ui-section-body--layout-grid.ui-section-body--grid-2,
+  .ui-section-body--layout-grid.ui-section-body--grid-3,
+  .ui-section-body--layout-grid.ui-section-body--grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   SectionDivider
+   ========================================================= */
+
+.ui-section-divider {
+  height: 1px;
+  width: 100%;
+  margin-block: 2rem;
+  background: var(--border_default);
+}
+
+.ui-section--variant-inverse .ui-section-divider,
+.ui-section--variant-brand .ui-section-divider {
+  background: color-mix(in srgb, currentColor 22%, transparent);
+}
+
+/* =========================================================
+   SectionFooter
+   ========================================================= */
+
+.ui-section-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.ui-section-footer--align-left {
+  justify-content: flex-start;
+}
+
+.ui-section-footer--align-center {
+  justify-content: center;
+}
+
+.ui-section-footer--align-right {
+  justify-content: flex-end;
+}
+
+/* =========================================================
+   SectionHeader
+   ========================================================= */
+
+.ui-section-header {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 48rem;
+  margin-bottom: 2rem;
+}
+
+.ui-section-header--align-left {
+  margin-right: auto;
+  text-align: left;
+}
+
+.ui-section-header--align-center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.ui-section-header--align-right {
+  margin-left: auto;
+  text-align: right;
+}
+
+.ui-section-header__eyebrow {
+  color: var(--brand);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ui-section-header__title {
+  margin: 0;
+  color: inherit;
+  font-family: var(--font-display);
+  text-wrap: var(--section-title-wrap, normal);
+}
+
+.ui-section-header__title--emphasis-prominent {
+  font-size: var(--section-title-prominent-size, var(--type-heading-xl-size));
+  font-weight: var(--section-title-prominent-weight, var(--type-heading-xl-weight));
+  line-height: var(--section-title-prominent-line, var(--type-heading-xl-line));
+  letter-spacing: var(--section-title-prominent-letter, var(--type-heading-xl-letter));
+}
+
+.ui-section-header__title--emphasis-standard {
+  font-size: var(--section-title-standard-size, var(--type-heading-lg-size));
+  font-weight: var(--section-title-standard-weight, var(--type-heading-lg-weight));
+  line-height: var(--section-title-standard-line, var(--type-heading-lg-line));
+  letter-spacing: var(--section-title-standard-letter, var(--type-heading-lg-letter));
+}
+
+.ui-section-header__title--emphasis-compact {
+  font-size: var(--section-title-compact-size, var(--type-heading-md-size));
+  font-weight: var(--section-title-compact-weight, var(--type-heading-md-weight));
+  line-height: var(--section-title-compact-line, var(--type-heading-md-line));
+  letter-spacing: var(--section-title-compact-letter, var(--type-heading-md-letter));
+}
+
+.ui-section-header__subtitle {
+  margin: 0;
+  color: var(--ui-current-text-secondary);
+  font-size: var(--section-subtitle-size, var(--type-body-lead-size));
+  font-weight: var(--section-subtitle-weight, var(--type-body-lead-weight));
+  line-height: var(--section-subtitle-line, var(--type-body-lead-line));
+  letter-spacing: var(--section-subtitle-letter, var(--type-body-lead-letter));
+}
+
+.ui-section--variant-brand .ui-section-header__eyebrow,
+.ui-section--variant-inverse .ui-section-header__eyebrow {
+  color: currentColor;
+  opacity: 0.85;
+}

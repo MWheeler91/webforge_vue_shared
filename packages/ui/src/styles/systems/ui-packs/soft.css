@@ -1,0 +1,575 @@
+/* =========================================================
+   Badge Pack: soft
+   ========================================================= */
+
+.ui-badge--pack-soft {
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.ui-badge--pack-soft.ui-badge--tone-solid {
+  background: var(--ui-badge-soft);
+  color: var(--ui-badge-color);
+  border-color: color-mix(in srgb, var(--ui-badge-color) 32%, transparent);
+}
+
+.ui-badge--pack-soft.ui-badge--tone-soft {
+  background: color-mix(in srgb, var(--ui-badge-color) 12%, var(--bg_surface));
+  color: var(--ui-badge-color);
+  border-color: color-mix(in srgb, var(--ui-badge-color) 26%, transparent);
+}
+
+.ui-badge--pack-soft.ui-badge--tone-outline {
+  background: color-mix(in srgb, var(--ui-badge-color) 6%, var(--bg_surface));
+  color: var(--ui-badge-color);
+  border-color: color-mix(in srgb, var(--ui-badge-color) 42%, transparent);
+}
+
+.ui-badge--pack-soft.ui-badge--tone-ghost {
+  background: transparent;
+  color: var(--ui-badge-color);
+  border-color: transparent;
+}
+
+/* =========================================================
+   Button Pack: soft
+   ========================================================= */
+
+.ui-btn--pack-soft {
+  font-weight: 600;
+  box-shadow: 0 0.25rem 0.75rem color-mix(in srgb, var(--shadow_rgba) 8%, transparent);
+}
+
+.ui-btn--pack-soft:hover:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0.5rem 1.25rem color-mix(in srgb, var(--shadow_rgba) 14%, transparent),
+    0 0 0 3px color-mix(in srgb, var(--brand) 8%, transparent);
+}
+.ui-btn--pack-soft:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(0);
+  box-shadow: 0 0.25rem 0.75rem color-mix(in srgb, var(--shadow_rgba) 8%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-primary {
+  background: var(--brand_soft);
+  color: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 36%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-primary:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--brand_soft) 70%, var(--brand) 10%);
+  border-color: color-mix(in srgb, var(--brand) 50%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-success {
+  background: color-mix(in srgb, var(--success) 12%, var(--bg_surface));
+  color: var(--success);
+  border-color: color-mix(in srgb, var(--success) 38%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-success:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--success) 18%, var(--bg_surface));
+  border-color: color-mix(in srgb, var(--success) 50%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-warning {
+  background: color-mix(in srgb, var(--warning) 14%, var(--bg_surface));
+  color: color-mix(in srgb, var(--warning) 75%, var(--text_primary));
+  border-color: color-mix(in srgb, var(--warning) 42%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-warning:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--warning) 20%, var(--bg_surface));
+  border-color: color-mix(in srgb, var(--warning) 54%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-danger {
+  background: color-mix(in srgb, var(--error) 12%, var(--bg_surface));
+  color: var(--error);
+  border-color: color-mix(in srgb, var(--error) 40%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-danger:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--error) 18%, var(--bg_surface));
+  border-color: color-mix(in srgb, var(--error) 52%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-secondary {
+  background: var(--bg_surface);
+  color: var(--text_primary);
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--text_primary));
+}
+
+.ui-btn--pack-soft.ui-btn--variant-secondary:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--bg_surface) 86%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 56%, var(--brand));
+}
+
+.ui-btn--pack-soft.ui-btn--variant-ghost {
+  background: transparent;
+  color: var(--text_primary);
+  border-color: transparent;
+}
+
+.ui-btn--pack-soft.ui-btn--variant-ghost:hover:not(:disabled):not([aria-disabled='true']) {
+  background: var(--bg_muted);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-chip {
+  background: color-mix(in srgb, var(--brand_soft) 80%, var(--bg_surface));
+  color: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 32%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-chip:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--brand_soft) 65%, var(--brand) 8%);
+  border-color: color-mix(in srgb, var(--brand) 46%, transparent);
+}
+
+.ui-btn--pack-soft.ui-btn--variant-link {
+  box-shadow: none;
+}
+
+.ui-btn--pack-soft:focus-visible {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0.5rem 1.25rem color-mix(in srgb, var(--shadow_rgba) 14%, transparent);
+}
+
+/* =========================================================
+   Card Pack: soft
+   ========================================================= */
+
+.ui-card--pack-soft {
+  background: color-mix(in srgb, var(--bg_surface) 78%, var(--bg_muted));
+  border-color: color-mix(in srgb, var(--border_default) 72%, transparent);
+  box-shadow: 0 0.5rem 1.25rem color-mix(in srgb, var(--shadow_rgba) 10%, transparent);
+}
+
+.ui-card--pack-soft.ui-card--variant-surface {
+  background: color-mix(in srgb, var(--bg_surface) 88%, var(--brand_soft));
+}
+
+.ui-card--pack-soft.ui-card--variant-muted {
+  background: color-mix(in srgb, var(--bg_muted) 86%, var(--brand_soft));
+}
+
+.ui-card--pack-soft.ui-card--variant-outline {
+  background: color-mix(in srgb, var(--bg_surface) 72%, transparent);
+  border-color: color-mix(in srgb, var(--border_default) 78%, var(--brand));
+  box-shadow: none;
+}
+
+.ui-card--pack-soft.ui-card--variant-elevated {
+  background: color-mix(in srgb, var(--bg_elevated) 88%, var(--brand_soft));
+  box-shadow: 0 0.875rem 2rem color-mix(in srgb, var(--shadow_rgba) 14%, transparent);
+}
+
+.ui-card--pack-soft.ui-card--variant-ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ui-card--pack-soft.ui-card--interactive:hover:not([aria-disabled='true']) {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--border_default) 54%, var(--brand));
+  box-shadow:
+    0 1rem 2.25rem color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    0 0 0 3px color-mix(in srgb, var(--brand) 6%, transparent);
+}
+
+/* =========================================================
+   Footer Pack: soft
+   ========================================================= */
+
+.ui-footer--pack-soft {
+  background: color-mix(in srgb, var(--bg_muted) 86%, var(--brand_soft));
+  border-top-color: color-mix(in srgb, var(--border_default) 65%, transparent);
+  box-shadow: none;
+}
+
+.ui-footer--pack-soft .ui-footer-link {
+  border-radius: 999px;
+}
+
+.ui-footer--pack-soft .ui-footer-link:hover {
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+}
+
+.ui-footer--pack-soft .ui-footer-link:focus-visible,
+.ui-footer--pack-soft .ui-footer-social__link:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 14%, transparent);
+}
+
+/* =========================================================
+   Input Pack: soft
+   ========================================================= */
+
+.ui-input--pack-soft,
+.ui-textarea--pack-soft {
+  background: color-mix(in srgb, var(--bg_field) 86%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-input--pack-soft:hover:not(:disabled):not(:read-only),
+.ui-textarea--pack-soft:hover:not(:disabled):not(:read-only) {
+  background: color-mix(in srgb, var(--bg_field) 92%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 58%, var(--brand));
+}
+
+.ui-input--pack-soft:focus,
+.ui-textarea--pack-soft:focus {
+  background: var(--bg_field);
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 16%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+/* Shell inputs: Password, Search, Currency, Percent */
+
+.ui-input-shell--pack-soft {
+  background: color-mix(in srgb, var(--bg_field) 86%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-input-shell--pack-soft:hover:not(.ui-input-shell--disabled) {
+  background: color-mix(in srgb, var(--bg_field) 92%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 58%, var(--brand));
+}
+
+.ui-input-shell--pack-soft:focus-within {
+  background: var(--bg_field);
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 16%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+/* Input variants */
+
+.ui-input--pack-soft.ui-input--variant-error,
+.ui-textarea--pack-soft.ui-textarea--variant-error,
+.ui-input-shell--pack-soft.ui-input-shell--variant-error {
+  border-color: color-mix(in srgb, var(--error) 70%, var(--border_default));
+}
+
+.ui-input--pack-soft.ui-input--variant-error:focus,
+.ui-textarea--pack-soft.ui-textarea--variant-error:focus,
+.ui-input-shell--pack-soft.ui-input-shell--variant-error:focus-within {
+  border-color: var(--error);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--error) 16%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-input--pack-soft.ui-input--variant-success,
+.ui-textarea--pack-soft.ui-textarea--variant-success,
+.ui-input-shell--pack-soft.ui-input-shell--variant-success {
+  border-color: color-mix(in srgb, var(--success) 70%, var(--border_default));
+}
+
+.ui-input--pack-soft.ui-input--variant-success:focus,
+.ui-textarea--pack-soft.ui-textarea--variant-success:focus,
+.ui-input-shell--pack-soft.ui-input-shell--variant-success:focus-within {
+  border-color: var(--success);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--success) 16%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-input--pack-soft.ui-input--variant-warning,
+.ui-textarea--pack-soft.ui-textarea--variant-warning,
+.ui-input-shell--pack-soft.ui-input-shell--variant-warning {
+  border-color: color-mix(in srgb, var(--warning) 70%, var(--border_default));
+}
+
+.ui-input--pack-soft.ui-input--variant-warning:focus,
+.ui-textarea--pack-soft.ui-textarea--variant-warning:focus,
+.ui-input-shell--pack-soft.ui-input-shell--variant-warning:focus-within {
+  border-color: var(--warning);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--warning) 16%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+/* =========================================================
+   Select Pack: soft
+   ========================================================= */
+
+.ui-select--pack-soft,
+.ui-select-shell--pack-soft {
+  background: color-mix(in srgb, var(--bg_field) 86%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-select--pack-soft:hover:not(:disabled),
+.ui-select-shell--pack-soft:hover:not(.ui-select-shell--disabled) {
+  background: color-mix(in srgb, var(--bg_field) 92%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 58%, var(--brand));
+}
+
+.ui-select--pack-soft:focus,
+.ui-select-shell--pack-soft:focus-within {
+  background: var(--bg_field);
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 16%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-select--pack-soft.ui-select--variant-error,
+.ui-select-shell--pack-soft.ui-select-shell--variant-error {
+  border-color: color-mix(in srgb, var(--error) 70%, var(--border_default));
+}
+
+.ui-select--pack-soft.ui-select--variant-success,
+.ui-select-shell--pack-soft.ui-select-shell--variant-success {
+  border-color: color-mix(in srgb, var(--success) 70%, var(--border_default));
+}
+
+.ui-select--pack-soft.ui-select--variant-warning,
+.ui-select-shell--pack-soft.ui-select-shell--variant-warning {
+  border-color: color-mix(in srgb, var(--warning) 70%, var(--border_default));
+}
+
+/* =========================================================
+   Checkbox Pack: soft
+   ========================================================= */
+
+.ui-checkbox--pack-soft .ui-checkbox__control {
+  background: color-mix(in srgb, var(--bg_field) 82%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 65%, var(--brand));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-checkbox--pack-soft:hover .ui-checkbox__control {
+  border-color: var(--brand);
+}
+
+.ui-checkbox--pack-soft .ui-checkbox__input:focus-visible + .ui-checkbox__control {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 14%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-checkbox--pack-soft.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--pack-soft.ui-checkbox--indeterminate .ui-checkbox__control {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--text_on_brand);
+  box-shadow: none;
+}
+
+/* =========================================================
+   Radio Pack: soft
+   ========================================================= */
+
+.ui-radio--pack-soft .ui-radio__control {
+  background: color-mix(in srgb, var(--bg_field) 82%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 65%, var(--brand));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-radio--pack-soft:hover .ui-radio__control {
+  border-color: var(--brand);
+}
+
+.ui-radio--pack-soft .ui-radio__input:focus-visible + .ui-radio__control {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 14%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-radio--pack-soft.ui-radio--checked .ui-radio__control {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* =========================================================
+   Switch Pack: soft
+   ========================================================= */
+
+.ui-switch--pack-soft .ui-switch__track {
+  background: color-mix(in srgb, var(--bg_muted) 72%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 65%, var(--brand));
+}
+
+.ui-switch--pack-soft .ui-switch__thumb {
+  background: var(--bg_surface);
+  border-color: color-mix(in srgb, var(--border_default) 60%, var(--brand));
+}
+
+.ui-switch--pack-soft:hover .ui-switch__track {
+  border-color: var(--brand);
+}
+
+.ui-switch--pack-soft .ui-switch__input:focus-visible + .ui-switch__track {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 14%, transparent);
+}
+
+.ui-switch--pack-soft.ui-switch--checked .ui-switch__track {
+  background: color-mix(in srgb, var(--brand) 76%, var(--brand_soft));
+  border-color: var(--brand);
+}
+
+.ui-switch--pack-soft.ui-switch--checked .ui-switch__thumb {
+  background: var(--text_on_brand);
+  border-color: transparent;
+}
+
+/* =========================================================
+   File Input Pack: soft
+   ========================================================= */
+
+.ui-file-input--pack-soft .ui-file-input__control {
+  background: color-mix(in srgb, var(--bg_field) 86%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-file-input--pack-soft:hover .ui-file-input__control {
+  background: color-mix(in srgb, var(--bg_field) 92%, var(--brand_soft));
+  border-color: color-mix(in srgb, var(--border_default) 58%, var(--brand));
+}
+
+.ui-file-input--pack-soft .ui-file-input__native:focus-visible + .ui-file-input__control {
+  background: var(--bg_field);
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 16%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+}
+
+.ui-file-input--pack-soft.ui-file-input--variant-error .ui-file-input__control {
+  border-color: color-mix(in srgb, var(--error) 70%, var(--border_default));
+}
+
+.ui-file-input--pack-soft.ui-file-input--variant-success .ui-file-input__control {
+  border-color: color-mix(in srgb, var(--success) 70%, var(--border_default));
+}
+
+.ui-file-input--pack-soft.ui-file-input--variant-warning .ui-file-input__control {
+  border-color: color-mix(in srgb, var(--warning) 70%, var(--border_default));
+}
+
+/* =========================================================
+   Navbar Pack: soft
+   ========================================================= */
+
+.ui-navbar--pack-soft {
+  background: color-mix(in srgb, var(--bg_muted) 86%, var(--brand_soft));
+  border-bottom-color: color-mix(in srgb, var(--border_default) 65%, transparent);
+  box-shadow: none;
+}
+
+.ui-navbar--pack-soft .ui-navbar-link {
+  border-radius: 999px;
+}
+
+.ui-navbar--pack-soft .ui-navbar-link:hover {
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+}
+
+.ui-navbar--pack-soft .ui-navbar-link:focus-visible,
+.ui-navbar--pack-soft .ui-navbar__mobile-toggle:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 14%, transparent);
+}
+
+/* =========================================================
+   Section Pack: soft
+   ========================================================= */
+
+.ui-section--pack-soft.ui-section--variant-default {
+  background-image: radial-gradient(
+    circle at 12% 0%,
+    color-mix(in srgb, var(--brand_soft) 56%, transparent),
+    transparent 30rem
+  );
+}
+
+.ui-section--pack-soft.ui-section--variant-surface {
+  background-image: radial-gradient(
+    circle at 12% 0%,
+    color-mix(in srgb, var(--brand_soft) 48%, transparent),
+    transparent 32rem
+  );
+}
+
+.ui-section--pack-soft.ui-section--variant-muted {
+  background-image: radial-gradient(
+    circle at 12% 0%,
+    color-mix(in srgb, var(--brand_soft) 62%, transparent),
+    transparent 32rem
+  );
+}
+
+.ui-section-header--pack-soft {
+  gap: 0.875rem;
+}
+
+.ui-section-header--pack-soft .ui-section-header__eyebrow {
+  width: fit-content;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: var(--brand_soft);
+}
+
+.ui-section-header--align-center.ui-section-header--pack-soft .ui-section-header__eyebrow {
+  margin-inline: auto;
+}
+
+.ui-section-header--align-right.ui-section-header--pack-soft .ui-section-header__eyebrow {
+  margin-left: auto;
+}
+
+.ui-section--variant-brand .ui-section-header--pack-soft .ui-section-header__eyebrow,
+.ui-section--variant-inverse .ui-section-header--pack-soft .ui-section-header__eyebrow {
+  background: color-mix(in srgb, currentColor 16%, transparent);
+}
+
+.ui-section-header--pack-soft .ui-section-header__title {
+  --section-title-wrap: balance;
+}
+
+.ui-section-divider--pack-soft {
+  height: 2px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--brand) 28%, var(--ui-current-border-muted));
+}
+
+/* =========================================================
+   Toast Pack: soft
+   ========================================================= */
+
+.ui-toast--pack-soft {
+  border-color: color-mix(in srgb, var(--border_default) 60%, transparent);
+  background: color-mix(in srgb, var(--bg_muted) 86%, var(--brand_soft));
+  box-shadow: 0 0.75rem 1.75rem color-mix(in srgb, var(--shadow_rgba) 10%, transparent);
+}
+
+.ui-toast--pack-soft .ui-toast__dismiss:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.ui-tabs--pack-soft,
+.ui-accordion--pack-soft,
+.ui-dropdown--pack-soft,
+.ui-table-wrap--pack-soft,
+.ui-alert--pack-soft,
+.ui-breadcrumb--pack-soft,
+.ui-location-map--pack-soft {
+  --ui-composite-radius: 1rem;
+  --ui-composite-border-width: 1px;
+  --ui-composite-shadow: 0 0.75rem 1.75rem color-mix(in srgb, var(--shadow_rgba) 8%, transparent);
+  --ui-breadcrumb-padding: 0.5rem 0.75rem;
+  --ui-breadcrumb-background: color-mix(in srgb, var(--bg_muted) 72%, transparent);
+}

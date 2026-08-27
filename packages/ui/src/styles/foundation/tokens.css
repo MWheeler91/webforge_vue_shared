@@ -1,0 +1,51 @@
+:root {
+  --brand: #0ea5e9;
+  --brand_hover: #0284c7;
+  --brand_active: #0369a1;
+  --brand_soft: #e0f2fe;
+  --brand_contrast: #000000;
+  --brand_ring: #0ea5e9;
+  --text_on_brand: #000000;
+
+  --secondary: #a855f7;
+
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+
+  --bg_canvas: #f8fafc;
+  --bg_surface: #ffffff;
+  --bg_elevated: #ffffff;
+  --bg_field: #ffffff;
+  --bg_muted: #f1f5f9;
+  --bg_inverse: #0f172a;
+  --bg_disabled: #f1f5f9;
+
+  --text_primary: #0f172a;
+  --text_secondary: #475569;
+  --text_muted: #64748b;
+  --text_inverse: #ffffff;
+  --text_disabled: #94a3b8;
+
+  --border_default: #e2e8f0;
+  --border_muted: #cbd5e1;
+  --border_focus: #0ea5e9;
+
+  --ui-border-subtle: color-mix(in srgb, var(--border_muted) 82%, transparent);
+  --ui-border-visible: var(--border_default);
+  --ui-border-strong: color-mix(in srgb, var(--border_default) 55%, var(--text_primary));
+
+  /* Context roles. Opaque surfaces override these; transparent content inherits. */
+  --ui-current-text-primary: var(--text_primary);
+  --ui-current-text-secondary: var(--text_secondary);
+  --ui-current-text-muted: var(--text_muted);
+  --ui-current-link: var(--brand);
+  --ui-current-border: var(--border_default);
+  --ui-current-border-muted: var(--border_muted);
+
+  --overlay: rgba(0, 0, 0, 0.6);
+  --shadow_rgba: rgba(0, 0, 0, 0.35);
+
+  color-scheme: dark light;
+}

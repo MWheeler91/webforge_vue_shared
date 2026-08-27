@@ -1,0 +1,332 @@
+/* =========================================================
+   Chaos Pack
+   intentionally wild, unstable, loud, cursed carnival UI
+   ========================================================= */
+
+.ui-btn--pack-chaos,
+.ui-badge--pack-chaos,
+.ui-card--pack-chaos,
+.ui-input--pack-chaos,
+.ui-textarea--pack-chaos,
+.ui-input-shell--pack-chaos,
+.ui-select--pack-chaos,
+.ui-select-shell--pack-chaos,
+.ui-file-input--pack-chaos .ui-file-input__control,
+.ui-toast--pack-chaos {
+  border-color: var(--brand);
+  box-shadow:
+    4px 4px 0 color-mix(in srgb, var(--secondary) 70%, transparent),
+    -4px -4px 0 color-mix(in srgb, var(--info) 55%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--brand) 25%, transparent);
+}
+
+.ui-btn--pack-chaos {
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--brand), var(--secondary), var(--warning), var(--info));
+  color: var(--text_on_brand);
+  border-width: 2px;
+  text-shadow: 1px 1px 0 color-mix(in srgb, black 35%, transparent);
+}
+
+.ui-btn--pack-chaos.ui-btn--variant-secondary {
+  color: var(--text_primary);
+  background: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg_surface) 80%, var(--brand)) 0 0.5rem,
+    color-mix(in srgb, var(--bg_elevated) 80%, var(--secondary)) 0.5rem 1rem
+  );
+}
+
+.ui-btn--pack-chaos.ui-btn--variant-ghost {
+  background: transparent;
+  color: var(--brand);
+}
+
+.ui-btn--pack-chaos:hover:not(:disabled):not([aria-disabled='true']) {
+  transform: rotate(-1deg) scale(1.035);
+  filter: saturate(1.5) contrast(1.08);
+  box-shadow:
+    7px 7px 0 color-mix(in srgb, var(--secondary) 85%, transparent),
+    -7px -7px 0 color-mix(in srgb, var(--info) 70%, transparent),
+    0 0 2rem color-mix(in srgb, var(--brand) 42%, transparent);
+}
+
+.ui-btn--pack-chaos:active:not(:disabled):not([aria-disabled='true']) {
+  transform: rotate(1deg) scale(0.96);
+}
+
+.ui-btn--pack-chaos:focus-visible {
+  outline: 3px dashed var(--warning);
+  outline-offset: 4px;
+  box-shadow:
+    0 0 0 5px color-mix(in srgb, var(--brand) 22%, transparent),
+    0 0 2rem color-mix(in srgb, var(--secondary) 42%, transparent);
+}
+
+.ui-badge--pack-chaos {
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-1deg);
+}
+
+.ui-badge--pack-chaos.ui-badge--tone-solid {
+  background: linear-gradient(135deg, var(--ui-badge-color), var(--secondary), var(--warning));
+  color: var(--ui-badge-contrast);
+  border-color: color-mix(in srgb, var(--ui-badge-color) 80%, white);
+}
+
+.ui-badge--pack-chaos.ui-badge--tone-soft,
+.ui-badge--pack-chaos.ui-badge--tone-outline {
+  background: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--ui-badge-color) 12%, transparent) 0 0.35rem,
+    transparent 0.35rem 0.7rem
+  );
+  color: var(--ui-badge-color);
+}
+
+.ui-card--pack-chaos {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      color-mix(in srgb, var(--brand) 22%, transparent),
+      transparent 12rem
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      color-mix(in srgb, var(--secondary) 20%, transparent),
+      transparent 10rem
+    ),
+    linear-gradient(
+      135deg,
+      var(--bg_surface),
+      color-mix(in srgb, var(--bg_surface) 82%, var(--warning))
+    );
+  border-width: 2px;
+  border-color: var(--brand);
+}
+
+.ui-card--pack-chaos:nth-child(even) {
+  transform: rotate(0.25deg);
+}
+
+.ui-card--pack-chaos:nth-child(odd) {
+  transform: rotate(-0.25deg);
+}
+
+.ui-card--pack-chaos.ui-card--interactive:hover:not([aria-disabled='true']) {
+  transform: rotate(-1deg) translate(-3px, -3px);
+  box-shadow:
+    10px 10px 0 color-mix(in srgb, var(--secondary) 55%, transparent),
+    -6px -6px 0 color-mix(in srgb, var(--info) 45%, transparent);
+}
+
+.ui-input--pack-chaos,
+.ui-textarea--pack-chaos,
+.ui-input-shell--pack-chaos,
+.ui-select--pack-chaos,
+.ui-select-shell--pack-chaos,
+.ui-file-input--pack-chaos .ui-file-input__control {
+  background: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg_field) 92%, var(--brand)) 0 0.65rem,
+    color-mix(in srgb, var(--bg_field) 92%, var(--secondary)) 0.65rem 1.3rem
+  );
+  border-width: 2px;
+  border-color: var(--brand);
+}
+
+.ui-input--pack-chaos:focus,
+.ui-textarea--pack-chaos:focus,
+.ui-input-shell--pack-chaos:focus-within,
+.ui-select--pack-chaos:focus,
+.ui-select-shell--pack-chaos:focus-within,
+.ui-file-input--pack-chaos .ui-file-input__native:focus-visible + .ui-file-input__control {
+  border-color: var(--warning);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--warning) 28%, transparent),
+    6px 6px 0 color-mix(in srgb, var(--secondary) 55%, transparent),
+    -6px -6px 0 color-mix(in srgb, var(--info) 45%, transparent);
+}
+
+.ui-input--pack-chaos.ui-input--variant-error,
+.ui-textarea--pack-chaos.ui-textarea--variant-error,
+.ui-input-shell--pack-chaos.ui-input-shell--variant-error,
+.ui-select--pack-chaos.ui-select--variant-error,
+.ui-select-shell--pack-chaos.ui-select-shell--variant-error,
+.ui-file-input--pack-chaos.ui-file-input--variant-error .ui-file-input__control {
+  border-color: var(--error);
+}
+
+.ui-input--pack-chaos.ui-input--variant-success,
+.ui-textarea--pack-chaos.ui-textarea--variant-success,
+.ui-input-shell--pack-chaos.ui-input-shell--variant-success,
+.ui-select--pack-chaos.ui-select--variant-success,
+.ui-select-shell--pack-chaos.ui-select-shell--variant-success,
+.ui-file-input--pack-chaos.ui-file-input--variant-success .ui-file-input__control {
+  border-color: var(--success);
+}
+
+.ui-input--pack-chaos.ui-input--variant-warning,
+.ui-textarea--pack-chaos.ui-textarea--variant-warning,
+.ui-input-shell--pack-chaos.ui-input-shell--variant-warning,
+.ui-select--pack-chaos.ui-select--variant-warning,
+.ui-select-shell--pack-chaos.ui-select-shell--variant-warning,
+.ui-file-input--pack-chaos.ui-file-input--variant-warning .ui-file-input__control {
+  border-color: var(--warning);
+}
+
+.ui-checkbox--pack-chaos .ui-checkbox__control,
+.ui-radio--pack-chaos .ui-radio__control,
+.ui-switch--pack-chaos .ui-switch__track {
+  background: linear-gradient(
+    135deg,
+    var(--bg_field),
+    color-mix(in srgb, var(--brand) 18%, var(--bg_field))
+  );
+  border-width: 2px;
+  border-color: var(--brand);
+  box-shadow:
+    3px 3px 0 color-mix(in srgb, var(--secondary) 55%, transparent),
+    -3px -3px 0 color-mix(in srgb, var(--info) 45%, transparent);
+}
+
+.ui-checkbox--pack-chaos .ui-checkbox__input:focus-visible + .ui-checkbox__control,
+.ui-radio--pack-chaos .ui-radio__input:focus-visible + .ui-radio__control,
+.ui-switch--pack-chaos .ui-switch__input:focus-visible + .ui-switch__track {
+  outline: 2px dashed var(--warning);
+  outline-offset: 3px;
+}
+
+.ui-checkbox--pack-chaos.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--pack-chaos.ui-checkbox--indeterminate .ui-checkbox__control,
+.ui-switch--pack-chaos.ui-switch--checked .ui-switch__track {
+  background: linear-gradient(135deg, var(--brand), var(--secondary), var(--warning));
+  color: var(--text_on_brand);
+  border-color: var(--warning);
+}
+
+.ui-radio--pack-chaos.ui-radio--checked .ui-radio__control {
+  color: var(--warning);
+  border-color: var(--warning);
+}
+
+.ui-switch--pack-chaos .ui-switch__thumb {
+  background: var(--warning);
+  border-color: var(--text_primary);
+  box-shadow: 0 0 1rem color-mix(in srgb, var(--warning) 50%, transparent);
+}
+
+.ui-navbar--pack-chaos,
+.ui-footer--pack-chaos {
+  background: linear-gradient(90deg, var(--brand), var(--secondary), var(--warning), var(--info));
+  color: var(--text_on_brand);
+  border-color: var(--text_primary);
+  box-shadow:
+    0 0 2rem color-mix(in srgb, var(--brand) 34%, transparent),
+    0 6px 0 color-mix(in srgb, var(--text_primary) 20%, transparent);
+}
+
+.ui-navbar--pack-chaos .ui-navbar-brand,
+.ui-footer--pack-chaos .ui-footer-brand__label,
+.ui-footer--pack-chaos .ui-footer-section__title {
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ui-navbar--pack-chaos .ui-navbar-link,
+.ui-footer--pack-chaos .ui-footer-link {
+  color: inherit;
+  border: 2px solid currentColor;
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ui-navbar--pack-chaos .ui-navbar-link:hover,
+.ui-footer--pack-chaos .ui-footer-link:hover {
+  background: var(--bg_surface);
+  color: var(--text_primary);
+  transform: rotate(-1deg);
+}
+
+.ui-section--pack-chaos.ui-section--variant-default,
+.ui-section--pack-chaos.ui-section--variant-surface,
+.ui-section--pack-chaos.ui-section--variant-muted {
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      color-mix(in srgb, var(--brand) 35%, transparent),
+      transparent 14rem
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      color-mix(in srgb, var(--secondary) 35%, transparent),
+      transparent 14rem
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      color-mix(in srgb, var(--warning) 30%, transparent),
+      transparent 18rem
+    );
+}
+
+.ui-section-header--pack-chaos .ui-section-header__eyebrow,
+.ui-section-header--pack-chaos .ui-section-header__title {
+  text-transform: uppercase;
+}
+
+.ui-section-header--pack-chaos .ui-section-header__title {
+  text-shadow:
+    3px 3px 0 color-mix(in srgb, var(--secondary) 45%, transparent),
+    -3px -3px 0 color-mix(in srgb, var(--info) 38%, transparent);
+}
+
+.ui-section-divider--pack-chaos {
+  height: 0;
+  border-top: 3px dashed var(--ui-current-text-primary);
+  background: transparent;
+  transform: rotate(-0.35deg);
+}
+
+.ui-section-footer--pack-chaos {
+  transform: rotate(-0.5deg);
+}
+
+.ui-toast--pack-chaos {
+  border-width: 3px;
+  background: linear-gradient(
+    135deg,
+    var(--bg_surface),
+    color-mix(in srgb, var(--bg_surface) 78%, var(--warning))
+  );
+}
+
+.ui-toast--pack-chaos .ui-toast__title {
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ui-toast--pack-chaos .ui-toast__dismiss:focus-visible {
+  outline: 2px dashed currentColor;
+  outline-offset: 3px;
+}
+
+.ui-tabs--pack-chaos,
+.ui-accordion--pack-chaos,
+.ui-dropdown--pack-chaos,
+.ui-table-wrap--pack-chaos,
+.ui-alert--pack-chaos,
+.ui-breadcrumb--pack-chaos,
+.ui-location-map--pack-chaos {
+  --ui-composite-radius: 0.15rem 0.9rem 0.25rem 0.65rem;
+  --ui-composite-border-width: 2px;
+  --ui-composite-shadow: 0.35rem 0.35rem 0 color-mix(in srgb, var(--secondary) 30%, transparent);
+  --ui-composite-letter-spacing: 0.055em;
+  --ui-breadcrumb-separator: '✦';
+}

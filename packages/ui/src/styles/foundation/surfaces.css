@@ -1,0 +1,222 @@
+/*
+ * Foreground roles for content that can live on more than one surface.
+ * Inverse secondary/muted roles are intentionally derived from text_inverse:
+ * the launch payload has one inverse foreground token, and alpha treatments
+ * preserve that configured hue without inventing new runtime settings.
+ */
+
+.ui-surface--default,
+.bg-canvas,
+.bg-surface,
+.bg-elevated,
+.bg-field,
+.bg-muted,
+.ui-section--variant-default,
+.ui-section--variant-surface,
+.ui-section--variant-muted,
+.ui-card--variant-surface,
+.ui-card--variant-muted,
+.ui-card--variant-elevated,
+.ui-navbar--variant-surface,
+.ui-navbar--variant-bordered,
+.ui-navbar--variant-floating,
+.ui-footer--variant-surface,
+.ui-footer--variant-muted,
+.ui-footer--variant-bordered,
+.ui-alert,
+.ui-toast,
+.ui-calendar,
+.ui-dropdown__menu,
+.ui-table {
+  --ui-current-text-primary: var(--text_primary);
+  --ui-current-text-secondary: var(--text_secondary);
+  --ui-current-text-muted: var(--text_muted);
+  --ui-current-link: var(--brand);
+  --ui-current-border: var(--border_default);
+  --ui-current-border-muted: var(--border_muted);
+  color: var(--ui-current-text-primary);
+}
+
+.ui-surface--inverse,
+.bg-inverse,
+.ui-section--variant-inverse,
+.ui-card--variant-inverse,
+.ui-navbar--variant-inverse,
+.ui-footer--variant-inverse {
+  --ui-current-text-primary: var(--text_inverse);
+  --ui-current-text-secondary: color-mix(in srgb, var(--text_inverse) 82%, transparent);
+  --ui-current-text-muted: color-mix(in srgb, var(--text_inverse) 68%, transparent);
+  --ui-current-link: var(--text_inverse);
+  --ui-current-border: color-mix(in srgb, var(--text_inverse) 28%, transparent);
+  --ui-current-border-muted: color-mix(in srgb, var(--text_inverse) 18%, transparent);
+  color: var(--ui-current-text-primary);
+}
+
+.ui-surface--brand,
+.bg-brand,
+.ui-section--variant-brand {
+  --ui-current-text-primary: var(--text_on_brand);
+  --ui-current-text-secondary: color-mix(in srgb, var(--text_on_brand) 82%, transparent);
+  --ui-current-text-muted: color-mix(in srgb, var(--text_on_brand) 68%, transparent);
+  --ui-current-link: var(--text_on_brand);
+  --ui-current-border: color-mix(in srgb, var(--text_on_brand) 30%, transparent);
+  --ui-current-border-muted: color-mix(in srgb, var(--text_on_brand) 20%, transparent);
+  color: var(--ui-current-text-primary);
+}
+
+/*
+ * Packs own shape, typography, shadows, borders and decorative treatment.
+ * Variant classes remain authoritative for semantic fills and foregrounds.
+ */
+.ui-section.ui-section--variant-default {
+  background-color: var(--bg_canvas);
+}
+
+.ui-section.ui-section--variant-surface {
+  background-color: var(--bg_surface);
+}
+
+.ui-section.ui-section--variant-muted {
+  background-color: var(--bg_muted);
+}
+
+.ui-section.ui-section--variant-inverse {
+  background-color: var(--bg_inverse);
+}
+
+.ui-section.ui-section--variant-brand {
+  background-color: var(--brand);
+}
+
+.ui-section.ui-section--variant-ghost {
+  background-color: transparent;
+}
+
+.ui-card.ui-card--variant-surface {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+}
+
+.ui-card.ui-card--variant-muted {
+  background: var(--bg_muted);
+  border-color: var(--border_muted);
+}
+
+.ui-card.ui-card--variant-elevated {
+  background: var(--bg_elevated);
+  border-color: var(--border_default);
+}
+
+.ui-card.ui-card--variant-outline {
+  background: transparent;
+  border-color: var(--ui-current-border);
+}
+
+.ui-card.ui-card--variant-ghost {
+  background: transparent;
+  border-color: transparent;
+}
+
+.ui-card.ui-card--variant-inverse {
+  background: var(--bg_inverse);
+  border-color: var(--ui-current-border-muted);
+}
+
+.ui-navbar.ui-navbar--variant-surface,
+.ui-navbar.ui-navbar--variant-bordered,
+.ui-navbar.ui-navbar--variant-floating {
+  background: var(--bg_surface);
+}
+
+.ui-navbar.ui-navbar--variant-inverse {
+  background: var(--bg_inverse);
+}
+
+.ui-navbar.ui-navbar--variant-transparent,
+.ui-footer.ui-footer--variant-transparent {
+  background: transparent;
+}
+
+.ui-footer.ui-footer--variant-surface,
+.ui-footer.ui-footer--variant-bordered {
+  background: var(--bg_surface);
+}
+
+.ui-footer.ui-footer--variant-muted {
+  background: var(--bg_muted);
+}
+
+.ui-footer.ui-footer--variant-inverse {
+  background: var(--bg_inverse);
+}
+
+.ui-btn.ui-btn--variant-primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--text_on_brand);
+}
+
+.ui-btn.ui-btn--variant-primary:hover:not(:disabled):not([aria-disabled='true']) {
+  background: var(--brand_hover);
+  border-color: var(--brand_hover);
+}
+
+.ui-btn.ui-btn--variant-primary:active:not(:disabled):not([aria-disabled='true']) {
+  background: var(--brand_active);
+  border-color: var(--brand_active);
+}
+
+.ui-btn.ui-btn--variant-secondary {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+  color: var(--text_primary);
+}
+
+.ui-btn.ui-btn--variant-ghost {
+  background: transparent;
+  color: var(--ui-current-text-primary);
+}
+
+.ui-btn.ui-btn--variant-link {
+  background: transparent;
+  color: var(--ui-current-link);
+}
+
+.ui-input.ui-input:focus,
+.ui-textarea.ui-textarea:focus,
+.ui-input-shell.ui-input-shell:focus-within,
+.ui-select.ui-select:focus,
+.ui-select-shell.ui-select-shell:focus-within,
+.ui-file-input .ui-file-input__native:focus-visible + .ui-file-input__control {
+  border-color: var(--border_focus);
+}
+
+/* Disabled controls use their explicit semantic roles in every pack. */
+.ui-btn:disabled,
+.ui-btn--disabled,
+.ui-btn[aria-disabled='true'] {
+  background: var(--bg_disabled);
+  border-color: var(--border_muted);
+  color: var(--text_disabled);
+  opacity: 1;
+}
+
+.ui-btn:focus-visible {
+  outline: 2px solid var(--brand_ring);
+  outline-offset: 3px;
+}
+
+.ui-navbar-link:focus-visible,
+.ui-navbar__mobile-toggle:focus-visible,
+.ui-footer-link:focus-visible,
+.ui-footer-social__link:focus-visible {
+  outline: 2px solid var(--brand_ring);
+  outline-offset: 3px;
+}
+
+.ui-checkbox__input:focus-visible + .ui-checkbox__control,
+.ui-radio__input:focus-visible + .ui-radio__control,
+.ui-switch__input:focus-visible + .ui-switch__track {
+  border-color: var(--border_focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand_ring) 24%, transparent);
+}

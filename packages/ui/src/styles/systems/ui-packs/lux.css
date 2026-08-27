@@ -1,0 +1,628 @@
+/* =========================================================
+   Badge Pack: lux
+   ========================================================= */
+
+.ui-badge--pack-lux {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.ui-badge--pack-lux.ui-badge--tone-solid {
+  background: linear-gradient(
+    135deg,
+    var(--ui-badge-color),
+    color-mix(in srgb, var(--ui-badge-color) 80%, black)
+  );
+  border-color: color-mix(in srgb, var(--ui-badge-color) 88%, white);
+  box-shadow:
+    0 0.25rem 0.625rem color-mix(in srgb, var(--shadow_rgba) 24%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 26%, transparent);
+}
+
+.ui-badge--pack-lux.ui-badge--tone-soft {
+  background: color-mix(in srgb, var(--ui-badge-color) 14%, var(--bg_surface));
+  border-color: color-mix(in srgb, var(--ui-badge-color) 32%, transparent);
+  box-shadow: 0 0.1875rem 0.5rem color-mix(in srgb, var(--ui-badge-color) 20%, transparent);
+}
+
+.ui-badge--pack-lux.ui-badge--tone-outline {
+  border-color: color-mix(in srgb, var(--ui-badge-color) 62%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 20%, transparent);
+}
+
+.ui-badge--pack-lux.ui-badge--tone-ghost {
+  box-shadow: none;
+}
+
+/* =========================================================
+   Button Pack: lux
+   ========================================================= */
+
+.ui-btn--pack-lux {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 0.5rem 1.25rem color-mix(in srgb, var(--shadow_rgba) 24%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 22%, transparent);
+}
+
+.ui-btn--pack-lux.ui-btn--variant-primary {
+  background: linear-gradient(135deg, var(--brand), var(--brand_hover));
+  border-color: color-mix(in srgb, var(--brand) 82%, white);
+}
+
+.ui-btn--pack-lux.ui-btn--variant-secondary {
+  background: linear-gradient(135deg, var(--bg_surface), var(--bg_elevated));
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+}
+
+.ui-btn--pack-lux.ui-btn--variant-success {
+  background: linear-gradient(
+    135deg,
+    var(--success),
+    color-mix(in srgb, var(--success) 78%, black)
+  );
+  border-color: color-mix(in srgb, var(--success) 80%, white);
+}
+
+.ui-btn--pack-lux.ui-btn--variant-warning {
+  background: linear-gradient(
+    135deg,
+    var(--warning),
+    color-mix(in srgb, var(--warning) 76%, black)
+  );
+  border-color: color-mix(in srgb, var(--warning) 80%, white);
+}
+
+.ui-btn--pack-lux.ui-btn--variant-danger {
+  background: linear-gradient(135deg, var(--error), color-mix(in srgb, var(--error) 78%, black));
+  border-color: color-mix(in srgb, var(--error) 80%, white);
+}
+
+.ui-btn--pack-lux.ui-btn--variant-ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ui-btn--pack-lux.ui-btn--variant-chip {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--brand_soft) 84%, var(--bg_surface)),
+    color-mix(in srgb, var(--brand_soft) 72%, var(--brand) 8%)
+  );
+  color: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 32%, transparent);
+}
+
+.ui-btn--pack-lux:hover:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0.75rem 1.75rem color-mix(in srgb, var(--shadow_rgba) 30%, transparent),
+    0 0 1.5rem color-mix(in srgb, var(--brand) 24%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-btn--pack-lux:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(1px) scale(0.985);
+  box-shadow:
+    0 0.25rem 0.75rem color-mix(in srgb, var(--shadow_rgba) 22%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 18%, transparent);
+}
+
+.ui-btn--pack-lux:focus-visible {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1.5rem color-mix(in srgb, var(--brand) 24%, transparent),
+    0 0.5rem 1.25rem color-mix(in srgb, var(--shadow_rgba) 24%, transparent);
+}
+
+.ui-btn--pack-lux.ui-btn--variant-link {
+  box-shadow: none;
+}
+
+.ui-btn--pack-lux.ui-btn--variant-link:hover:not(:disabled):not([aria-disabled='true']) {
+  box-shadow: none;
+}
+
+/* =========================================================
+   Card Pack: lux
+   ========================================================= */
+
+.ui-card--pack-lux {
+  background:
+    linear-gradient(var(--bg_surface), var(--bg_surface)) padding-box,
+    linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--brand) 26%, transparent),
+        color-mix(in srgb, var(--border_default) 90%, transparent)
+      )
+      border-box;
+  border-color: transparent;
+  box-shadow:
+    0 0.75rem 1.75rem color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 18%, transparent);
+}
+
+.ui-card--pack-lux.ui-card--variant-muted {
+  background:
+    linear-gradient(
+        color-mix(in srgb, var(--bg_muted) 88%, var(--brand_soft)),
+        color-mix(in srgb, var(--bg_muted) 88%, var(--brand_soft))
+      )
+      padding-box,
+    linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--brand) 24%, transparent),
+        color-mix(in srgb, var(--border_muted) 90%, transparent)
+      )
+      border-box;
+}
+
+.ui-card--pack-lux.ui-card--variant-outline {
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--brand) 38%, transparent),
+        color-mix(in srgb, var(--border_default) 90%, transparent)
+      )
+      border-box;
+  box-shadow: none;
+}
+
+.ui-card--pack-lux.ui-card--variant-ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ui-card--pack-lux.ui-card--interactive:hover:not([aria-disabled='true']) {
+  box-shadow:
+    0 1rem 2rem color-mix(in srgb, var(--shadow_rgba) 28%, transparent),
+    0 0 1.5rem color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+/* =========================================================
+   Footer Pack: lux
+   ========================================================= */
+
+.ui-footer--pack-lux {
+  box-shadow: 0 -12px 34px color-mix(in srgb, var(--shadow_rgba) 14%, transparent);
+}
+
+.ui-footer--pack-lux.ui-footer--variant-surface,
+.ui-footer--pack-lux.ui-footer--variant-bordered {
+  border-top-color: color-mix(in srgb, var(--border_default) 70%, var(--brand));
+}
+
+.ui-footer--pack-lux .ui-footer-brand__label {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.ui-footer--pack-lux .ui-footer-link:focus-visible,
+.ui-footer--pack-lux .ui-footer-social__link:focus-visible {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1rem color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+/* =========================================================
+   Input Pack: lux
+   ========================================================= */
+
+.ui-input--pack-lux,
+.ui-textarea--pack-lux {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg_field) 92%, white),
+    var(--bg_field)
+  );
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-input--pack-lux:hover:not(:disabled):not(:read-only),
+.ui-textarea--pack-lux:hover:not(:disabled):not(:read-only) {
+  border-color: color-mix(in srgb, var(--border_default) 54%, var(--brand));
+}
+
+.ui-input--pack-lux:focus,
+.ui-textarea--pack-lux:focus {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--brand) 20%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+/* Shell inputs: Password, Search, Currency, Percent */
+
+.ui-input-shell--pack-lux {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg_field) 92%, white),
+    var(--bg_field)
+  );
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-input-shell--pack-lux:hover:not(.ui-input-shell--disabled) {
+  border-color: color-mix(in srgb, var(--border_default) 54%, var(--brand));
+}
+
+.ui-input-shell--pack-lux:focus-within {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--brand) 20%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+/* Input variants */
+
+.ui-input--pack-lux.ui-input--variant-error,
+.ui-textarea--pack-lux.ui-textarea--variant-error,
+.ui-input-shell--pack-lux.ui-input-shell--variant-error {
+  border-color: color-mix(in srgb, var(--error) 78%, var(--border_default));
+}
+
+.ui-input--pack-lux.ui-input--variant-error:focus,
+.ui-textarea--pack-lux.ui-textarea--variant-error:focus,
+.ui-input-shell--pack-lux.ui-input-shell--variant-error:focus-within {
+  border-color: var(--error);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--error) 18%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--error) 18%, transparent);
+}
+
+.ui-input--pack-lux.ui-input--variant-success,
+.ui-textarea--pack-lux.ui-textarea--variant-success,
+.ui-input-shell--pack-lux.ui-input-shell--variant-success {
+  border-color: color-mix(in srgb, var(--success) 78%, var(--border_default));
+}
+
+.ui-input--pack-lux.ui-input--variant-success:focus,
+.ui-textarea--pack-lux.ui-textarea--variant-success:focus,
+.ui-input-shell--pack-lux.ui-input-shell--variant-success:focus-within {
+  border-color: var(--success);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--success) 18%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--success) 18%, transparent);
+}
+
+.ui-input--pack-lux.ui-input--variant-warning,
+.ui-textarea--pack-lux.ui-textarea--variant-warning,
+.ui-input-shell--pack-lux.ui-input-shell--variant-warning {
+  border-color: color-mix(in srgb, var(--warning) 78%, var(--border_default));
+}
+
+.ui-input--pack-lux.ui-input--variant-warning:focus,
+.ui-textarea--pack-lux.ui-textarea--variant-warning:focus,
+.ui-input-shell--pack-lux.ui-input-shell--variant-warning:focus-within {
+  border-color: var(--warning);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--warning) 18%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--warning) 18%, transparent);
+}
+
+/* =========================================================
+   Select Pack: lux
+   ========================================================= */
+
+.ui-select--pack-lux,
+.ui-select-shell--pack-lux {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg_field) 92%, white),
+    var(--bg_field)
+  );
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-select--pack-lux:hover:not(:disabled),
+.ui-select-shell--pack-lux:hover:not(.ui-select-shell--disabled) {
+  border-color: color-mix(in srgb, var(--border_default) 54%, var(--brand));
+}
+
+.ui-select--pack-lux:focus,
+.ui-select-shell--pack-lux:focus-within {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--brand) 20%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-select--pack-lux.ui-select--variant-error,
+.ui-select-shell--pack-lux.ui-select-shell--variant-error {
+  border-color: color-mix(in srgb, var(--error) 78%, var(--border_default));
+}
+
+.ui-select--pack-lux.ui-select--variant-success,
+.ui-select-shell--pack-lux.ui-select-shell--variant-success {
+  border-color: color-mix(in srgb, var(--success) 78%, var(--border_default));
+}
+
+.ui-select--pack-lux.ui-select--variant-warning,
+.ui-select-shell--pack-lux.ui-select-shell--variant-warning {
+  border-color: color-mix(in srgb, var(--warning) 78%, var(--border_default));
+}
+
+/* =========================================================
+   Checkbox Pack: lux
+   ========================================================= */
+
+.ui-checkbox--pack-lux .ui-checkbox__control {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg_field) 92%, white),
+    var(--bg_field)
+  );
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-checkbox--pack-lux:hover .ui-checkbox__control {
+  border-color: var(--brand);
+}
+
+.ui-checkbox--pack-lux .ui-checkbox__input:focus-visible + .ui-checkbox__control {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1rem color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-checkbox--pack-lux.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--pack-lux.ui-checkbox--indeterminate .ui-checkbox__control {
+  background: linear-gradient(135deg, var(--brand), var(--brand_hover));
+  border-color: var(--brand);
+  color: var(--text_on_brand);
+  box-shadow:
+    0 0.25rem 0.75rem color-mix(in srgb, var(--shadow_rgba) 20%, transparent),
+    0 0 1rem color-mix(in srgb, var(--brand) 20%, transparent);
+}
+
+/* =========================================================
+   Radio Pack: lux
+   ========================================================= */
+
+.ui-radio--pack-lux .ui-radio__control {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg_field) 92%, white),
+    var(--bg_field)
+  );
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-radio--pack-lux:hover .ui-radio__control {
+  border-color: var(--brand);
+}
+
+.ui-radio--pack-lux .ui-radio__input:focus-visible + .ui-radio__control {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1rem color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-radio--pack-lux.ui-radio--checked .ui-radio__control {
+  color: var(--brand);
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 12%, transparent),
+    0 0 1rem color-mix(in srgb, var(--brand) 16%, transparent);
+}
+
+/* =========================================================
+   Switch Pack: lux
+   ========================================================= */
+
+.ui-switch--pack-lux .ui-switch__track {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg_muted) 90%, white),
+    var(--bg_muted)
+  );
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 22%, transparent);
+}
+
+.ui-switch--pack-lux .ui-switch__thumb {
+  background: linear-gradient(135deg, var(--bg_surface), var(--bg_elevated));
+  border-color: color-mix(in srgb, var(--border_muted) 70%, var(--brand));
+  box-shadow:
+    0 1px 4px color-mix(in srgb, var(--shadow_rgba) 28%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-switch--pack-lux:hover .ui-switch__track {
+  border-color: var(--brand);
+}
+
+.ui-switch--pack-lux .ui-switch__input:focus-visible + .ui-switch__track {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1rem color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-switch--pack-lux.ui-switch--checked .ui-switch__track {
+  background: linear-gradient(135deg, var(--brand), var(--brand_hover));
+  border-color: var(--brand);
+}
+
+.ui-switch--pack-lux.ui-switch--checked .ui-switch__thumb {
+  background: var(--text_on_brand);
+  border-color: transparent;
+}
+
+/* =========================================================
+   File Input Pack: lux
+   ========================================================= */
+
+.ui-file-input--pack-lux .ui-file-input__control {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg_field) 92%, white),
+    var(--bg_field)
+  );
+  border-color: color-mix(in srgb, var(--border_default) 72%, var(--brand));
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--shadow_rgba) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-file-input--pack-lux:hover .ui-file-input__control {
+  border-color: color-mix(in srgb, var(--border_default) 54%, var(--brand));
+}
+
+.ui-file-input--pack-lux .ui-file-input__native:focus-visible + .ui-file-input__control {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--brand) 20%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+}
+
+.ui-file-input--pack-lux.ui-file-input--variant-error .ui-file-input__control {
+  border-color: color-mix(in srgb, var(--error) 78%, var(--border_default));
+}
+
+.ui-file-input--pack-lux.ui-file-input--variant-success .ui-file-input__control {
+  border-color: color-mix(in srgb, var(--success) 78%, var(--border_default));
+}
+
+.ui-file-input--pack-lux.ui-file-input--variant-warning .ui-file-input__control {
+  border-color: color-mix(in srgb, var(--warning) 78%, var(--border_default));
+}
+
+/* =========================================================
+   Navbar Pack: lux
+   ========================================================= */
+
+.ui-navbar--pack-lux {
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--shadow_rgba) 22%, transparent);
+}
+
+.ui-navbar--pack-lux.ui-navbar--variant-surface,
+.ui-navbar--pack-lux.ui-navbar--variant-floating,
+.ui-navbar--pack-lux.ui-navbar--variant-bordered {
+  border-bottom-color: color-mix(in srgb, var(--border_default) 70%, var(--brand));
+}
+
+.ui-navbar--pack-lux .ui-navbar-brand {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.ui-navbar--pack-lux .ui-navbar-link {
+  border-radius: 999px;
+}
+
+.ui-navbar--pack-lux .ui-navbar-link:focus-visible,
+.ui-navbar--pack-lux .ui-navbar__mobile-toggle:focus-visible {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 0 1rem color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+/* =========================================================
+   Section Pack: lux
+   ========================================================= */
+
+.ui-section--pack-lux.ui-section--variant-default {
+  background-image: radial-gradient(
+    circle at top left,
+    color-mix(in srgb, var(--brand_soft) 45%, transparent),
+    transparent 32rem
+  );
+}
+
+.ui-section--pack-lux.ui-section--variant-surface {
+  background-image: radial-gradient(
+    circle at top left,
+    color-mix(in srgb, var(--brand_soft) 45%, transparent),
+    transparent 34rem
+  );
+}
+
+.ui-section--pack-lux.ui-section--variant-muted {
+  background-image: radial-gradient(
+    circle at top left,
+    color-mix(in srgb, var(--brand_soft) 55%, transparent),
+    transparent 34rem
+  );
+}
+
+.ui-section-header--pack-lux {
+  gap: 1rem;
+  max-width: 52rem;
+}
+
+.ui-section-header--pack-lux .ui-section-header__eyebrow {
+  font-weight: 650;
+  letter-spacing: 0.18em;
+}
+
+.ui-section-header--pack-lux .ui-section-header__title {
+  --section-title-wrap: balance;
+}
+
+.ui-section-divider--pack-lux {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ui-current-border), transparent);
+}
+
+/* =========================================================
+   Toast Pack: lux
+   ========================================================= */
+
+.ui-toast--pack-lux {
+  border-color: color-mix(in srgb, var(--border_default) 70%, var(--brand));
+  box-shadow:
+    0 18px 44px color-mix(in srgb, var(--shadow_rgba) 26%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 24%, transparent);
+}
+
+.ui-toast--pack-lux .ui-toast__title {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+.ui-toast--pack-lux .ui-toast__dismiss:focus-visible {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, currentColor 18%, transparent),
+    0 0 1rem color-mix(in srgb, currentColor 16%, transparent);
+}
+
+.ui-tabs--pack-lux,
+.ui-accordion--pack-lux,
+.ui-dropdown--pack-lux,
+.ui-table-wrap--pack-lux,
+.ui-alert--pack-lux,
+.ui-breadcrumb--pack-lux,
+.ui-location-map--pack-lux {
+  --ui-composite-radius: 0.375rem;
+  --ui-composite-border-width: 1px;
+  --ui-composite-shadow: 0 1rem 2.5rem color-mix(in srgb, var(--shadow_rgba) 14%, transparent);
+  --ui-composite-letter-spacing: 0.02em;
+}

@@ -1,0 +1,243 @@
+/* -----------------------------------------
+   BaseContainer
+----------------------------------------- */
+
+.ui-container {
+  width: 100%;
+  min-width: 0;
+}
+
+/* -----------------------------------------
+   Centering
+----------------------------------------- */
+
+.ui-container--center {
+  margin-inline: auto;
+}
+
+/* -----------------------------------------
+   Widths
+----------------------------------------- */
+
+.ui-container--width-xs {
+  max-width: 36rem;
+}
+
+.ui-container--width-sm {
+  max-width: 48rem;
+}
+
+.ui-container--width-md {
+  max-width: 64rem;
+}
+
+.ui-container--width-lg {
+  max-width: 72rem;
+}
+
+.ui-container--width-xl {
+  max-width: 80rem;
+}
+
+.ui-container--width-2xl {
+  max-width: 96rem;
+}
+
+.ui-container--width-full {
+  max-width: none;
+}
+
+/* -----------------------------------------
+   Padding
+----------------------------------------- */
+
+.ui-container--padding-none {
+  padding-inline: 0;
+}
+
+.ui-container--padding-sm {
+  padding-inline: 1rem;
+}
+
+.ui-container--padding-md {
+  padding-inline: 1rem;
+}
+
+.ui-container--padding-lg {
+  padding-inline: 1.25rem;
+}
+
+.ui-container--padding-xl {
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .ui-container--padding-md {
+    padding-inline: 1.5rem;
+  }
+
+  .ui-container--padding-lg {
+    padding-inline: 2rem;
+  }
+
+  .ui-container--padding-xl {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ui-container--padding-xl {
+    padding-inline: 3rem;
+  }
+}
+
+/* -----------------------------------------
+   Full dimensions
+----------------------------------------- */
+
+.ui-container--full-width {
+  width: 100%;
+  max-width: none;
+}
+
+.ui-container--full-height {
+  min-height: 100%;
+}
+
+/* -----------------------------------------
+   Unstyled
+----------------------------------------- */
+
+.ui-container-unstyled {
+  min-width: 0;
+}
+
+/* -----------------------------------------
+   UiGrid
+----------------------------------------- */
+
+.ui-grid {
+  --ui-grid-min-item-width: 17.5rem;
+  --ui-grid-max-columns: 4;
+  --ui-grid-column-gap: 1.5rem;
+  --ui-grid-row-gap: var(--ui-grid-column-gap);
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(
+        100%,
+        max(
+          var(--ui-grid-min-item-width),
+          calc(
+            (100% - (var(--ui-grid-max-columns) - 1) * var(--ui-grid-column-gap)) /
+              var(--ui-grid-max-columns)
+          )
+        )
+      ),
+      1fr
+    )
+  );
+  column-gap: var(--ui-grid-column-gap);
+  row-gap: var(--ui-grid-row-gap);
+  min-width: 0;
+}
+
+.ui-grid--gap-none {
+  --ui-grid-column-gap: 0;
+  --ui-grid-row-gap: 0;
+}
+
+.ui-grid--gap-xs {
+  --ui-grid-column-gap: 0.5rem;
+  --ui-grid-row-gap: 0.5rem;
+}
+
+.ui-grid--gap-sm {
+  --ui-grid-column-gap: 1rem;
+  --ui-grid-row-gap: 1rem;
+}
+
+.ui-grid--gap-md {
+  --ui-grid-column-gap: 1.5rem;
+  --ui-grid-row-gap: 1.5rem;
+}
+
+.ui-grid--gap-lg {
+  --ui-grid-column-gap: 2rem;
+  --ui-grid-row-gap: 2rem;
+}
+
+.ui-grid--gap-xl {
+  --ui-grid-column-gap: 3rem;
+  --ui-grid-row-gap: 3rem;
+}
+
+.ui-grid--row-gap-none {
+  --ui-grid-row-gap: 0;
+}
+
+.ui-grid--row-gap-xs {
+  --ui-grid-row-gap: 0.5rem;
+}
+
+.ui-grid--row-gap-sm {
+  --ui-grid-row-gap: 1rem;
+}
+
+.ui-grid--row-gap-md {
+  --ui-grid-row-gap: 1.5rem;
+}
+
+.ui-grid--row-gap-lg {
+  --ui-grid-row-gap: 2rem;
+}
+
+.ui-grid--row-gap-xl {
+  --ui-grid-row-gap: 3rem;
+}
+
+.ui-grid--align-start {
+  align-items: start;
+}
+
+.ui-grid--align-center {
+  align-items: center;
+}
+
+.ui-grid--align-end {
+  align-items: end;
+}
+
+.ui-grid--align-stretch {
+  align-items: stretch;
+}
+
+.ui-grid--justify-start {
+  justify-items: start;
+}
+
+.ui-grid--justify-center {
+  justify-items: center;
+}
+
+.ui-grid--justify-end {
+  justify-items: end;
+}
+
+.ui-grid--justify-stretch {
+  justify-items: stretch;
+}
+
+.ui-grid--equal-height {
+  grid-auto-rows: 1fr;
+}
+
+.ui-grid--equal-height > * {
+  min-height: 100%;
+}
+
+.ui-grid--dense {
+  grid-auto-flow: dense;
+}

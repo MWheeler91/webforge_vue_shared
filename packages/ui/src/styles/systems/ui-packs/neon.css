@@ -1,0 +1,312 @@
+/* =========================================================
+   Neon Pack
+   cyber, nightlife, gaming, glow-heavy
+   ========================================================= */
+
+.ui-btn--pack-neon,
+.ui-badge--pack-neon,
+.ui-card--pack-neon,
+.ui-input--pack-neon,
+.ui-textarea--pack-neon,
+.ui-input-shell--pack-neon,
+.ui-select--pack-neon,
+.ui-select-shell--pack-neon,
+.ui-file-input--pack-neon .ui-file-input__control,
+.ui-toast--pack-neon {
+  border-color: color-mix(in srgb, var(--brand) 65%, transparent);
+  box-shadow:
+    0 0 0.75rem color-mix(in srgb, var(--brand) 20%, transparent),
+    inset 0 0 0.75rem color-mix(in srgb, var(--brand) 8%, transparent);
+}
+
+.ui-btn--pack-neon {
+  font-weight: 760;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.ui-btn--pack-neon.ui-btn--variant-primary {
+  background: color-mix(in srgb, var(--brand) 16%, var(--bg_surface));
+  color: var(--brand);
+  border-color: var(--brand);
+  text-shadow: 0 0 0.5rem color-mix(in srgb, var(--brand) 45%, transparent);
+}
+
+.ui-btn--pack-neon.ui-btn--variant-secondary {
+  background: color-mix(in srgb, var(--bg_surface) 84%, black);
+  color: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 82%, transparent);
+  box-shadow:
+    0 0 0.75rem color-mix(in srgb, var(--brand) 24%, transparent),
+    inset 0 0 0.75rem color-mix(in srgb, var(--brand) 10%, transparent);
+}
+
+.ui-btn--pack-neon.ui-btn--variant-primary:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--brand) 24%, var(--bg_surface));
+  color: var(--brand);
+  border-color: var(--brand);
+  filter: saturate(1.15);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--brand) 70%, transparent),
+    0 0 1.35rem color-mix(in srgb, var(--brand) 42%, transparent),
+    inset 0 0 1rem color-mix(in srgb, var(--brand) 14%, transparent);
+}
+
+.ui-btn--pack-neon.ui-btn--variant-ghost {
+  background: color-mix(in srgb, var(--bg_surface) 52%, transparent);
+  color: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 48%, transparent);
+  box-shadow: inset 0 0 0.75rem color-mix(in srgb, var(--brand) 8%, transparent);
+}
+
+.ui-btn--pack-neon.ui-btn--variant-chip {
+  background: color-mix(in srgb, var(--brand) 12%, var(--bg_surface));
+  color: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 68%, transparent);
+}
+
+.ui-btn--pack-neon.ui-btn--variant-secondary:hover:not(:disabled):not([aria-disabled='true']),
+.ui-btn--pack-neon.ui-btn--variant-ghost:hover:not(:disabled):not([aria-disabled='true']),
+.ui-btn--pack-neon.ui-btn--variant-chip:hover:not(:disabled):not([aria-disabled='true']) {
+  background: color-mix(in srgb, var(--brand) 18%, var(--bg_surface));
+  color: var(--brand);
+  border-color: var(--brand);
+  box-shadow:
+    0 0 1.25rem color-mix(in srgb, var(--brand) 38%, transparent),
+    inset 0 0 1rem color-mix(in srgb, var(--brand) 14%, transparent);
+}
+
+.ui-btn--pack-neon.ui-btn--variant-link {
+  color: var(--brand);
+  text-shadow: 0 0 0.75rem color-mix(in srgb, var(--brand) 45%, transparent);
+}
+
+.ui-btn--pack-neon.ui-btn--variant-success {
+  background: color-mix(in srgb, var(--success) 16%, var(--bg_surface));
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.ui-btn--pack-neon.ui-btn--variant-warning {
+  background: color-mix(in srgb, var(--warning) 16%, var(--bg_surface));
+  color: var(--warning);
+  border-color: var(--warning);
+}
+
+.ui-btn--pack-neon.ui-btn--variant-danger {
+  background: color-mix(in srgb, var(--error) 16%, var(--bg_surface));
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.ui-btn--pack-neon:hover:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 1.25rem color-mix(in srgb, currentColor 34%, transparent),
+    inset 0 0 1rem color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.ui-btn--pack-neon:focus-visible {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, currentColor 20%, transparent),
+    0 0 1.5rem color-mix(in srgb, currentColor 34%, transparent);
+}
+
+.ui-badge--pack-neon {
+  font-weight: 760;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ui-badge--pack-neon.ui-badge--tone-solid {
+  background: color-mix(in srgb, var(--ui-badge-color) 18%, var(--bg_surface));
+  color: var(--ui-badge-color);
+  border-color: var(--ui-badge-color);
+  box-shadow: 0 0 1rem color-mix(in srgb, var(--ui-badge-color) 28%, transparent);
+}
+
+.ui-badge--pack-neon.ui-badge--tone-soft,
+.ui-badge--pack-neon.ui-badge--tone-outline {
+  color: var(--ui-badge-color);
+  border-color: color-mix(in srgb, var(--ui-badge-color) 70%, transparent);
+  background: color-mix(in srgb, var(--ui-badge-color) 8%, transparent);
+}
+
+.ui-badge--pack-neon.ui-badge--variant-secondary.ui-badge--tone-solid {
+  background: color-mix(in srgb, var(--secondary) 22%, var(--bg_surface));
+  color: var(--secondary);
+  border-color: color-mix(in srgb, var(--secondary) 78%, transparent);
+  box-shadow:
+    0 0 0.75rem color-mix(in srgb, var(--secondary) 28%, transparent),
+    inset 0 0 0.75rem color-mix(in srgb, var(--secondary) 10%, transparent);
+}
+
+.ui-badge--pack-neon.ui-badge--variant-secondary.ui-badge--tone-soft,
+.ui-badge--pack-neon.ui-badge--variant-secondary.ui-badge--tone-outline {
+  background: color-mix(in srgb, var(--secondary) 12%, transparent);
+  color: var(--secondary);
+  border-color: color-mix(in srgb, var(--secondary) 68%, transparent);
+  box-shadow: 0 0 0.75rem color-mix(in srgb, var(--secondary) 22%, transparent);
+}
+
+.ui-card--pack-neon {
+  background:
+    linear-gradient(var(--bg_surface), var(--bg_surface)) padding-box,
+    linear-gradient(135deg, var(--brand), var(--secondary), var(--info)) border-box;
+  border-color: transparent;
+}
+
+.ui-card--pack-neon.ui-card--interactive:hover:not([aria-disabled='true']) {
+  box-shadow:
+    0 0 2rem color-mix(in srgb, var(--brand) 24%, transparent),
+    0 1rem 2rem color-mix(in srgb, var(--shadow_rgba) 24%, transparent);
+}
+
+.ui-input--pack-neon,
+.ui-textarea--pack-neon,
+.ui-input-shell--pack-neon,
+.ui-select--pack-neon,
+.ui-select-shell--pack-neon,
+.ui-file-input--pack-neon .ui-file-input__control {
+  background: color-mix(in srgb, var(--bg_field) 90%, black);
+}
+
+.ui-input--pack-neon:focus,
+.ui-textarea--pack-neon:focus,
+.ui-input-shell--pack-neon:focus-within,
+.ui-select--pack-neon:focus,
+.ui-select-shell--pack-neon:focus-within,
+.ui-file-input--pack-neon .ui-file-input__native:focus-visible + .ui-file-input__control {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 16%, transparent),
+    0 0 1.5rem color-mix(in srgb, var(--brand) 30%, transparent);
+}
+
+.ui-input--pack-neon.ui-input--variant-error,
+.ui-textarea--pack-neon.ui-textarea--variant-error,
+.ui-input-shell--pack-neon.ui-input-shell--variant-error,
+.ui-select--pack-neon.ui-select--variant-error,
+.ui-select-shell--pack-neon.ui-select-shell--variant-error,
+.ui-file-input--pack-neon.ui-file-input--variant-error .ui-file-input__control {
+  border-color: var(--error);
+}
+
+.ui-input--pack-neon.ui-input--variant-success,
+.ui-textarea--pack-neon.ui-textarea--variant-success,
+.ui-input-shell--pack-neon.ui-input-shell--variant-success,
+.ui-select--pack-neon.ui-select--variant-success,
+.ui-select-shell--pack-neon.ui-select-shell--variant-success,
+.ui-file-input--pack-neon.ui-file-input--variant-success .ui-file-input__control {
+  border-color: var(--success);
+}
+
+.ui-input--pack-neon.ui-input--variant-warning,
+.ui-textarea--pack-neon.ui-textarea--variant-warning,
+.ui-input-shell--pack-neon.ui-input-shell--variant-warning,
+.ui-select--pack-neon.ui-select--variant-warning,
+.ui-select-shell--pack-neon.ui-select-shell--variant-warning,
+.ui-file-input--pack-neon.ui-file-input--variant-warning .ui-file-input__control {
+  border-color: var(--warning);
+}
+
+.ui-checkbox--pack-neon .ui-checkbox__control,
+.ui-radio--pack-neon .ui-radio__control,
+.ui-switch--pack-neon .ui-switch__track {
+  background: transparent;
+  border-color: var(--brand);
+  box-shadow: 0 0 0.75rem color-mix(in srgb, var(--brand) 20%, transparent);
+}
+
+.ui-checkbox--pack-neon .ui-checkbox__input:focus-visible + .ui-checkbox__control,
+.ui-radio--pack-neon .ui-radio__input:focus-visible + .ui-radio__control,
+.ui-switch--pack-neon .ui-switch__input:focus-visible + .ui-switch__track {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 16%, transparent),
+    0 0 1.25rem color-mix(in srgb, var(--brand) 30%, transparent);
+}
+
+.ui-checkbox--pack-neon.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--pack-neon.ui-checkbox--indeterminate .ui-checkbox__control,
+.ui-switch--pack-neon.ui-switch--checked .ui-switch__track {
+  background: color-mix(in srgb, var(--brand) 24%, transparent);
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.ui-radio--pack-neon.ui-radio--checked .ui-radio__control {
+  color: var(--brand);
+}
+
+.ui-switch--pack-neon .ui-switch__thumb {
+  background: var(--brand);
+  border-color: transparent;
+  box-shadow: 0 0 1rem color-mix(in srgb, var(--brand) 36%, transparent);
+}
+
+.ui-navbar--pack-neon,
+.ui-footer--pack-neon {
+  background: color-mix(in srgb, var(--bg_surface) 92%, black);
+  border-color: color-mix(in srgb, var(--brand) 65%, transparent);
+  box-shadow: 0 0 1.5rem color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-navbar--pack-neon .ui-navbar-link,
+.ui-footer--pack-neon .ui-footer-link {
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ui-navbar--pack-neon .ui-navbar-link:hover,
+.ui-footer--pack-neon .ui-footer-link:hover {
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  box-shadow: 0 0 1rem color-mix(in srgb, var(--brand) 24%, transparent);
+}
+
+.ui-section--pack-neon.ui-section--variant-default,
+.ui-section--pack-neon.ui-section--variant-surface,
+.ui-section--pack-neon.ui-section--variant-muted {
+  background-image:
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--brand) 22%, transparent),
+      transparent 32rem
+    ),
+    radial-gradient(
+      circle at bottom right,
+      color-mix(in srgb, var(--secondary) 18%, transparent),
+      transparent 32rem
+    );
+}
+
+.ui-section-header--pack-neon .ui-section-header__eyebrow {
+  text-shadow: 0 0 0.75rem color-mix(in srgb, var(--brand) 65%, transparent);
+}
+
+.ui-section-header--pack-neon .ui-section-header__title {
+  text-shadow: 0 0 1.5rem color-mix(in srgb, var(--brand) 25%, transparent);
+  --section-title-wrap: balance;
+}
+
+.ui-section-divider--pack-neon {
+  background: var(--brand);
+  box-shadow: 0 0 0.8rem color-mix(in srgb, var(--brand) 70%, transparent);
+}
+
+.ui-toast--pack-neon {
+  background: color-mix(in srgb, var(--bg_surface) 90%, black);
+}
+
+.ui-tabs--pack-neon,
+.ui-accordion--pack-neon,
+.ui-dropdown--pack-neon,
+.ui-table-wrap--pack-neon,
+.ui-alert--pack-neon,
+.ui-breadcrumb--pack-neon,
+.ui-location-map--pack-neon {
+  --ui-composite-radius: 0.25rem;
+  --ui-composite-border-width: 1px;
+  --ui-composite-shadow: 0 0 1rem color-mix(in srgb, var(--brand) 36%, transparent);
+  --ui-composite-letter-spacing: 0.03em;
+}

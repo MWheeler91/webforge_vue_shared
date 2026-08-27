@@ -1,0 +1,413 @@
+/* =========================================================
+   Badge Pack: default
+   ========================================================= */
+
+.ui-badge--pack-default {
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.ui-badge--pack-default.ui-badge--tone-solid {
+  border-color: var(--ui-badge-color);
+}
+
+.ui-badge--pack-default.ui-badge--tone-soft {
+  border-color: color-mix(in srgb, var(--ui-badge-color) 22%, transparent);
+}
+
+.ui-badge--pack-default.ui-badge--tone-outline {
+  border-color: color-mix(in srgb, var(--ui-badge-color) 52%, transparent);
+}
+
+.ui-badge--pack-default.ui-badge--tone-ghost {
+  border-color: transparent;
+}
+
+/* =========================================================
+   Button Pack: default
+   ========================================================= */
+
+.ui-btn--pack-default {
+  font-weight: 600;
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--shadow_rgba) 12%, transparent);
+}
+
+.ui-btn--pack-default:hover:not(:disabled):not([aria-disabled='true']) {
+  filter: brightness(0.985);
+}
+
+.ui-btn--pack-default:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(1px);
+}
+
+.ui-btn--pack-default:focus-visible {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent),
+    0 1px 2px color-mix(in srgb, var(--shadow_rgba) 12%, transparent);
+}
+
+/* Keep link buttons clean */
+.ui-btn--pack-default.ui-btn--variant-link {
+  box-shadow: none;
+}
+
+.ui-btn--pack-default.ui-btn--variant-link:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+/* =========================================================
+   Card Pack: default
+   ========================================================= */
+
+.ui-card--pack-default {
+  --card-title-standard-size: var(--type-heading-xs-size);
+  --card-title-standard-weight: var(--type-heading-xs-weight);
+  --card-title-standard-line: var(--type-heading-xs-line);
+  --card-title-standard-letter: var(--type-heading-xs-letter);
+
+  font-weight: 400;
+  border-color: var(--border_default);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--shadow_rgba) 10%, transparent);
+}
+
+.ui-card--pack-default.ui-card--variant-muted {
+  border-color: var(--border_muted);
+}
+
+.ui-card--pack-default.ui-card--variant-outline {
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-card--pack-default.ui-card--variant-elevated {
+  box-shadow: 0 0.625rem 1.5rem color-mix(in srgb, var(--shadow_rgba) 20%, transparent);
+}
+
+.ui-card--pack-default.ui-card--variant-ghost {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ui-card--pack-default.ui-card--interactive:hover:not([aria-disabled='true']) {
+  box-shadow: 0 0.75rem 1.75rem color-mix(in srgb, var(--shadow_rgba) 18%, transparent);
+}
+
+/* =========================================================
+   Footer Pack: default
+   ========================================================= */
+
+.ui-footer--pack-default {
+  box-shadow: none;
+}
+
+.ui-footer--pack-default.ui-footer--variant-surface {
+  border-top-color: var(--border_muted);
+}
+
+.ui-footer--pack-default.ui-footer--variant-bordered {
+  border-top-color: var(--border_default);
+}
+
+/* =========================================================
+   Input Pack: default
+   ========================================================= */
+
+.ui-input--pack-default,
+.ui-textarea--pack-default {
+  background: var(--bg_field);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-input--pack-default:hover:not(:disabled):not(:read-only),
+.ui-textarea--pack-default:hover:not(:disabled):not(:read-only) {
+  border-color: color-mix(in srgb, var(--border_default) 78%, var(--text_primary));
+}
+
+.ui-input--pack-default:focus,
+.ui-textarea--pack-default:focus {
+  border-color: var(--border_focus);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+/* Shell inputs: Password, Search, Currency, Percent */
+.ui-input-shell--pack-default {
+  background: var(--bg_field);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-input-shell--pack-default:hover:not(.ui-input-shell--disabled) {
+  border-color: color-mix(in srgb, var(--border_default) 78%, var(--text_primary));
+}
+
+.ui-input-shell--pack-default:focus-within {
+  border-color: var(--border_focus);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+/* Input variants */
+.ui-input--pack-default.ui-input--variant-error,
+.ui-textarea--pack-default.ui-textarea--variant-error,
+.ui-input-shell--pack-default.ui-input-shell--variant-error {
+  border-color: var(--error);
+}
+
+.ui-input--pack-default.ui-input--variant-error:focus,
+.ui-textarea--pack-default.ui-textarea--variant-error:focus,
+.ui-input-shell--pack-default.ui-input-shell--variant-error:focus-within {
+  border-color: var(--error);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--error) 18%, transparent);
+}
+
+.ui-input--pack-default.ui-input--variant-success,
+.ui-textarea--pack-default.ui-textarea--variant-success,
+.ui-input-shell--pack-default.ui-input-shell--variant-success {
+  border-color: var(--success);
+}
+
+.ui-input--pack-default.ui-input--variant-success:focus,
+.ui-textarea--pack-default.ui-textarea--variant-success:focus,
+.ui-input-shell--pack-default.ui-input-shell--variant-success:focus-within {
+  border-color: var(--success);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--success) 18%, transparent);
+}
+
+.ui-input--pack-default.ui-input--variant-warning,
+.ui-textarea--pack-default.ui-textarea--variant-warning,
+.ui-input-shell--pack-default.ui-input-shell--variant-warning {
+  border-color: var(--warning);
+}
+
+.ui-input--pack-default.ui-input--variant-warning:focus,
+.ui-textarea--pack-default.ui-textarea--variant-warning:focus,
+.ui-input-shell--pack-default.ui-input-shell--variant-warning:focus-within {
+  border-color: var(--warning);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--warning) 18%, transparent);
+}
+
+/* =========================================================
+   Select Pack: default
+   ========================================================= */
+
+.ui-select--pack-default,
+.ui-select-shell--pack-default {
+  background: var(--bg_field);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-select--pack-default:hover:not(:disabled),
+.ui-select-shell--pack-default:hover:not(.ui-select-shell--disabled) {
+  border-color: color-mix(in srgb, var(--border_default) 78%, var(--text_primary));
+}
+
+.ui-select--pack-default:focus,
+.ui-select-shell--pack-default:focus-within {
+  border-color: var(--border_focus);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-select--pack-default.ui-select--variant-error,
+.ui-select-shell--pack-default.ui-select-shell--variant-error {
+  border-color: var(--error);
+}
+
+.ui-select--pack-default.ui-select--variant-success,
+.ui-select-shell--pack-default.ui-select-shell--variant-success {
+  border-color: var(--success);
+}
+
+.ui-select--pack-default.ui-select--variant-warning,
+.ui-select-shell--pack-default.ui-select-shell--variant-warning {
+  border-color: var(--warning);
+}
+
+/* =========================================================
+   Checkbox Pack: default
+   ========================================================= */
+
+.ui-checkbox--pack-default .ui-checkbox__control {
+  background: var(--bg_field);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-checkbox--pack-default:hover .ui-checkbox__control {
+  border-color: var(--brand);
+}
+
+.ui-checkbox--pack-default .ui-checkbox__input:focus-visible + .ui-checkbox__control {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-checkbox--pack-default.ui-checkbox--checked .ui-checkbox__control,
+.ui-checkbox--pack-default.ui-checkbox--indeterminate .ui-checkbox__control {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--text_on_brand);
+  box-shadow: none;
+}
+
+/* =========================================================
+   Radio Pack: default
+   ========================================================= */
+
+.ui-radio--pack-default .ui-radio__control {
+  background: var(--bg_field);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-radio--pack-default:hover .ui-radio__control {
+  border-color: var(--brand);
+}
+
+.ui-radio--pack-default .ui-radio__input:focus-visible + .ui-radio__control {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-radio--pack-default.ui-radio--checked .ui-radio__control {
+  color: var(--brand);
+  border-color: var(--brand);
+  box-shadow: none;
+}
+
+/* =========================================================
+   Switch Pack: default
+   ========================================================= */
+
+.ui-switch--pack-default .ui-switch__track {
+  background: var(--bg_muted);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-switch--pack-default .ui-switch__thumb {
+  background: var(--bg_surface);
+  border-color: var(--border_muted);
+}
+
+.ui-switch--pack-default:hover .ui-switch__track {
+  border-color: var(--brand);
+}
+
+.ui-switch--pack-default .ui-switch__input:focus-visible + .ui-switch__track {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-switch--pack-default.ui-switch--checked .ui-switch__track {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.ui-switch--pack-default.ui-switch--checked .ui-switch__thumb {
+  background: var(--text_on_brand);
+  border-color: transparent;
+}
+
+/* =========================================================
+   File Input Pack: default
+   ========================================================= */
+
+.ui-file-input--pack-default .ui-file-input__control {
+  background: var(--bg_field);
+  border-color: var(--border_default);
+  box-shadow: none;
+}
+
+.ui-file-input--pack-default:hover .ui-file-input__control {
+  border-color: color-mix(in srgb, var(--border_default) 78%, var(--text_primary));
+}
+
+.ui-file-input--pack-default .ui-file-input__native:focus-visible + .ui-file-input__control {
+  border-color: var(--border_focus);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+.ui-file-input--pack-default.ui-file-input--variant-error .ui-file-input__control {
+  border-color: var(--error);
+}
+
+.ui-file-input--pack-default.ui-file-input--variant-success .ui-file-input__control {
+  border-color: var(--success);
+}
+
+.ui-file-input--pack-default.ui-file-input--variant-warning .ui-file-input__control {
+  border-color: var(--warning);
+}
+
+/* =========================================================
+   Navbar Pack: default
+   ========================================================= */
+
+.ui-navbar--pack-default {
+  box-shadow: none;
+}
+
+.ui-navbar--pack-default.ui-navbar--variant-surface,
+.ui-navbar--pack-default.ui-navbar--variant-floating {
+  border-bottom-color: var(--border_muted);
+}
+
+.ui-navbar--pack-default .ui-navbar-link:focus-visible,
+.ui-navbar--pack-default .ui-navbar__mobile-toggle:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+/* =========================================================
+   Section Pack: default
+   ========================================================= */
+
+.ui-section--pack-default {
+  --ui-section-accent-opacity: 0;
+}
+
+.ui-section-header--pack-default .ui-section-header__title {
+  --section-title-prominent-size: var(--type-heading-xl-size);
+  --section-title-prominent-weight: var(--type-heading-xl-weight);
+  --section-title-prominent-line: var(--type-heading-xl-line);
+  --section-title-prominent-letter: var(--type-heading-xl-letter);
+  --section-title-standard-size: var(--type-heading-lg-size);
+  --section-title-standard-weight: var(--type-heading-lg-weight);
+  --section-title-standard-line: var(--type-heading-lg-line);
+  --section-title-standard-letter: var(--type-heading-lg-letter);
+  --section-title-compact-size: var(--type-heading-md-size);
+  --section-title-compact-weight: var(--type-heading-md-weight);
+  --section-title-compact-line: var(--type-heading-md-line);
+  --section-title-compact-letter: var(--type-heading-md-letter);
+
+  --section-title-wrap: balance;
+}
+
+.ui-section-divider--pack-default {
+  background: var(--ui-current-border-muted);
+}
+
+/* =========================================================
+   Toast Pack: default
+   ========================================================= */
+
+.ui-toast--pack-default {
+  border-color: var(--border_muted);
+  box-shadow: 0 14px 36px color-mix(in srgb, var(--shadow_rgba) 20%, transparent);
+}
+
+.ui-toast--pack-default .ui-toast__dismiss:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.ui-tabs--pack-default,
+.ui-accordion--pack-default,
+.ui-dropdown--pack-default,
+.ui-table-wrap--pack-default,
+.ui-alert--pack-default,
+.ui-breadcrumb--pack-default,
+.ui-location-map--pack-default {
+  --ui-composite-radius: 0.5rem;
+  --ui-composite-border-width: 1px;
+  --ui-composite-shadow: 0 0.5rem 1.25rem color-mix(in srgb, var(--shadow_rgba) 10%, transparent);
+}

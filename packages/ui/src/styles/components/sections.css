@@ -1,0 +1,42 @@
+/* Demo section patterns own layout only. Colors, type, cards, and controls stay global. */
+.ui-contact-section__layout { display: grid; gap: 2rem; }
+.ui-cta-section__layout { display: grid; gap: 1rem; align-items: center; }
+.ui-cta-section--centered { text-align: center; }
+.ui-faq-section__layout { display: grid; gap: 2rem; }
+.ui-feature-grid-section__grid,
+.ui-pricing-section__grid,
+.ui-process-section__grid,
+.ui-services-section__grid { margin-top: 2rem; }
+.ui-feature-rows-section__rows { display: grid; gap: 2rem; margin-top: 2rem; }
+.ui-footer-section__layout { display: grid; gap: 2rem; }
+.ui-footer-section nav { display: grid; gap: 0.5rem; }
+.ui-hero-section__layout { display: grid; gap: 2rem; }
+.ui-hero-section__content { display: grid; align-content: center; gap: 1.25rem; }
+.ui-hero-section__media img,
+.ui-intro-section__media img { width: 100%; height: 100%; object-fit: cover; }
+.ui-intro-section__layout { display: grid; gap: 2rem; }
+.ui-logo-strip-section__items { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 2rem; margin-top: 1rem; }
+.ui-showcase-section__layout,
+.ui-testimonials-section__layout { display: grid; gap: 1.5rem; margin-top: 2rem; }
+.ui-stats-section__layout { display: grid; gap: 2rem; }
+.ui-section-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.ui-pattern-section--shadow-sm { box-shadow: 0 0.25rem 0.75rem var(--shadow_rgba); }
+.ui-pattern-section--shadow-md { box-shadow: 0 0.625rem 1.5rem var(--shadow_rgba); }
+.ui-pattern-section--shadow-lg { box-shadow: 0 1rem 2.5rem var(--shadow_rgba); }
+.ui-pattern-section--border-subtle { border-block: 1px solid var(--border_default); }
+
+@media (min-width: 700px) {
+  .ui-cta-section--banner .ui-cta-section__layout,
+  .ui-cta-section--split .ui-cta-section__layout { grid-template-columns: 1fr auto; }
+}
+@media (min-width: 800px) {
+  .ui-contact-section__layout { grid-template-columns: 1fr 1fr; }
+  .ui-faq-section__layout { grid-template-columns: 0.8fr 1.2fr; }
+  .ui-footer-section__layout { grid-template-columns: 1fr 1fr; }
+  .ui-hero-section--start .ui-hero-section__layout,
+  .ui-hero-section--end .ui-hero-section__layout,
+  .ui-intro-section__layout { grid-template-columns: 1fr 1fr; }
+  .ui-hero-section--start .ui-hero-section__media { grid-column: 1; grid-row: 1; }
+  .ui-hero-section--start .ui-hero-section__content { grid-column: 2; grid-row: 1; }
+  .ui-stats-section__layout { grid-template-columns: minmax(14rem, 0.8fr) minmax(0, 1.2fr); }
+}
