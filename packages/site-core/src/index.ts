@@ -1,4 +1,4 @@
-export { default as apiClient } from './axios'
+export { default as apiClient, configureApiClient } from './axios'
 export { submitContactForm } from './api/contact.api'
 export { getHoneyPot } from './api/honeypot.api'
 export { getPlaygroundOptions } from './api/playground.api'

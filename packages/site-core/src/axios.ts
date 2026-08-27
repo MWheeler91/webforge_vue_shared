@@ -1,7 +1,7 @@
 import axios, { type AxiosInstance } from 'axios'
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL as string) || ''
-const SITE_KEY = (import.meta.env.VITE_SITE_KEY as string) || ''
+let apiBaseUrl = (import.meta.env.VITE_API_BASE_URL as string) || ''
+let siteKey = (import.meta.env.VITE_SITE_KEY as string) || ''
 
 function isFormData(data: unknown): boolean {
   return typeof FormData !== 'undefined' && data instanceof FormData
@@ -9,7 +9,7 @@ function isFormData(data: unknown): boolean {
 
 function buildClient(): AxiosInstance {
   const client = axios.create({
-    baseURL: API_BASE_URL,
+    baseURL: apiBaseUrl,
     headers: {
       Accept: 'application/json',
     },
@@ -26,8 +26,12 @@ function buildClient(): AxiosInstance {
       ;(config.headers as any)['Content-Type'] = 'application/json'
     }
 
-    if (SITE_KEY) {
-      ;(config.headers as any)['X-Site-Key'] = SITE_KEY
+    if (apiBaseUrl) {
+      config.baseURL = apiBaseUrl
+    }
+
+    if (siteKey) {
+      ;(config.headers as any)['X-Site-Key'] = siteKey
     }
 
     return config
@@ -49,5 +53,11 @@ function buildClient(): AxiosInstance {
 }
 
 const apiClient = buildClient()
+
+export function configureApiClient(config: { baseURL?: string; siteKey?: string }) {
+  apiBaseUrl = config.baseURL?.trim() || ''
+  siteKey = config.siteKey?.trim() || ''
+  apiClient.defaults.baseURL = apiBaseUrl
+}
 
 export default apiClient

@@ -12,7 +12,7 @@
   line-height: 1.6;
 }
 
-:global(.ui-card--variant-inverse) .ui-card__subtitle {
+:global(.ui-card--variant-inverse .ui-card__subtitle) {
   color: color-mix(in srgb, var(--text_inverse) 74%, transparent);
 }
 </style>

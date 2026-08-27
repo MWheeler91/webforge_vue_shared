@@ -9,7 +9,7 @@
   background: var(--border_default);
 }
 
-:global(.ui-card--variant-inverse) .ui-card__divider {
+:global(.ui-card--variant-inverse .ui-card__divider) {
   background: color-mix(in srgb, var(--text_inverse) 18%, transparent);
 }
 </style>
