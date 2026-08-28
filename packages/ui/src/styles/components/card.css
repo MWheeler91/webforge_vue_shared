@@ -101,6 +101,11 @@
   border-color: color-mix(in srgb, var(--text_inverse) 18%, transparent);
 }
 
+/* Nested headers belong to the card surface, so their eyebrow follows the card text color. */
+.ui-card .ui-section-header__eyebrow {
+  color: var(--ui-current-text-primary);
+}
+
 /* =========================================================
    Padding - props
    ========================================================= */
