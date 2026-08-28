@@ -112,7 +112,9 @@ export type {
   UiElementCollection,
   UiMediaPayload,
   UiTextPayload,
+  UiCollectionInput,
 } from './components/primitives/card/card.types.ts'
+export { collectionItems, mediaPayload, textPayload } from './components/primitives/card/card.types.ts'
 
 // ---------------------------------------------------------
 // Media gallery patterns
@@ -148,6 +150,7 @@ export type { SharedListProps, UiListItemPayload } from './components/primitives
 // Card patterns
 // ---------------------------------------------------------
 export * from './components/patterns/cards/index.ts'
+export * from './components/patterns/sections/index.ts'
 
 // ---------------------------------------------------------
 // Section primitives
@@ -161,8 +164,9 @@ export type {
   SectionVariant, SectionWidth, SectionSpacing, SectionAlign, SectionTitleAs, SectionTitleEmphasis,
   SectionTitleWrap, SectionLayout, SectionGrid, SectionGap, SharedSectionProps, SectionCardCollection,
   SectionCardInputCollection, SectionCardInput, ResolvedSectionCard, ResolvedSectionCardCollection,
-  ResolvedSectionProps,
+  ResolvedSectionProps, UiSectionData, UiSectionCardData, UiSectionCardCollection,
 } from './components/primitives/section/section.types.ts'
+export { sectionCollectionItems } from './components/primitives/section/section.types.ts'
 
 // ---------------------------------------------------------
 // Layout primitives

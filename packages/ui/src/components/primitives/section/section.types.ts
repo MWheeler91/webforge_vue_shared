@@ -18,6 +18,37 @@ export type SectionGrid = '1' | '2' | '3' | '4' | 'auto'
 
 export type SectionGap = 'sm' | 'md' | 'lg'
 
+/**
+ * Backend-neutral data passed to a shared section pattern.
+ *
+ * The page layer may populate this from Django's component prop table. The UI
+ * package intentionally does not know how those values were stored or fetched.
+ */
+export interface UiSectionData {
+  key?: string | null
+  componentKey?: string | null
+  variant?: SectionVariant | null
+  config?: Record<string, unknown>
+  elements?: Record<string, unknown>
+  cards?: UiSectionCardCollection | null
+  metaData?: Record<string, unknown> | null
+}
+
+/** A nested card node selected by the API's component key. */
+export interface UiSectionCardData {
+  key?: string | null
+  componentKey: string
+  config?: Record<string, unknown>
+  elements?: Record<string, unknown>
+  metaData?: Record<string, unknown> | null
+}
+
+export interface UiSectionCardCollection {
+  keyed?: Record<string, UiSectionCardData>
+  grouped?: Record<string, UiSectionCardData[]>
+  items?: UiSectionCardData[]
+}
+
 export interface BaseSectionProps {
   variant?: SectionVariant
   width?: SectionWidth

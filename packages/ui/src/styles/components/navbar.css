@@ -254,6 +254,43 @@
   }
 }
 
+/* Mobile navigation uses the same link/action components as desktop, but needs a vertical layout. */
+@media (max-width: 767px) {
+  .ui-navbar--collapsible .ui-navbar__brand {
+    flex: 1 1 auto;
+  }
+
+  .ui-navbar--collapsible .ui-navbar__mobile-nav .ui-navbar-nav {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+  }
+
+  .ui-navbar--collapsible .ui-navbar__mobile-nav .ui-navbar-link {
+    width: 100%;
+    justify-content: flex-start;
+    min-height: 2.75rem;
+    padding-inline: 0.75rem;
+  }
+
+  .ui-navbar--collapsible .ui-navbar__mobile-actions {
+    align-items: stretch;
+  }
+
+  .ui-navbar--collapsible .ui-navbar__mobile-actions .ui-navbar-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .ui-navbar--collapsible .ui-navbar__mobile-actions .ui-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* -----------------------------------------
    NavbarBrand
 ----------------------------------------- */
