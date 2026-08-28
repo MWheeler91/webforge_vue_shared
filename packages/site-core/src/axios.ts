@@ -54,6 +54,10 @@ function buildClient(): AxiosInstance {
 
 const apiClient = buildClient()
 
+export function getApiBaseUrl(): string {
+  return apiBaseUrl
+}
+
 export function configureApiClient(config: { baseURL?: string; siteKey?: string }) {
   apiBaseUrl = config.baseURL?.trim() || ''
   siteKey = config.siteKey?.trim() || ''
