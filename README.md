@@ -21,3 +21,10 @@ npm run build
 
 The applications are not wired to these packages yet. That migration should happen
 after the package-local aliases are cleaned up and the first package build is green.
+
+## Architecture documentation
+
+Start with [the shared-package overview](./docs/shared-package-overview.md). Focused guides are
+available for [site-core](./docs/site-core.md) and the [UI architecture](./docs/ui/architecture.md),
+[components](./docs/ui/components.md), [styling](./docs/ui/styling-system.md), [configuration](./docs/ui/configuration.md),
+and [UI packs](./docs/ui/ui-packs.md). Contributors should also read [AGENTS.md](./AGENTS.md).

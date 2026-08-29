@@ -8,7 +8,7 @@ describe('UI configuration ownership', () => {
         pack: 'lux',
         radius: 'pill',
         density: 'comfortable',
-        font: 'classic_sans',
+        font: 'classic-sans',
         typography: 'classic',
       },
       card: {
@@ -20,7 +20,7 @@ describe('UI configuration ownership', () => {
       pack: 'lux',
       radius: 'pill',
       density: 'comfortable',
-      font: 'classic_sans',
+      font: 'classic-sans',
       typography: 'classic',
     })
     expect(config.card).toMatchObject({
@@ -49,5 +49,37 @@ describe('UI configuration ownership', () => {
     expect(config.global.radius).toBe('rounded')
     expect(config.button.radius).toBe('square')
     expect(config.card.radius).toBe('rounded')
+  })
+
+  it('resolves Doodle typography independently from pack and font selection', () => {
+    const config = resolveUiConfig({
+      global: {
+        pack: 'doodle',
+        font: 'delius-swash-caps',
+        typography: 'doodle',
+      },
+    })
+
+    expect(config.global).toMatchObject({
+      pack: 'doodle',
+      font: 'delius-swash-caps',
+      typography: 'doodle',
+    })
+  })
+
+  it('resolves Fantasy independently from typography and font selection', () => {
+    const config = resolveUiConfig({
+      global: {
+        pack: 'fantasy',
+        font: 'new-rocker',
+        typography: 'display',
+      },
+    })
+
+    expect(config.global).toMatchObject({
+      pack: 'fantasy',
+      font: 'new-rocker',
+      typography: 'display',
+    })
   })
 })

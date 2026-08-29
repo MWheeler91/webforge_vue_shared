@@ -14,6 +14,20 @@ import CenteredNavbar from '../patterns/navigation/centered-navbar/CenteredNavba
 afterEach(() => resetUiConfig())
 
 describe('pack-aware primitive roots', () => {
+  it('emits the Doodle pack hook across composite families', () => {
+    setUiConfig({ global: { pack: 'doodle' } })
+
+    expect(mount(BaseTabs).classes()).toContain('ui-tabs--pack-doodle')
+    expect(mount(BaseAccordion).classes()).toContain('ui-accordion--pack-doodle')
+    expect(mount(BaseDropdown).classes()).toContain('ui-dropdown--pack-doodle')
+    expect(mount(BaseTable).classes()).toContain('ui-table-wrap--pack-doodle')
+    expect(mount(BaseAlert).classes()).toContain('ui-alert--pack-doodle')
+    expect(mount(BaseBreadcrumb).classes()).toContain('ui-breadcrumb--pack-doodle')
+    expect(
+      mount(LocationMap, { props: { location: { latitude: 0, longitude: 0 } } }).classes(),
+    ).toContain('ui-location-map--pack-doodle')
+  })
+
   it('uses the complete shared UI-pack configuration across visual composite families', () => {
     setUiConfig({ global: { pack: 'chaos' } })
 
@@ -26,6 +40,20 @@ describe('pack-aware primitive roots', () => {
     expect(
       mount(LocationMap, { props: { location: { latitude: 0, longitude: 0 } } }).classes(),
     ).toContain('ui-location-map--pack-chaos')
+  })
+
+  it('emits the Fantasy pack hook across composite families', () => {
+    setUiConfig({ global: { pack: 'fantasy' } })
+
+    expect(mount(BaseTabs).classes()).toContain('ui-tabs--pack-fantasy')
+    expect(mount(BaseAccordion).classes()).toContain('ui-accordion--pack-fantasy')
+    expect(mount(BaseDropdown).classes()).toContain('ui-dropdown--pack-fantasy')
+    expect(mount(BaseTable).classes()).toContain('ui-table-wrap--pack-fantasy')
+    expect(mount(BaseAlert).classes()).toContain('ui-alert--pack-fantasy')
+    expect(mount(BaseBreadcrumb).classes()).toContain('ui-breadcrumb--pack-fantasy')
+    expect(
+      mount(LocationMap, { props: { location: { latitude: 0, longitude: 0 } } }).classes(),
+    ).toContain('ui-location-map--pack-fantasy')
   })
 
   it('lets navbar inherit the global pack while keeping transparent as a surface variant', () => {

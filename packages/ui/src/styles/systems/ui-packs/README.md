@@ -24,6 +24,7 @@ class such as `.ui-btn--pack-default` or `.ui-card--pack-editorial`.
 | `corporate` | Clear, stable, professional interface treatment.                     |
 | `paper`     | Tactile, print-inspired surface treatment.                           |
 | `chaos`     | Deliberately expressive, unconventional visual treatment.            |
+| `fantasy`   | Heraldic framing, crisp edges, restrained depth, and weighty states. |
 
 ## What a UI pack owns
 

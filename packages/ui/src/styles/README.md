@@ -63,7 +63,7 @@ borders, shadows, component density treatment, interaction treatment, and contex
 aliases. It does not own theme colors or typography metrics.
 
 Supported keys: `default`, `lux`, `classic`, `minimal`, `block`, `soft`, `glass`, `editorial`,
-`neon`, `corporate`, `paper`, and `chaos`. Each has one file in `styles/systems/ui-packs/`, is imported by
+`neon`, `corporate`, `paper`, `chaos`, `doodle`, and `fantasy`. Each has one file in `styles/systems/ui-packs/`, is imported by
 `styles/index.css`, and is listed in `UiPack`.
 
 ### Required file and coverage
@@ -92,7 +92,8 @@ Use the resolved component classes, never broad or template selectors:
 ```
 
 Calendar inherits pack treatment through its `BaseCard` root. Coordinated child components inherit
-from their pack-aware family root. See `PACK_COVERAGE.md` for the explicit classification.
+from their pack-aware family root. The package does not contain a separate pack-coverage registry; inspect
+the selectors in each pack stylesheet when auditing coverage.
 
 ### Required variables
 
@@ -191,7 +192,10 @@ tokens.
 ## Font and motion systems
 
 Font selections live in `systems/font.css`. A new option adds a `[data-ui-font='<key>']` block, a
-`UiFont` member, and all three family variables: `--font-body`, `--font-display`, and `--font-mono`.
+`UiFont` member, and all three family variables: `--font-body`, `--font-display`, and `--font-mono`. The current
+independent display option set includes `new-rocker`; IBM Plex Mono is provided by `industrial-mono`. Font files
+and loading remain the consuming application's responsibility; the shared package provides family mappings and
+fallback stacks only.
 Font loading and licensing are application concerns outside this CSS contract.
 
 Motion lives in `systems/motion.css` and loads after packs. Pack base transitions may vary, but configured

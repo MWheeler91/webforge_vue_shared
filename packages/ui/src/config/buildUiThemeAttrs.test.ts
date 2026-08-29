@@ -7,13 +7,13 @@ describe('buildUiThemeAttrs', () => {
     const config = resolveUiConfig({
       global: {
         pack: 'editorial',
-        font: 'classic_sans',
+        font: 'classic-sans',
         typography: 'modern',
       },
     })
 
     expect(buildUiThemeAttrs(config)).toMatchObject({
-      'data-ui-font': 'classic_sans',
+      'data-ui-font': 'classic-sans',
       'data-ui-typography': 'modern',
     })
     expect(buildUiThemeAttrs(config)).not.toHaveProperty('data-typography-pack')
@@ -28,5 +28,22 @@ describe('buildUiThemeAttrs', () => {
     )
 
     expect(editorial).toEqual(neon)
+  })
+
+  it('exposes Doodle typography independently from the selected pack and font', () => {
+    const attrs = buildUiThemeAttrs(
+      resolveUiConfig({
+        global: {
+          pack: 'editorial',
+          font: 'jetbrains-mono',
+          typography: 'doodle',
+        },
+      }),
+    )
+
+    expect(attrs).toEqual({
+      'data-ui-font': 'jetbrains-mono',
+      'data-ui-typography': 'doodle',
+    })
   })
 })

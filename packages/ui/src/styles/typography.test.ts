@@ -15,7 +15,7 @@ describe('typography role boundaries', () => {
       (match) => match[1] ?? '',
     )
 
-    expect(typographyPackBodies).toHaveLength(9)
+    expect(typographyPackBodies).toHaveLength(10)
 
     for (const body of typographyPackBodies) {
       const customProperties = Array.from(body.matchAll(/(--[a-z0-9-]+)\s*:/g), (match) => match[1])
@@ -44,5 +44,6 @@ describe('typography role boundaries', () => {
 
     expect(roleSize('compact')).toBe('2rem')
     expect(roleSize('display')).toBe('3rem')
+    expect(roleSize('doodle')).toBe('2.5rem')
   })
 })

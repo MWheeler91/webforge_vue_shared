@@ -16,9 +16,9 @@ export const projectUiConfig: PartialUiConfig = {
     pack: 'default', // See UiPack for the complete allowlist.
     radius: 'square', // square | soft | rounded | pill
     density: 'comfortable', // compact | comfortable | spacious
-    font: 'system', // classic_sans | classic_serif | condensed_sans | display_serif | editorial_serif | industrial_mono
-    // luxury_display | modern_sans | playful_display | rounded_sans | system | technical_mono
-    typography: 'default', // classic | compact | default | display | editorial | luxury | modernplayful | technical
+    font: 'system', // classic-sans | classic-serif | condensed-sans | delius-swash-caps | display-serif | editorial-serif | industrial-mono
+    // jetbrains-mono | luxury-display | modern-sans | new-rocker | playful-display | rounded-sans | system | technical-mono
+    typography: 'default', // classic | compact | default | doodle | display | editorial | luxury | modern | playful | technical
   },
 
   button: {

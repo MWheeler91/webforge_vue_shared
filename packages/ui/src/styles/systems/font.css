@@ -30,7 +30,7 @@
    Sans
 ----------------------------------------- */
 
-[data-ui-font='classic_sans'] {
+[data-ui-font='classic-sans'] {
   --font-body: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
 
   --font-display: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
@@ -38,7 +38,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-[data-ui-font='modern_sans'] {
+[data-ui-font='modern-sans'] {
   --font-body:
     Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 
@@ -48,7 +48,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-[data-ui-font='rounded_sans'] {
+[data-ui-font='rounded-sans'] {
   --font-body:
     'Nunito Sans', Nunito, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial,
     sans-serif;
@@ -60,7 +60,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-[data-ui-font='condensed_sans'] {
+[data-ui-font='condensed-sans'] {
   --font-body:
     'Roboto Condensed', 'Arial Narrow', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
     Arial, sans-serif;
@@ -68,6 +68,15 @@
   --font-display:
     'Roboto Condensed', 'Arial Narrow', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
     Arial, sans-serif;
+
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+[data-ui-font='delius-swash-caps'] {
+  --font-body:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --font-display: 'Delius Swash Caps', cursive;
 
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -76,7 +85,7 @@
    Serif
 ----------------------------------------- */
 
-[data-ui-font='classic_serif'] {
+[data-ui-font='classic-serif'] {
   --font-body: Georgia, Cambria, 'Times New Roman', Times, serif;
 
   --font-display: Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -84,7 +93,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-[data-ui-font='editorial_serif'] {
+[data-ui-font='editorial-serif'] {
   --font-body:
     'Source Serif 4', 'Source Serif Pro', Georgia, Cambria, 'Times New Roman', Times, serif;
 
@@ -94,7 +103,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-[data-ui-font='display_serif'] {
+[data-ui-font='display-serif'] {
   --font-body: Georgia, Cambria, 'Times New Roman', Times, serif;
 
   --font-display: 'Playfair Display', Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -106,7 +115,7 @@
    Display
 ----------------------------------------- */
 
-[data-ui-font='luxury_display'] {
+[data-ui-font='luxury-display'] {
   --font-body:
     Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 
@@ -115,7 +124,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-[data-ui-font='playful_display'] {
+[data-ui-font='playful-display'] {
   --font-body:
     'Nunito Sans', Nunito, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial,
     sans-serif;
@@ -129,7 +138,7 @@
    Mono
 ----------------------------------------- */
 
-[data-ui-font='industrial_mono'] {
+[data-ui-font='industrial-mono'] {
   --font-body:
     'IBM Plex Mono', 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
@@ -140,7 +149,7 @@
     'IBM Plex Mono', 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-[data-ui-font='technical_mono'] {
+[data-ui-font='technical-mono'] {
   --font-body:
     'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
@@ -149,4 +158,24 @@
 
   --font-mono:
     'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+[data-ui-font='jetbrains-mono'] {
+  --font-body:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --font-display:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --font-mono:
+    'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+[data-ui-font='new-rocker'] {
+  --font-body:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --font-display: 'New Rocker', Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

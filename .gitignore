@@ -6,3 +6,9 @@ coverage/
 .env
 .env.*
 !.env.example
+docs/
+agents.md
+docs/
+docs/**
+AGENTS.md
+_skills/

@@ -10,7 +10,7 @@ export const defaultUiConfig: UiConfig = {
   },
 
   button: {
-    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos
+    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos | doodle | fantasy
     // Optional button-specific overrides.
     // If omitted or null, the button should inherit from global.
     radius: null, // square | soft | rounded | pill | null
@@ -19,19 +19,19 @@ export const defaultUiConfig: UiConfig = {
   },
 
   badge: {
-    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos
+    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos | doodle | fantasy
     radius: null, // square | soft | rounded | pill | null
     density: null, // compact | comfortable | spacious | null
   },
 
   input: {
-    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos
+    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos | doodle | fantasy
     radius: null, // square | soft | rounded | pill | null
     density: null, // compact | comfortable | spacious | null
   },
 
   card: {
-    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos
+    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos | doodle | fantasy
     radius: null, // square | soft | rounded | pill | null
     density: null, // compact | comfortable | spacious | null
     motion: null, // none | reduced | normal | expressive | null
@@ -45,19 +45,19 @@ export const defaultUiConfig: UiConfig = {
   },
 
   section: {
-    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos
+    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos | doodle | fantasy
     density: null, // compact | comfortable | spacious | null
   },
 
   navbar: {
-    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos
+    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos | doodle | fantasy
   },
 
   footer: {
-    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos
+    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos | doodle | fantasy
   },
 
   toast: {
-    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos
+    pack: null, // default | lux | classic | minimal | block | soft | glass | editorial | neon | corporate | paper | chaos | doodle | fantasy
   },
 }
