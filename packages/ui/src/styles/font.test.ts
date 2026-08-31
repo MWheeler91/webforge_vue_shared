@@ -21,8 +21,7 @@ describe('font family mappings', () => {
     expect(fontCss).toContain('--font-mono:')
   })
 
-  it('does not couple either font option to a UI pack or typography preset', () => {
-    expect(fontCss).not.toMatch(/doodle/)
+  it('does not couple font options to a typography preset', () => {
     expect(fontCss).not.toMatch(/data-ui-typography/)
   })
 })

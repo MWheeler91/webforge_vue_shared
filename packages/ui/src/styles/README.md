@@ -63,7 +63,7 @@ borders, shadows, component density treatment, interaction treatment, and contex
 aliases. It does not own theme colors or typography metrics.
 
 Supported keys: `default`, `lux`, `classic`, `minimal`, `block`, `soft`, `glass`, `editorial`,
-`neon`, `corporate`, `paper`, `chaos`, `doodle`, and `fantasy`. Each has one file in `styles/systems/ui-packs/`, is imported by
+`neon`, `corporate`, `paper`, `chaos`, and `fantasy`. Each has one file in `styles/systems/ui-packs/`, is imported by
 `styles/index.css`, and is listed in `UiPack`.
 
 ### Required file and coverage

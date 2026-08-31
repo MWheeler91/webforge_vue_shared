@@ -30,20 +30,4 @@ describe('buildUiThemeAttrs', () => {
     expect(editorial).toEqual(neon)
   })
 
-  it('exposes Doodle typography independently from the selected pack and font', () => {
-    const attrs = buildUiThemeAttrs(
-      resolveUiConfig({
-        global: {
-          pack: 'editorial',
-          font: 'jetbrains-mono',
-          typography: 'doodle',
-        },
-      }),
-    )
-
-    expect(attrs).toEqual({
-      'data-ui-font': 'jetbrains-mono',
-      'data-ui-typography': 'doodle',
-    })
-  })
 })

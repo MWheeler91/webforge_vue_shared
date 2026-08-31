@@ -15,7 +15,6 @@ export type UiPack =
   | 'corporate'
   | 'paper'
   | 'chaos'
-  | 'doodle'
   | 'fantasy'
 
 export type UiRadius = 'square' | 'soft' | 'rounded' | 'pill'
@@ -45,7 +44,6 @@ export type UiTypography =
   | 'classic'
   | 'compact'
   | 'default'
-  | 'doodle'
   | 'display'
   | 'editorial'
   | 'luxury'

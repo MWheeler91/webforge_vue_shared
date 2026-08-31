@@ -37,7 +37,6 @@
 @import './systems/ui-packs/corporate.css';
 @import './systems/ui-packs/paper.css';
 @import './systems/ui-packs/chaos.css';
-@import './systems/ui-packs/doodle.css';
 @import './systems/ui-packs/fantasy.css';
 
 /* Semantic surface roles load after packs so packs cannot replace theme meaning. */

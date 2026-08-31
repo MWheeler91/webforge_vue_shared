@@ -18,7 +18,7 @@ export const projectUiConfig: PartialUiConfig = {
     density: 'comfortable', // compact | comfortable | spacious
     font: 'system', // classic-sans | classic-serif | condensed-sans | delius-swash-caps | display-serif | editorial-serif | industrial-mono
     // jetbrains-mono | luxury-display | modern-sans | new-rocker | playful-display | rounded-sans | system | technical-mono
-    typography: 'default', // classic | compact | default | doodle | display | editorial | luxury | modern | playful | technical
+    typography: 'default', // classic | compact | default | display | editorial | luxury | modern | playful | technical
   },
 
   button: {

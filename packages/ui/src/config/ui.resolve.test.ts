@@ -51,22 +51,6 @@ describe('UI configuration ownership', () => {
     expect(config.card.radius).toBe('rounded')
   })
 
-  it('resolves Doodle typography independently from pack and font selection', () => {
-    const config = resolveUiConfig({
-      global: {
-        pack: 'doodle',
-        font: 'delius-swash-caps',
-        typography: 'doodle',
-      },
-    })
-
-    expect(config.global).toMatchObject({
-      pack: 'doodle',
-      font: 'delius-swash-caps',
-      typography: 'doodle',
-    })
-  })
-
   it('resolves Fantasy independently from typography and font selection', () => {
     const config = resolveUiConfig({
       global: {
