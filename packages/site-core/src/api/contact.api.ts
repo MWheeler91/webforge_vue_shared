@@ -13,7 +13,7 @@ export type ContactSubmission = {
 export async function submitContactForm(
   form: ContactSubmission,
 ): Promise<ApiEnvelope<null>> {
-  const response = await apiClient.post<ApiEnvelope<null>>('/contact/', form, {
+  const response = await apiClient.post<ApiEnvelope<null>>('/v1/contact/', form, {
     // Let the component read Django's error envelope for 4xx responses.
     validateStatus: () => true,
   })

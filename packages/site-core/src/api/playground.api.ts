@@ -19,7 +19,7 @@ export type PlaygroundOptionsPayload = {
 }
 
 export async function getPlaygroundOptions(): Promise<ApiEnvelope<PlaygroundOptionsPayload>> {
-  const res = await apiClient.get<ApiEnvelope<PlaygroundOptionsPayload>>('/pages/playground/')
+  const res = await apiClient.get<ApiEnvelope<PlaygroundOptionsPayload>>('/v1/pages/playground/')
   return res.data
 }
 
