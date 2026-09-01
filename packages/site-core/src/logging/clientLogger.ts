@@ -18,7 +18,7 @@ export type ClientLogEvent = {
 }
 
 const CLIENT_ERROR_URL =
-  (import.meta.env.VITE_CLIENT_ERROR_URL as string | undefined) || '/logging/client-error/'
+  (import.meta.env.VITE_CLIENT_ERROR_URL as string | undefined) || '/v1/logging/client-error/'
 
 const MAX_REPORTS = 10
 const reportedFingerprints = new Set<string>()
