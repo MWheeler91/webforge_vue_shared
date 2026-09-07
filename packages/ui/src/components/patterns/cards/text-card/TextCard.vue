@@ -1,25 +1,53 @@
 <template>
-  <BaseCard :as="as" :variant="variant" :padding="padding" :interactive="interactive">
-    <small v-if="eyebrow" class="text-card__eyebrow text-brand">{{ eyebrow }}</small>
-    <CardTitle v-if="title" as="h3">{{ title }}</CardTitle>
-    <p v-if="body" class="text-secondary">{{ body }}</p>
+  <BaseCard
+    class="ui-text-card"
+    :as="as"
+    :variant="variant"
+    :padding="padding"
+    :interactive="interactive"
+    :unstyled="unstyled"
+  >
+    <component
+      :is="eyebrow?.as ?? 'small'"
+      v-if="eyebrow"
+      class="text-card__eyebrow text-brand"
+      :data-emphasis="eyebrow.emphasis"
+      >{{ eyebrow.text }}</component
+    >
+    <CardTitle v-if="title" :as="title.as ?? 'h3'" :data-emphasis="title.emphasis">{{
+      title.text
+    }}</CardTitle>
+    <component
+      :is="body.as ?? 'p'"
+      v-if="body"
+      class="text-secondary"
+      :data-emphasis="body.emphasis"
+      >{{ body.text }}</component
+    >
     <CardDivider v-if="divider" />
-    <CardFooter v-if="footer">{{ footer }}</CardFooter>
+    <CardFooter v-if="footer" :data-emphasis="footer.emphasis">{{ footer.text }}</CardFooter>
   </BaseCard>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import BaseCard from '../../../primitives/card/BaseCard.vue'
 import CardDivider from '../../../primitives/card/CardDivider.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardTitle from '../../../primitives/card/CardTitle.vue'
+import { textPayload } from '../../../primitives/card/card.types.ts'
 import type { TextCardProps } from './TextCard.types.ts'
 
-withDefaults(defineProps<TextCardProps>(), {
+const props = withDefaults(defineProps<TextCardProps>(), {
   as: 'article',
   variant: 'surface',
   padding: 'md',
 })
+
+const eyebrow = computed(() => textPayload(props.eyebrow))
+const title = computed(() => textPayload(props.title))
+const body = computed(() => textPayload(props.body))
+const footer = computed(() => textPayload(props.footer))
 </script>
 
 <style scoped>

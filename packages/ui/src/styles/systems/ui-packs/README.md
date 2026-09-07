@@ -2,8 +2,9 @@
 
 UI packs are selectable visual languages for the component library. They are independent of Theme
 colors, font selection, and typography metrics. A pack coordinates how component families look and
-feel together: shape, borders, shadows, density treatment, decoration, interaction treatment, and
-contextual typography aliases.
+feel together: visual shape, borders, shadows, decorative spacing character within existing hooks,
+decoration, interaction treatment, and contextual typography aliases. It does not select configured radius or
+density values.
 
 The active pack is resolved through the UI configuration and appears on pack-aware components as a
 class such as `.ui-btn--pack-default` or `.ui-card--pack-editorial`.
@@ -60,7 +61,9 @@ surface.
 - Tenant colors or a new color palette. Consume Theme tokens such as `--brand`, `--bg_surface`,
   `--text_primary`, `--border_default`, and `--shadow_rgba`.
 - Global typography metrics (`--type-*`) or font-family values (`--font-*`).
-- Component markup, public props, semantic heading selection, templates, routes, or data shapes.
+- Component markup, public props, component/pattern layout, semantic heading selection, templates, routes, or data shapes.
+- Radius or density selection, global motion selection, or application behavior. A pack may provide visual
+  character around existing hooks but may not choose those independent settings.
 - Broad unscoped component selectors or template/application selectors.
 
 Semantic surface meaning remains owned by `foundation/surfaces.css`, which loads after every pack.
@@ -92,6 +95,12 @@ Semantic surface meaning remains owned by `foundation/surfaces.css`, which loads
 8. Add `artisan` to `UiPack` in `config/ui.types.ts` and update configuration documentation that
    lists available pack values.
 9. Add or update tests when the pack adds a new documented alias or selector contract.
+
+Auditing complete family coverage does not require a bespoke selector for every family. For each family, choose
+direct treatment, a shared hook, inherited treatment, or the functional base/default fallback deliberately.
+
+A routine new component or card pattern should not modify pack CSS. Only do so when the task explicitly requires
+pack-specific treatment for that family; component structure and layouts remain component-owned.
 
 ## Validation checklist
 

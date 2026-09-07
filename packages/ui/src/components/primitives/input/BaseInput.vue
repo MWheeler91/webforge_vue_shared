@@ -63,6 +63,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs, useSlots } from 'vue'
 import { useUiConfig } from '../../../config/ui.runtime'
 import type { InputVariant, InputSize, InputType } from './input.types'
@@ -119,9 +120,6 @@ const attrs = useAttrs()
 const slots = useSlots()
 const uiConfig = useUiConfig()
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 const hasLeading = computed(() => Boolean(slots.leading))
 const hasTrailing = computed(() => Boolean(slots.trailing))

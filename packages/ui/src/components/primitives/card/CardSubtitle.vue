@@ -1,8 +1,16 @@
 <template>
-  <p class="ui-card__subtitle">
+  <component :is="as" class="ui-card__subtitle">
     <slot />
-  </p>
+  </component>
 </template>
+
+<script setup lang="ts">
+import type { UiTextAs } from './card.types.ts'
+
+withDefaults(defineProps<{ as?: UiTextAs }>(), {
+  as: 'p',
+})
+</script>
 
 <style scoped>
 .ui-card__subtitle {

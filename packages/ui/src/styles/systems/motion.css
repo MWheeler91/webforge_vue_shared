@@ -1,5 +1,5 @@
 /* =========================================================
-   Button/Card Motion Config Overrides
+   Button/Card/Accordion Motion Config Overrides
    Imported after pack CSS.
    null = pack default
    ========================================================= */
@@ -58,4 +58,24 @@
 
 .ui-card--interactive.ui-card--motion-expressive:hover:not([aria-disabled='true']) {
   transform: translateY(-8px) scale(1.015);
+}
+
+/* ---------------------------------------------------------
+   Accordion Motion
+--------------------------------------------------------- */
+
+.ui-accordion--motion-none .ui-accordion__panel--animation-slide,
+.ui-accordion--motion-none .ui-accordion__trigger,
+.ui-accordion--motion-reduced .ui-accordion__panel--animation-slide,
+.ui-accordion--motion-reduced .ui-accordion__trigger {
+  --ui-accordion-motion-duration: 0ms;
+  transition-duration: 0ms;
+}
+
+.ui-accordion--motion-normal {
+  --ui-accordion-motion-duration: 280ms;
+}
+
+.ui-accordion--motion-expressive {
+  --ui-accordion-motion-duration: 420ms;
 }

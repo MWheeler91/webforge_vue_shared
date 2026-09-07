@@ -22,6 +22,10 @@ selectors, or semantic heading tags.
 Font choice is independent and is configured with `data-ui-font`. UI packs may map component
 contexts onto these roles, but they must not change role metrics.
 
+Components may consume these roles and choose semantic heading tags; they do not own preset values. Do not edit
+this file to tune one component or encode grid, width, layout, pack character, radius, density, or motion. Routine
+component creation treats the typography system as read-only unless the task explicitly requests a preset change.
+
 ## Create a new preset
 
 1. Choose a lowercase kebab-case preset key and add it to `UiTypography` in

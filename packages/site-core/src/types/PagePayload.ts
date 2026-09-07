@@ -111,7 +111,7 @@ export type PageElements = {
 
 export type PageCard = {
   key: string | null
-  /** Reserved for future dynamic card resolution. */
+  /** Allowlisted card-pattern key used by the consuming application/shared renderer path. */
   component_key?: string | null
   config: PageComponentConfig
   divider?: boolean

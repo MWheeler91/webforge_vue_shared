@@ -43,6 +43,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, ref, useAttrs } from 'vue'
 import { useUiConfig } from '../../../config/ui.runtime.ts'
 import NavbarToggle from './NavbarToggle.vue'
@@ -115,9 +116,6 @@ const resolvedPack = computed(() => {
   return props.pack ?? uiConfig.navbar?.pack ?? 'default'
 })
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 const classes = computed(() => {
   const externalClass = attrs.class as string | undefined

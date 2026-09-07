@@ -1,15 +1,17 @@
-import type { BaseCardProps } from '../../../primitives/card/card.types'
+import type { BaseCardProps, UiTextInput } from '../../../primitives/card/card.types'
 
 export interface TextListCardItem {
   title: string
   description?: string
 }
 
+export type TextListCardLayout = 'bulleted' | 'divided'
+
 export interface TextListCardProps extends BaseCardProps {
-  eyebrow?: string | null
-  title?: string
-  body?: string | null
-  items?: readonly (string | TextListCardItem)[]
-  footer?: string | null
-  layout?: string | null
+  eyebrow?: UiTextInput | null
+  title?: UiTextInput
+  body?: UiTextInput | null
+  items?: readonly (UiTextInput | TextListCardItem)[]
+  footer?: UiTextInput | null
+  layout?: TextListCardLayout | null
 }

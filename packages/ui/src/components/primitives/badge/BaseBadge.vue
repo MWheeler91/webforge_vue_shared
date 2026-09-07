@@ -16,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
 import { useUiConfig } from '../../../config/ui.runtime'
 import type {
@@ -48,9 +49,6 @@ const props = withDefaults(defineProps<Props>(), {
 const attrs = useAttrs()
 const uiConfig = useUiConfig()
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 const badgeAttrs = computed(() => {
   const { class: _class, ...rest } = attrs

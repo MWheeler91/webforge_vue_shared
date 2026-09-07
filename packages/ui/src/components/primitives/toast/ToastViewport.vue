@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
 import BaseToast from './BaseToast.vue'
 import { useToast } from './toast.runtime.ts'
@@ -39,9 +40,6 @@ const props = withDefaults(defineProps<Props>(), {
 const attrs = useAttrs()
 const { toasts, remove } = useToast()
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 const classes = computed(() => {
   const externalClass = attrs.class as string | undefined

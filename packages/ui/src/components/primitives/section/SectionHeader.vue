@@ -28,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed } from 'vue'
 import { useUiConfig } from '../../../config/ui.runtime'
 import type { SectionAlign, SectionTitleAs, SectionTitleEmphasis, SectionTitleWrap } from './section.types'
@@ -53,9 +54,6 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const uiConfig = useUiConfig()
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 const classes = computed(() => {
   const section = uiConfig.section

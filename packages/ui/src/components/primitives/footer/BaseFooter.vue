@@ -7,6 +7,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
 import { useUiConfig } from '../../../config/ui.runtime'
 import type { FooterLayout, FooterPack, FooterSize, FooterVariant } from './footer.types'
@@ -48,9 +49,6 @@ const resolvedPack = computed(() => {
   return props.pack ?? uiConfig.footer?.pack ?? uiConfig.global.pack
 })
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 const classes = computed(() => {
   const externalClass = attrs.class as string | undefined

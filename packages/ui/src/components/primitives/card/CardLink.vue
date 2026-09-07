@@ -6,6 +6,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, resolveComponent, useAttrs } from 'vue'
 import { useUiConfig } from '../../../config/ui.runtime'
 import type { BaseCardLinkProps, CardLinkAs } from './card.types'
@@ -30,9 +31,6 @@ const emit = defineEmits<{
 const attrs = useAttrs()
 const uiConfig = useUiConfig()
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 // Allow `to` to infer RouterLink when as is left as the default.
 const resolvedAs = computed<CardLinkAs>(() => {

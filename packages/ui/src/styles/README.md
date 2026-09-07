@@ -35,7 +35,7 @@ styles/
 | Layer           | Owns                                                     | Must never own                           |
 | --------------- | -------------------------------------------------------- | ---------------------------------------- |
 | Theme tokens    | Semantic colors and effects                              | Type metrics, component structure        |
-| Component CSS   | Structure and safe component defaults                    | Tenant colors, page composition          |
+| Component CSS   | Shared family contracts plus primitive/pattern-scoped structure and safe defaults | Tenant colors, unrelated pattern composition |
 | UI pack         | Cohesive component treatment and contextual type aliases | Color palette, global type metrics, APIs |
 | Typography pack | Global `--type-*` role metrics                           | Component selectors, font families       |
 | Font selection  | `--font-body`, `--font-display`, `--font-mono`           | Hierarchy and component treatment        |
@@ -58,9 +58,9 @@ tenant colors. The required semantic tokens are:
 
 ### Purpose and supported keys
 
-A UI pack is a selectable, cross-component visual language. It owns decoration, shape treatment,
-borders, shadows, component density treatment, interaction treatment, and contextual typography
-aliases. It does not own theme colors or typography metrics.
+A UI pack is a selectable, cross-component visual language. It owns decoration, visual shape treatment,
+borders, shadows, pack-specific spacing character within existing hooks, interaction treatment, and contextual
+typography aliases. It does not own theme colors, typography metrics, or configured radius/density selection.
 
 Supported keys: `default`, `lux`, `classic`, `minimal`, `block`, `soft`, `glass`, `editorial`,
 `neon`, `corporate`, `paper`, `chaos`, and `fantasy`. Each has one file in `styles/systems/ui-packs/`, is imported by
@@ -69,7 +69,7 @@ Supported keys: `default`, `lux`, `classic`, `minimal`, `block`, `soft`, `glass`
 ### Required file and coverage
 
 Create exactly one file: `styles/systems/ui-packs/<pack-key>.css`, using lowercase kebab-case. A supported
-pack must provide deliberate treatment for every currently pack-aware family:
+pack must deliberately audit every currently pack-aware family:
 
 ```text
 button, badge, card, input, textarea, input shell, select, select shell, file input,
@@ -95,6 +95,9 @@ Calendar inherits pack treatment through its `BaseCard` root. Coordinated child 
 from their pack-aware family root. The package does not contain a separate pack-coverage registry; inspect
 the selectors in each pack stylesheet when auditing coverage.
 
+An audit may choose direct treatment, a shared custom-property hook, inherited treatment, or the valid
+shared/default fallback. Deliberate coverage does not require a bespoke selector for every family.
+
 ### Required variables
 
 UI packs define no required color values; they consume the Theme tokens above and current-surface
@@ -112,8 +115,8 @@ Theme token. A pack may provide documented contextual aliases, mapping them to g
 
 ### Create a UI pack
 
-1. Copy `systems/ui-packs/default.css` so no pack-aware family is omitted.
-2. Rename every selector to the new key and replace treatment using semantic tokens.
+1. Use `systems/ui-packs/default.css` as the complete audit/selector reference so no family is overlooked.
+2. Add selectors for the families that need distinct treatment and record base/inherited fallback choices during review.
 3. Implement hover, active, `:focus-visible`, disabled, validation, and checked/selected states.
 4. Import the file in `styles/index.css` before `foundation/surfaces.css` and `systems/motion.css`.
 5. Add the key to `UiPack` in `config/ui.types.ts` and update any enumerated config documentation.
@@ -206,3 +209,11 @@ Motion lives in `systems/motion.css` and loads after packs. Pack base transition
 
 Keep `styles/index.css` in this order: foundation and selected systems, component base CSS, all UI
 packs, semantic surfaces, then motion overrides.
+
+## Component-file ownership
+
+`components/base-card.css` owns only the shared `BaseCard`/`CardLink` surface contract. It is not a destination
+for individual card-pattern selectors. Structure unique to a card primitive may live in that primitive's scoped
+SFC style; structure, layout, and responsive behavior unique to a pattern belong in the pattern's scoped SFC
+style. Routine component creation must not modify packs, typography, font, color/theme, motion, configuration, or
+shared BaseCard CSS unless the task explicitly requests a change to that owning system.

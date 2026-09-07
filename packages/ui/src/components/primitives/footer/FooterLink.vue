@@ -13,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
 
 defineOptions({
@@ -43,9 +44,6 @@ const linkAttrs = computed(() => {
   return rest
 })
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 const classes = computed(() => {
   const externalClass = attrs.class as string | undefined

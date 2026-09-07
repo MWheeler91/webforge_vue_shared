@@ -1,31 +1,50 @@
 <template>
   <BaseCard
+    class="ui-text-list-card"
     :as="props.as"
     :variant="props.variant"
     :padding="props.padding"
     :interactive="props.interactive"
+    :unstyled="props.unstyled"
   >
-    <small v-if="props.eyebrow" class="text-list-card__eyebrow text-brand">
-      {{ props.eyebrow }}
-    </small>
+    <component
+      :is="eyebrow.as ?? 'small'"
+      v-if="eyebrow"
+      class="text-list-card__eyebrow text-brand"
+      :data-emphasis="eyebrow.emphasis"
+      >{{ eyebrow.text }}</component
+    >
 
-    <CardTitle v-if="props.title" as="h3">{{ props.title }}</CardTitle>
-    <p v-if="props.body" class="text-secondary">{{ props.body }}</p>
+    <CardTitle v-if="title" :as="title.as ?? 'h3'" :data-emphasis="title.emphasis">{{
+      title.text
+    }}</CardTitle>
+    <component
+      :is="body.as ?? 'p'"
+      v-if="body"
+      class="text-secondary"
+      :data-emphasis="body.emphasis"
+      >{{ body.text }}</component
+    >
 
     <ul
       v-if="normalizedItems.length"
       class="text-list-card__items"
-      :class="{ 'text-list-card__items--bulleted': props.layout === 'bulleted' }"
+      :class="{ 'text-list-card__items--bulleted': layout === 'bulleted' }"
     >
       <li v-for="(item, index) in normalizedItems" :key="index">
-        <span class="text-list-card__item-title">{{ item.title }}</span>
+        <component
+          :is="item.content.as ?? 'span'"
+          class="text-list-card__item-title"
+          :data-emphasis="item.content.emphasis"
+          >{{ item.content.text }}</component
+        >
         <span v-if="item.description" class="text-list-card__item-description">
           {{ item.description }}
         </span>
       </li>
     </ul>
 
-    <CardFooter v-if="props.footer">{{ props.footer }}</CardFooter>
+    <CardFooter v-if="footer" :data-emphasis="footer.emphasis">{{ footer.text }}</CardFooter>
   </BaseCard>
 </template>
 
@@ -34,6 +53,7 @@ import { computed } from 'vue'
 import BaseCard from '../../../primitives/card/BaseCard.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardTitle from '../../../primitives/card/CardTitle.vue'
+import { textPayload, type UiTextPayload } from '../../../primitives/card/card.types.ts'
 import type { TextListCardItem, TextListCardProps } from './TextListCard.types.ts'
 
 const props = withDefaults(defineProps<TextListCardProps>(), {
@@ -44,8 +64,20 @@ const props = withDefaults(defineProps<TextListCardProps>(), {
   layout: 'bulleted',
 })
 
-const normalizedItems = computed<TextListCardItem[]>(() =>
-  props.items.map((item) => (typeof item === 'string' ? { title: item } : item)),
+const eyebrow = computed(() => textPayload(props.eyebrow))
+const title = computed(() => textPayload(props.title))
+const body = computed(() => textPayload(props.body))
+const footer = computed(() => textPayload(props.footer))
+const layout = computed<TextListCardProps['layout']>(() =>
+  props.layout === 'divided' ? 'divided' : 'bulleted',
+)
+const normalizedItems = computed<Array<{ content: UiTextPayload; description?: string }>>(() =>
+  props.items.map((item) => {
+    if (typeof item === 'string' || 'text' in item) {
+      return { content: textPayload(item) as UiTextPayload }
+    }
+    return { content: { text: item.title }, description: item.description }
+  }),
 )
 </script>
 

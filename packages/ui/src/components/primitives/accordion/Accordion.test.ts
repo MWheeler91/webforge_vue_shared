@@ -1,10 +1,13 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
+import { resetUiConfig, setUiConfig } from '../../../config/ui.runtime.ts'
 import BaseAccordion from './BaseAccordion.vue'
 import AccordionItem from './AccordionItem.vue'
 import AccordionPanel from './AccordionPanel.vue'
 import AccordionTrigger from './AccordionTrigger.vue'
 describe('Accordion', () => {
+  afterEach(() => resetUiConfig())
+
   it('opens an item', async () => {
     const wrapper = mount({
       components: { BaseAccordion, AccordionItem, AccordionTrigger, AccordionPanel },
@@ -37,6 +40,19 @@ describe('Accordion', () => {
     const wrapper = mount(BaseAccordion, { props: { borderless: true } })
 
     expect(wrapper.classes()).toContain('ui-accordion--borderless')
+  })
+
+  it('uses the resolved accordion motion modifier without changing slide open/close semantics', async () => {
+    setUiConfig({ accordion: { motion: 'reduced' } })
+    const wrapper = mount({
+      components: { BaseAccordion, AccordionItem, AccordionTrigger, AccordionPanel },
+      template:
+        '<BaseAccordion animation="slide"><AccordionItem value="one"><AccordionTrigger>One</AccordionTrigger><AccordionPanel>Content</AccordionPanel></AccordionItem></BaseAccordion>',
+    })
+
+    expect(wrapper.get('.ui-accordion').classes()).toContain('ui-accordion--motion-reduced')
+    await wrapper.get('button').trigger('click')
+    expect(wrapper.get('button').attributes('aria-expanded')).toBe('true')
   })
 
 })

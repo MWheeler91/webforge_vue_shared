@@ -39,8 +39,14 @@ export interface UiSectionCardData {
   key?: string | null
   componentKey: string
   config?: Record<string, unknown>
-  elements?: Record<string, unknown>
+  interactive?: boolean
+  divider?: boolean
+  elements?: UiSectionCardElements
   metaData?: Record<string, unknown> | null
+}
+
+export interface UiSectionCardElements extends Record<string, unknown> {
+  text?: Record<string, import('../card/card.types').UiTextPayload[]>
 }
 
 export interface UiSectionCardCollection {

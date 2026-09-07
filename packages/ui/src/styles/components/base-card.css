@@ -1,3 +1,13 @@
+/*
+ * BaseCard and shared card-surface CSS only.
+ *
+ * This file owns the reusable `.ui-card` surface contract: base mechanics,
+ * shared variants, padding, resolved radius/density, interaction affordances,
+ * and CardLink disabled/link mechanics. Pattern-specific selectors and layouts
+ * (FeatureCard, PricingCard, MenuCard, QuoteCard, StatCard, and similar) belong
+ * with those patterns, not in this stylesheet.
+ */
+
 /* =========================================================
    Base
    ========================================================= */
@@ -155,7 +165,7 @@
 }
 
 /* =========================================================
-   Interactive whole-card link
+   Interactive card affordance
    ========================================================= */
 
 .ui-card--interactive {

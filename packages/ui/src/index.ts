@@ -111,6 +111,8 @@ export type {
   UiCardVerticalAlignment,
   UiElementCollection,
   UiMediaPayload,
+  UiTextAs,
+  UiTextEmphasis,
   UiTextPayload,
   UiCollectionInput,
 } from './components/primitives/card/card.types.ts'
@@ -165,6 +167,7 @@ export type {
   SectionTitleWrap, SectionLayout, SectionGrid, SectionGap, SharedSectionProps, SectionCardCollection,
   SectionCardInputCollection, SectionCardInput, ResolvedSectionCard, ResolvedSectionCardCollection,
   ResolvedSectionProps, UiSectionData, UiSectionCardData, UiSectionCardCollection,
+  UiSectionCardElements,
 } from './components/primitives/section/section.types.ts'
 export { sectionCollectionItems } from './components/primitives/section/section.types.ts'
 
@@ -324,6 +327,9 @@ export {
   dropdownPreview,
   dropdownPackPreview,
 } from './components/primitives/dropdown/Dropdown.preview.ts'
+
+// Dropdown patterns
+export * from './components/patterns/dropdowns/index.ts'
 
 // Table
 export { default as BaseTable } from './components/primitives/table/BaseTable.vue'

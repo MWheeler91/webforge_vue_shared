@@ -34,6 +34,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, resolveComponent, useAttrs } from 'vue'
 import { useUiConfig } from '../../../config/ui.runtime'
 import type {
@@ -91,9 +92,6 @@ const emit = defineEmits<{
 const attrs = useAttrs()
 const uiConfig = useUiConfig()
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 const isDisabled = computed(() => props.disabled || props.loading)
 

@@ -77,19 +77,6 @@
     grid-template-rows var(--ui-accordion-motion-duration, 280ms) ease,
     opacity var(--ui-accordion-motion-duration, 280ms) ease;
 }
-.ui-accordion--motion-none .ui-accordion__panel--animation-slide,
-.ui-accordion--motion-none .ui-accordion__trigger,
-.ui-accordion--motion-reduced .ui-accordion__panel--animation-slide,
-.ui-accordion--motion-reduced .ui-accordion__trigger {
-  --ui-accordion-motion-duration: 0ms;
-  transition-duration: 0ms;
-}
-.ui-accordion--motion-normal {
-  --ui-accordion-motion-duration: 280ms;
-}
-.ui-accordion--motion-expressive {
-  --ui-accordion-motion-duration: 420ms;
-}
 .ui-accordion__panel--animation-slide.ui-accordion__panel--open {
   grid-template-rows: 1fr;
   opacity: 1;

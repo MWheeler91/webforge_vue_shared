@@ -49,6 +49,7 @@
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, ref, useAttrs } from 'vue'
 import { useUiConfig } from '../../../config/ui.runtime'
 import type {
@@ -145,9 +146,6 @@ const displayText = computed(() => {
   return `${selectedFiles.value.length} files selected`
 })
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 const wrapperClasses = computed(() => {
   const externalClass = attrs.class as string | undefined

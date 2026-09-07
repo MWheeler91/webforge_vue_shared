@@ -65,7 +65,9 @@ export interface UiElementCollection<T> {
 export type UiCollectionInput<T> = UiElementCollection<T> | readonly T[]
 export type UiTextInput = UiTextPayload | string
 
-export interface UiTextPayload { text: string; as?: 'h2' | 'h3' | 'h4' | 'p' | 'span' }
+export type UiTextAs = 'h2' | 'h3' | 'h4' | 'p' | 'span'
+export type UiTextEmphasis = 'prominent' | 'standard' | 'compact'
+export interface UiTextPayload { text: string; as?: UiTextAs; emphasis?: UiTextEmphasis }
 export interface UiBadgePayload { text: string; variant?: BadgeVariant; tone?: BadgeTone; size?: BadgeSize; leading?: BadgeLeading; unstyled?: boolean }
 export interface UiMediaPayload { src: string; alt?: string }
 export interface UiCardFooterPayload { text?: string; meta?: readonly UiTextPayload[] }
@@ -82,8 +84,9 @@ export type UiCardBorder = 'none' | 'subtle' | 'strong'
 export type UiCardRadius = 'inherit' | 'square' | 'soft' | 'rounded'
 
 /**
- * Stable, broad card payload. Every `Ui*Card` accepts every top-level field;
- * each pattern renders only the fields meaningful to its semantic role.
+ * Broad normalized payload for generic section/demo card composition.
+ * Production patterns may expose narrower semantic prop contracts and reuse
+ * only the shared field types that are meaningful to their role.
  */
 export interface SharedCardProps extends BaseCardProps {
   /** Allowlisted renderer hint consumed by the section payload adapter. */

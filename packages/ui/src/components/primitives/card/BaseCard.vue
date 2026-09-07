@@ -1,11 +1,12 @@
 <template>
-  <!-- Structural card only. Navigation belongs in BaseCardLink. -->
+  <!-- Structural card only. Whole-card navigation belongs in CardLink. -->
   <component :is="as" v-bind="cardAttrs" :class="classes">
     <slot />
   </component>
 </template>
 
 <script setup lang="ts">
+import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
 import { useUiConfig } from '../../../config/ui.runtime'
 import type { BaseCardProps } from './card.types'
@@ -26,9 +27,6 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
 const attrs = useAttrs()
 const uiConfig = useUiConfig()
 
-function cn(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(' ')
-}
 
 // External class is merged into the computed class string.
 const externalClass = computed(() => attrs.class as string | undefined)

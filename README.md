@@ -19,12 +19,15 @@ npm test
 npm run build
 ```
 
-The applications are not wired to these packages yet. That migration should happen
-after the package-local aliases are cleaned up and the first package build is green.
+The root playground is wired as a consuming application through the published package names and stylesheet
+entrypoint. Other client applications may migrate independently; package integration is explicit and does not
+imply automatic bootstrap/configuration behavior.
 
 ## Architecture documentation
 
 Start with [the shared-package overview](./docs/shared-package-overview.md). Focused guides are
 available for [site-core](./docs/site-core.md) and the [UI architecture](./docs/ui/architecture.md),
-[components](./docs/ui/components.md), [styling](./docs/ui/styling-system.md), [configuration](./docs/ui/configuration.md),
-and [UI packs](./docs/ui/ui-packs.md). Contributors should also read [AGENTS.md](./AGENTS.md).
+[components](./docs/ui/components.md), [card pattern development](./docs/ui/cards.md),
+[Django section/card payload example](./docs/ui/example_api_payload.md),
+[styling](./docs/ui/styling-system.md), [configuration](./docs/ui/configuration.md), and
+[UI packs](./docs/ui/ui-packs.md). Contributors should also read [AGENTS.md](./AGENTS.md).
