@@ -151,6 +151,14 @@ function select(value: TValue) {
   width: 100%;
 }
 
+/* The trigger shows a single selected label; keep it to one line like a native select. */
+.ui-data-dropdown :deep(.ui-dropdown__trigger) {
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .ui-data-dropdown :deep(.ui-dropdown__menu) {
   box-sizing: border-box;
   width: 100%;
