@@ -11,3 +11,6 @@ export { default as TextListCard } from './text-list-card/TextListCard.vue'
 export type { TextListCardItem, TextListCardLayout, TextListCardProps } from './text-list-card/TextListCard.types.ts'
 
 export * from './media-card/index.ts'
+
+export { default as QuoteCard } from './quote-card/QuoteCard.vue'
+export type { QuoteCardClamp, QuoteCardLayout, QuoteCardProps } from './quote-card/QuoteCard.types.ts'

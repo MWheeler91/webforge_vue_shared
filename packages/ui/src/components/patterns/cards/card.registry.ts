@@ -3,6 +3,7 @@ import TextCard from './text-card/TextCard.vue'
 import TextListCard from './text-list-card/TextListCard.vue'
 import FeatureCard from './feature-card/FeatureCard.vue'
 import MediaCard from './media-card/MediaCard.vue'
+import QuoteCard from './quote-card/QuoteCard.vue'
 
 /** Shared card keys are the stable names returned by the page API. */
 export const cardRegistry = {
@@ -10,6 +11,7 @@ export const cardRegistry = {
   'text-list-card': TextListCard,
   'feature-card': FeatureCard,
   'media-card': MediaCard,
+  'quote-card': QuoteCard,
 } as const satisfies Readonly<Record<string, Component>>
 
 export type CardPatternKey = keyof typeof cardRegistry

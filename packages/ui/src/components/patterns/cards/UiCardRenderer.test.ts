@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import FeatureCard from './feature-card/FeatureCard.vue'
 import TextListCard from './text-list-card/TextListCard.vue'
 import MediaCard from './media-card/MediaCard.vue'
+import QuoteCard from './quote-card/QuoteCard.vue'
 import UiCardRenderer from './UiCardRenderer.vue'
 
 describe('UiCardRenderer', () => {
@@ -59,6 +60,92 @@ describe('UiCardRenderer', () => {
     })
 
     expect(wrapper.findComponent(MediaCard).props('caption')).toEqual({ text: 'Image-level caption' })
+  })
+
+  it('normalizes a quote card contract and maps the avatar image bucket', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'quote-card',
+          config: { layout: 'stacked', variant: 'muted', padding: 'lg', as: 'section' },
+          interactive: true,
+          elements: {
+            text: {
+              quote: [{ text: 'It reshaped our workflow.', as: 'p', emphasis: 'prominent' }],
+              author: [{ text: 'Jordan Lee, Operations lead', as: 'span' }],
+              title: [{ text: 'Ignored — quote cards have no title' }],
+            },
+            images: { avatar: [{ image_url: '/jordan.jpg', alt_text: 'Jordan Lee' }] },
+          },
+        },
+      },
+    })
+
+    const card = wrapper.findComponent(QuoteCard)
+    expect(card.props('layout')).toBe('stacked')
+    expect(card.props('quote')).toEqual({ text: 'It reshaped our workflow.', as: 'p', emphasis: 'prominent' })
+    expect(card.props('author')).toEqual({ text: 'Jordan Lee, Operations lead', as: 'span' })
+    expect(card.props('avatar')).toEqual({ src: '/jordan.jpg', alt: 'Jordan Lee' })
+    expect(card.props('as')).toBeUndefined()
+    expect(card.props('title')).toBeUndefined()
+    expect(wrapper.get('.ui-quote-card').classes()).toContain('ui-quote-card--layout-stacked')
+    expect(wrapper.get('.ui-card').element.tagName).toBe('ARTICLE')
+    expect(wrapper.get('.ui-card').classes()).toEqual(
+      expect.arrayContaining(['ui-card--variant-muted', 'ui-card--padding-lg', 'ui-card--interactive']),
+    )
+    expect(wrapper.text()).not.toContain('Ignored')
+  })
+
+  it('omits an API quote card when its quotation is absent', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'quote-card',
+          config: {},
+          elements: { text: { author: [{ text: 'Only an author' }] } },
+        },
+      },
+    })
+    expect(wrapper.find('.ui-quote-card').exists()).toBe(false)
+  })
+
+  it('falls back to the default quote layout for an unknown layout value', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'quote-card',
+          config: { layout: 'nonsense' },
+          elements: { text: { quote: [{ text: 'A quote' }] } },
+        },
+      },
+    })
+    expect(wrapper.findComponent(QuoteCard).props('layout')).toBe('default')
+  })
+
+  it('maps the quote-card clamp config to a numeric prop and ignores invalid values', () => {
+    const clamped = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'quote-card',
+          config: { clamp: '4' },
+          elements: { text: { quote: [{ text: 'A quote' }] } },
+        },
+      },
+    })
+    expect(clamped.findComponent(QuoteCard).props('clamp')).toBe(4)
+
+    for (const clamp of ['none', '', '9', undefined]) {
+      const wrapper = mount(UiCardRenderer, {
+        props: {
+          card: {
+            componentKey: 'quote-card',
+            config: { clamp },
+            elements: { text: { quote: [{ text: 'A quote' }] } },
+          },
+        },
+      })
+      expect(wrapper.findComponent(QuoteCard).props('clamp')).toBeNull()
+    }
   })
 
   it('normalizes a grouped API card into FeatureCard props', () => {

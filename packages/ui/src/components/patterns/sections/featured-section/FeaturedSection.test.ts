@@ -34,3 +34,53 @@ describe('FeaturedSection with MediaCard', () => {
     expect(wrapper.get('.ui-media-card__actions').text()).toContain('Read')
   })
 })
+
+describe('FeaturedSection with QuoteCard', () => {
+  it('drives a normalized quote card from UiSectionData through UiCardRenderer', () => {
+    const wrapper = mount(FeaturedSection, {
+      props: {
+        section: {
+          key: 'voices',
+          componentKey: 'featured-section',
+          config: {},
+          elements: { text: { title: [{ text: 'Voices' }] } },
+          cards: {
+            grouped: {
+              voices: [
+                {
+                  key: 'voice-1',
+                  componentKey: 'quote-card',
+                  config: { layout: 'stacked' },
+                  elements: {
+                    text: {
+                      quote: [{ text: 'The section made the right information easy to find.' }],
+                      author: [{ text: 'Jordan Lee, Operations lead' }],
+                    },
+                    images: { avatar: [{ image_url: '/jordan.jpg', alt_text: 'Jordan Lee' }] },
+                  },
+                },
+                {
+                  key: 'voice-2',
+                  componentKey: 'quote-card',
+                  config: {},
+                  elements: { text: { author: [{ text: 'No quote here' }] } },
+                },
+              ],
+            },
+          },
+        },
+      },
+    })
+
+    const cards = wrapper.findAll('.ui-quote-card')
+    // The second card has no quotation and must not render.
+    expect(cards).toHaveLength(1)
+    expect(cards[0]!.classes()).toContain('ui-quote-card--layout-stacked')
+    expect(wrapper.get('blockquote.ui-quote-card__quote').text()).toBe(
+      'The section made the right information easy to find.',
+    )
+    expect(wrapper.get('.ui-quote-card__author').text()).toBe('Jordan Lee, Operations lead')
+    expect(wrapper.get('.ui-quote-card__avatar').attributes('alt')).toBe('Jordan Lee')
+    expect(wrapper.get('.ui-quote-card .ui-card').element.tagName).toBe('ARTICLE')
+  })
+})

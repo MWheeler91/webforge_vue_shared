@@ -1,5 +1,9 @@
 <template>
-  <component v-if="isValidMediaCard" :is="cardComponent" v-bind="cardProps" />
+  <component
+    v-if="isValidMediaCard && isValidQuoteCard"
+    :is="cardComponent"
+    v-bind="cardProps"
+  />
 </template>
 
 <script setup lang="ts">
@@ -14,6 +18,7 @@ import type {
   UiTextPayload,
 } from '../../primitives/card/card.types.ts'
 import { resolveCardComponent } from './card.registry.ts'
+import type { QuoteCardClamp, QuoteCardLayout } from './quote-card/QuoteCard.types.ts'
 import type { UiSectionCardData } from '../../primitives/section/section.types.ts'
 
 const props = defineProps<{ card: UiSectionCardData }>()
@@ -88,10 +93,14 @@ function normalizeActions(): CardAction[] {
   })
 }
 
-function normalizeMedia(): UiMediaPayload | null {
-  const image = elements.value.images?.hero?.[0]
+function normalizeImage(key: string): UiMediaPayload | null {
+  const image = elements.value.images?.[key]?.[0]
   if (!image?.image_url) return null
   return { src: image.image_url, alt: image.alt_text ?? undefined }
+}
+
+function normalizeMedia(): UiMediaPayload | null {
+  return normalizeImage('hero')
 }
 
 function normalizeCaption(): UiTextPayload | null {
@@ -109,6 +118,23 @@ const isMediaCard = computed(() => props.card.componentKey === 'media-card')
 const isValidMediaCard = computed(() =>
   !isMediaCard.value || Boolean(normalizeMedia() && scalarText('title')?.text?.trim()),
 )
+const isQuoteCard = computed(() => props.card.componentKey === 'quote-card')
+const isValidQuoteCard = computed(
+  () => !isQuoteCard.value || Boolean(scalarText('quote')?.text?.trim()),
+)
+const QUOTE_CARD_LAYOUTS = ['default', 'lead', 'stacked', 'compact'] as const
+const quoteLayout = computed<QuoteCardLayout>(() =>
+  (QUOTE_CARD_LAYOUTS as readonly string[]).includes(layout.value)
+    ? (layout.value as QuoteCardLayout)
+    : 'default',
+)
+const QUOTE_CARD_CLAMP = ['3', '4', '5'] as const
+const quoteClamp = computed<QuoteCardClamp | null>(() => {
+  const raw = String(config.value.clamp ?? '')
+  return (QUOTE_CARD_CLAMP as readonly string[]).includes(raw)
+    ? (Number(raw) as QuoteCardClamp)
+    : null
+})
 const isTextListCard = computed(
   () =>
     props.card.componentKey === 'text-list-card' ||
@@ -117,37 +143,47 @@ const isTextListCard = computed(
 
 const cardProps = computed(() => ({
   // Dynamic API values are narrowed at the shared renderer boundary.
-  as: (config.value.as ?? 'article') as CardAs,
+  ...(isQuoteCard.value ? {} : { as: (config.value.as ?? 'article') as CardAs }),
   variant: (config.value.variant ?? 'surface') as CardVariant,
   padding: (config.value.padding ?? 'md') as CardPadding,
-  ...(!isMediaCard.value ? { eyebrow: scalarText('eyebrow') } : {}),
-  title: scalarText('title'),
-  body: scalarText('body'),
+  ...(!isMediaCard.value && !isQuoteCard.value ? { eyebrow: scalarText('eyebrow') } : {}),
+  ...(isQuoteCard.value ? {} : { title: scalarText('title'), body: scalarText('body') }),
   interactive: Boolean(props.card.interactive),
-  ...(isFeatureCard.value
+  ...(isQuoteCard.value
     ? {
-        unstyled: Boolean(config.value.unstyled),
-        icon: scalarText('icon')?.text ?? null,
-        layout: layout.value === 'split' ? 'split' : 'stacked',
-        mediaAspect: config.value.media_aspect === 'square' ? 'square' : 'auto',
-        media: normalizeMedia(),
-        badges: normalizeBadges(),
-        actions: normalizeActions(),
+        layout: quoteLayout.value,
+        clamp: quoteClamp.value,
+        quote: scalarText('quote'),
+        author: scalarText('author'),
+        avatar: normalizeImage('avatar'),
       }
-    : isMediaCard.value
+    : isFeatureCard.value
       ? {
-          layout: ['framed', 'immersive'].includes(layout.value)
-            ? layout.value
-            : 'framed',
+          unstyled: Boolean(config.value.unstyled),
+          icon: scalarText('icon')?.text ?? null,
+          layout: layout.value === 'split' ? 'split' : 'stacked',
+          mediaAspect: config.value.media_aspect === 'square' ? 'square' : 'auto',
           media: normalizeMedia(),
-          caption: normalizeCaption(),
-          credit: scalarText('credit'),
+          badges: normalizeBadges(),
           actions: normalizeActions(),
         }
-    : {
-        footer: scalarText('footer'),
-      }),
-  ...(!isFeatureCard.value && !isTextListCard.value && !isMediaCard.value
+      : isMediaCard.value
+        ? {
+            layout: ['framed', 'immersive'].includes(layout.value)
+              ? layout.value
+              : 'framed',
+            media: normalizeMedia(),
+            caption: normalizeCaption(),
+            credit: scalarText('credit'),
+            actions: normalizeActions(),
+          }
+        : {
+            footer: scalarText('footer'),
+          }),
+  ...(!isFeatureCard.value &&
+  !isTextListCard.value &&
+  !isMediaCard.value &&
+  !isQuoteCard.value
     ? { divider: Boolean(props.card.divider) }
     : {}),
   ...(isTextListCard.value ? { items: groupedText('list'), layout: layout.value } : {}),
