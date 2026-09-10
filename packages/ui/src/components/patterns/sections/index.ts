@@ -6,3 +6,5 @@ export { default as SplitTextSection } from './split-text-section/SplitTextSecti
 export type { SplitTextSectionLayout, SplitTextSectionPlacement, SplitTextSectionProps } from './split-text-section/SplitTextSection.types.ts'
 export { default as SplitCardSection } from './split-card-section/SplitCardSection.vue'
 export type { SplitCardSectionLayout, SplitCardSectionPlacement, SplitCardSectionProps } from './split-card-section/SplitCardSection.types.ts'
+export { default as TestimonialSection } from './testimonial-section/TestimonialSection.vue'
+export type { TestimonialSectionDensity, TestimonialSectionLayout, TestimonialSectionProps } from './testimonial-section/TestimonialSection.types.ts'

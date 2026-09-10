@@ -155,6 +155,11 @@ export * from './components/patterns/cards/index.ts'
 export * from './components/patterns/sections/index.ts'
 
 // ---------------------------------------------------------
+// Restaurant (menu card + menu section patterns)
+// ---------------------------------------------------------
+export * from './components/restaurant/index.ts'
+
+// ---------------------------------------------------------
 // Section primitives
 // ---------------------------------------------------------
 export { default as BaseSection } from './components/primitives/section/BaseSection.vue'
