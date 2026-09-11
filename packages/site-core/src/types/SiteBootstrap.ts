@@ -51,6 +51,24 @@ export type BusinessHours = {
   is_appointment_only: boolean
 }
 
+export type LocationAddress = {
+  label: string | null
+  line_1: string
+  line_2: string
+  city: string
+  state: string
+  postal_code: string
+  country: string
+  google_maps_embed_url: string | null
+}
+
+export type Location = {
+  name: string
+  phone: string | null
+  address: LocationAddress
+  hours: BusinessHours[]
+}
+
 export type Social = {
   name: string
   icon: string | null
@@ -166,6 +184,6 @@ export type SiteBootstrapPayload = {
   ui_config: ApiUiConfig
   navbar: ApiNavbar
   footer?: ApiFooter | Record<string, never>
-  hours: BusinessHours[]
+  locations: Location[]
   socials: Social[]
 }

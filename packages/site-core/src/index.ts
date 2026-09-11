@@ -10,7 +10,12 @@ export * from './types/ApiEnvelope'
 export * from './types/ContactFormData'
 export * from './types/PagePayload'
 export type { SiteAPIPayload } from './types/Site'
-export type { SiteBootstrapPayload } from './types/SiteBootstrap'
+export type {
+  SiteBootstrapPayload,
+  Location,
+  LocationAddress,
+  BusinessHours,
+} from './types/SiteBootstrap'
 export * from './types/api/ColorThemePayload'
 export * from './types/api/UiThemePayload'
 export * from './utils/formatPhone'

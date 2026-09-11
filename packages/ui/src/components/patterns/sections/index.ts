@@ -1,5 +1,15 @@
 export { default as FeaturedSection } from './featured-section/FeaturedSection.vue'
 export type { FeaturedSectionLayout, FeaturedSectionProps } from './featured-section/FeaturedSection.types.ts'
+export { default as HeroSection } from './hero-section/HeroSection.vue'
+export type {
+  HeroSectionAlign,
+  HeroSectionLayout,
+  HeroSectionMinHeight,
+  HeroSectionPlacement,
+  HeroSectionProps,
+} from './hero-section/HeroSection.types.ts'
+export { default as CtaSection } from './cta-section/CtaSection.vue'
+export type { CtaSectionLayout, CtaSectionProps } from './cta-section/CtaSection.types.ts'
 export { default as SplitMediaSection } from './split-media-section/SplitMediaSection.vue'
 export type { SplitMediaSectionLayout, SplitMediaSectionPlacement, SplitMediaSectionProps } from './split-media-section/SplitMediaSection.types.ts'
 export { default as SplitTextSection } from './split-text-section/SplitTextSection.vue'
