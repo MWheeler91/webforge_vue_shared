@@ -29,10 +29,10 @@ import BaseNavbar from '../../../primitives/navigation/BaseNavbar.vue'
 import NavbarBrand from '../../../primitives/navigation/NavbarBrand.vue'
 import NavbarNav from '../../../primitives/navigation/NavbarNav.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedNavbarProps } from '../../../primitives/navigation/navigation.types.ts'
+import type { DisclosureNavbarProps } from './DisclosureNavbar.types.ts'
 import UiNavbarActions from '../shared/UiNavbarActions.vue'
 import UiNavbarLinks from '../shared/UiNavbarLinks.vue'
-const props = defineProps<SharedNavbarProps>()
+const props = defineProps<DisclosureNavbarProps>()
 const menuItems = computed(() => collectionItems(props.menus))
 </script>
 <style scoped>

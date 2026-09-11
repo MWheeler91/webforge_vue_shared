@@ -3,7 +3,7 @@
     v-if="items.length"
     :id="listId ?? undefined"
     class="ui-contact-list"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="ariaLabel ?? 'Contacts'"
   >
     <article v-for="(item, index) in items" :key="item.id ?? index">
       <img
@@ -12,9 +12,9 @@
         :alt="(item.avatar ?? item.media)!.alt ?? ''"
       />
       <div>
-        <h3 v-if="item.heading">{{ item.heading.text }}</h3>
-        <span v-if="item.role">{{ item.role.text }}</span
-        ><a v-for="(link, linkIndex) in contacts(item)" :key="linkIndex" :href="link.href">{{
+        <UiText v-if="item.heading" :payload="item.heading" fallback="h3" />
+        <UiText v-if="item.role" :payload="item.role" fallback="span"
+        /><a v-for="(link, linkIndex) in contacts(item)" :key="linkIndex" :href="link.href">{{
           link.label
         }}</a>
       </div>
@@ -23,9 +23,11 @@
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types'
-import type { SharedListProps, UiListItemPayload } from '../../../primitives/list/list.types'
-const props = defineProps<SharedListProps>()
+import type { UiListItemPayload } from '../../../primitives/list/list.types'
+import type { ContactListProps } from './ContactList.types.ts'
+const props = defineProps<ContactListProps>()
 const items = computed(() => collectionItems(props.items))
 function contacts(item: UiListItemPayload) {
   return collectionItems(item.contact)

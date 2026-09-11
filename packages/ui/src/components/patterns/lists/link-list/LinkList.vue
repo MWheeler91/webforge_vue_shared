@@ -14,8 +14,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { collectionItems } from '../../../primitives/card/card.types'
-import type { SharedListProps } from '../../../primitives/list/list.types'
-const props = defineProps<SharedListProps>()
+import type { LinkListProps } from './LinkList.types.ts'
+const props = defineProps<LinkListProps>()
 const items = computed(() => collectionItems(props.items))
 </script>
 <style scoped>

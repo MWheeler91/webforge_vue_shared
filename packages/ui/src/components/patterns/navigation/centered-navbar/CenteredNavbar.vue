@@ -21,10 +21,10 @@
 <script setup lang="ts">
 import BaseNavbar from '../../../primitives/navigation/BaseNavbar.vue'
 import NavbarBrand from '../../../primitives/navigation/NavbarBrand.vue'
-import type { SharedNavbarProps } from '../../../primitives/navigation/navigation.types.ts'
+import type { CenteredNavbarProps } from './CenteredNavbar.types.ts'
 import UiNavbarActions from '../shared/UiNavbarActions.vue'
 import UiNavbarLinks from '../shared/UiNavbarLinks.vue'
-defineProps<SharedNavbarProps>()
+defineProps<CenteredNavbarProps>()
 </script>
 <style scoped>
 .ui-centered-navbar__groups {

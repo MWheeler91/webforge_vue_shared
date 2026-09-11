@@ -3,9 +3,9 @@
     v-if="logos.length || heading || body"
     :id="galleryId ?? undefined"
     class="ui-logo-carousel"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiGalleryHeader v-bind="props" />
+    <UiGalleryHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" />
     <div v-if="logos.length" class="ui-logo-carousel__track">
       <template v-for="(logo, index) in logos" :key="logo.id ?? index">
         <img
@@ -20,10 +20,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedMediaGalleryProps } from '../../../primitives/gallery/gallery.types.ts'
+import type { LogoCarouselProps } from './LogoCarousel.types.ts'
 import UiGalleryHeader from '../shared/UiGalleryHeader.vue'
-const props = defineProps<SharedMediaGalleryProps>()
+const props = defineProps<LogoCarouselProps>()
 const logos = computed(() => collectionItems(props.logos ?? props.items))
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Logos',
+)
 </script>
 <style scoped>
 .ui-logo-carousel__track {

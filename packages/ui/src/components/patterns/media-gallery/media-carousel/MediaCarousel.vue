@@ -4,9 +4,9 @@
     :id="galleryId ?? undefined"
     class="ui-media-carousel"
     :aria-roledescription="'carousel'"
-    :aria-label="ariaLabel ?? heading?.text"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiGalleryHeader v-bind="props" />
+    <UiGalleryHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" />
     <div v-if="current" class="ui-media-carousel__stage">
       <button v-if="slides.length > 1" type="button" aria-label="Previous slide" @click="previous">
         ‹
@@ -14,8 +14,8 @@
       <figure>
         <img v-if="current.media" :src="current.media.src" :alt="current.media.alt ?? ''" />
         <figcaption v-if="current.heading || current.body">
-          <strong v-if="current.heading">{{ current.heading.text }}</strong
-          ><span v-if="current.body">{{ current.body.text }}</span>
+          <UiText v-if="current.heading" :payload="current.heading" fallback="span" class="ui-media-carousel__caption-heading"
+          /><UiText v-if="current.body" :payload="current.body" fallback="span" />
         </figcaption>
       </figure>
       <button v-if="slides.length > 1" type="button" aria-label="Next slide" @click="next">
@@ -37,11 +37,15 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedMediaGalleryProps } from '../../../primitives/gallery/gallery.types.ts'
+import type { MediaCarouselProps } from './MediaCarousel.types.ts'
 import UiGalleryHeader from '../shared/UiGalleryHeader.vue'
-const props = defineProps<SharedMediaGalleryProps>()
+import UiText from '../../../primitives/text/UiText.vue'
+const props = defineProps<MediaCarouselProps>()
 const emit = defineEmits<{ (event: 'update:activeIndex', value: number): void }>()
 const slides = computed(() => collectionItems(props.slides ?? props.items))
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Media carousel',
+)
 const selected = ref(Math.max(0, props.activeIndex ?? 0))
 watch(
   () => props.activeIndex,
@@ -84,6 +88,10 @@ function next() {
 }
 .ui-media-carousel figcaption {
   padding: 0.75rem;
+}
+.ui-media-carousel__caption-heading {
+  display: block;
+  font-weight: 700;
 }
 .ui-media-carousel__dots {
   display: flex;

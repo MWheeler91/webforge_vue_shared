@@ -9,23 +9,9 @@
       v-bind="$attrs"
       class="ui-text-list-card__card"
     >
-      <component
-        :is="eyebrow?.as ?? 'small'"
-        v-if="eyebrow"
-        class="ui-text-list-card__eyebrow text-brand"
-        :data-emphasis="eyebrow.emphasis"
-        >{{ eyebrow.text }}</component
-      >
-      <CardTitle v-if="title" :as="title.as ?? 'h3'" :data-emphasis="title.emphasis">{{
-        title.text
-      }}</CardTitle>
-      <component
-        :is="body.as ?? 'p'"
-        v-if="body"
-        class="text-secondary"
-        :data-emphasis="body.emphasis"
-        >{{ body.text }}</component
-      >
+      <UiText v-if="eyebrow" :payload="eyebrow" fallback="span" class="ui-text-list-card__eyebrow text-brand" />
+      <CardTitle v-if="title" :payload="title" />
+      <UiText v-if="body" :payload="body" class="text-secondary" />
 
       <ul
         v-if="normalizedItems.length"
@@ -40,12 +26,7 @@
             <template v-else>&bull;</template>
           </span>
           <span class="ui-text-list-card__item-body">
-            <component
-              :is="item.content.as ?? 'span'"
-              class="ui-text-list-card__item-title"
-              :data-emphasis="item.content.emphasis"
-              >{{ item.content.text }}</component
-            >
+            <UiText :payload="item.content" fallback="span" class="ui-text-list-card__item-title" />
             <span v-if="item.description" class="ui-text-list-card__item-description">
               {{ item.description }}
             </span>
@@ -53,7 +34,7 @@
         </li>
       </ul>
 
-      <CardFooter v-if="footer" :data-emphasis="footer.emphasis">{{ footer.text }}</CardFooter>
+      <CardFooter v-if="footer"><UiText :payload="footer" /></CardFooter>
     </BaseCard>
   </div>
 </template>
@@ -64,6 +45,7 @@ import { Icon } from '@iconify/vue'
 import BaseCard from '../../../primitives/card/BaseCard.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardTitle from '../../../primitives/card/CardTitle.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { textPayload, type UiTextInput, type UiTextPayload } from '../../../primitives/card/card.types.ts'
 import type { TextListCardItem, TextListCardLayout, TextListCardProps } from './TextListCard.types.ts'
 

@@ -13,14 +13,10 @@
         <div class="ui-pricing-card__summary">
           <div v-if="label || title" class="ui-pricing-card__heading">
             <BaseBadge v-if="label" v-bind="label">{{ label.text }}</BaseBadge>
-            <CardTitle v-if="title" :as="title.as ?? 'h3'" :data-emphasis="title.emphasis">{{
-              title.text
-            }}</CardTitle>
+            <CardTitle v-if="title" :payload="title" />
           </div>
           <p v-if="price !== null && price !== undefined" class="ui-pricing-card__price">{{ price }}</p>
-          <CardSubtitle v-if="body" :as="body.as ?? 'p'" :data-emphasis="body.emphasis">{{
-            body.text
-          }}</CardSubtitle>
+          <CardSubtitle v-if="body" :payload="body" />
         </div>
 
         <template v-if="layout !== 'compact' && items.length">

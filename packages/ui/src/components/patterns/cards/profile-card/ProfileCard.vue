@@ -12,15 +12,9 @@
       <CardBody v-if="hasContent" class="ui-profile-card__content">
         <img v-if="avatar" class="ui-profile-card__avatar" :src="avatar.src" :alt="avatar.alt ?? ''" />
         <div v-if="title || subheading || showBody" class="ui-profile-card__copy">
-          <CardTitle v-if="title" :as="title.as ?? 'h3'" :data-emphasis="title.emphasis">{{
-            title.text
-          }}</CardTitle>
-          <CardSubtitle v-if="subheading" :as="subheading.as ?? 'p'" :data-emphasis="subheading.emphasis">{{
-            subheading.text
-          }}</CardSubtitle>
-          <CardSubtitle v-if="showBody" :as="body!.as ?? 'p'" :data-emphasis="body!.emphasis">{{
-            body!.text
-          }}</CardSubtitle>
+          <CardTitle v-if="title" :payload="title" />
+          <CardSubtitle v-if="subheading" :payload="subheading" />
+          <CardSubtitle v-if="showBody" :payload="body" />
         </div>
       </CardBody>
       <CardFooter v-if="actions.length" class="ui-profile-card__actions">

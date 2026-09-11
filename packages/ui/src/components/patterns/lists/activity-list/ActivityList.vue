@@ -4,7 +4,7 @@
     :id="listId ?? undefined"
     class="ui-activity-list"
     :class="`ui-activity-list--${safeLayout}`"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="ariaLabel ?? 'Activity list'"
   >
     <li v-for="(item, index) in items" :key="item.id ?? index">
       <span v-if="safeLayout === 'ranked'" class="ui-activity-list__rank">{{ index + 1 }}</span
@@ -14,8 +14,8 @@
         :alt="(item.avatar ?? item.media)!.alt ?? ''"
       /><span v-else-if="item.icon" class="ui-activity-list__icon">{{ item.icon }}</span>
       <div>
-        <strong v-if="item.heading">{{ item.heading.text }}</strong>
-        <p v-if="item.body">{{ item.body.text }}</p>
+        <UiText v-if="item.heading" :payload="item.heading" fallback="span" class="ui-activity-list__heading" />
+        <UiText v-if="item.body" :payload="item.body" fallback="p" />
         <small v-if="item.meta?.length">{{
           item.meta.map((value) => value.text).join(' · ')
         }}</small>
@@ -27,9 +27,10 @@
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types'
-import type { SharedListProps } from '../../../primitives/list/list.types'
-const props = withDefaults(defineProps<SharedListProps>(), { layout: 'activity' })
+import type { ActivityListProps } from './ActivityList.types.ts'
+const props = withDefaults(defineProps<ActivityListProps>(), { layout: 'activity' })
 const items = computed(() => collectionItems(props.items))
 const safeLayout = computed(() =>
   ['activity', 'ranked'].includes(props.layout ?? '') ? props.layout : 'activity',
@@ -61,6 +62,9 @@ const safeLayout = computed(() =>
 }
 .ui-activity-list__rank {
   font-size: 1.5rem;
+}
+.ui-activity-list__heading {
+  font-weight: 700;
 }
 .ui-activity-list p {
   margin: 0.25rem 0;

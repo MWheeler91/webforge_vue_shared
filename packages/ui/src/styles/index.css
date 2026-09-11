@@ -4,6 +4,7 @@
 @import './systems/typography/index.css';
 @import './foundation/utilities.css';
 
+@import './components/text.css';
 @import './components/button.css';
 @import './components/badge.css';
 @import './components/input.css';

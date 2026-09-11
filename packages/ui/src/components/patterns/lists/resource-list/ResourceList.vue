@@ -4,7 +4,7 @@
     :id="listId ?? undefined"
     class="ui-resource-list"
     :class="`ui-resource-list--${safeLayout}`"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="ariaLabel ?? 'Resources'"
   >
     <article v-for="(item, index) in items" :key="item.id ?? index">
       <img v-if="item.media" :src="item.media.src" :alt="item.media.alt ?? ''" /><span
@@ -14,8 +14,8 @@
       ><time v-if="safeLayout === 'event' && item.date">{{ item.date }}</time>
       <div>
         <BaseBadge v-if="item.label" :text="item.label">{{ item.label }}</BaseBadge>
-        <h3 v-if="item.heading">{{ item.heading.text }}</h3>
-        <p v-if="item.body">{{ item.body.text }}</p>
+        <UiText v-if="item.heading" :payload="item.heading" fallback="h3" />
+        <UiText v-if="item.body" :payload="item.body" fallback="p" />
         <small v-if="item.meta?.length">{{
           item.meta.map((value) => value.text).join(' · ')
         }}</small>
@@ -28,9 +28,10 @@
 import { computed } from 'vue'
 import BaseBadge from '../../../primitives/badge/BaseBadge.vue'
 import BaseButton from '../../../primitives/button/BaseButton.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedListProps } from '../../../primitives/list/list.types.ts'
-const props = withDefaults(defineProps<SharedListProps>(), { layout: 'resource' })
+import type { ResourceListProps } from './ResourceList.types.ts'
+const props = withDefaults(defineProps<ResourceListProps>(), { layout: 'resource' })
 const items = computed(() => collectionItems(props.items))
 const safeLayout = computed(() =>
   ['resource', 'article', 'event', 'job'].includes(props.layout ?? '') ? props.layout : 'resource',

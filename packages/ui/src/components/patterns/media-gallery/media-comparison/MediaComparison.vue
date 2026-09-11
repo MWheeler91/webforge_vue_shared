@@ -3,9 +3,9 @@
     v-if="before || after || heading || body"
     :id="galleryId ?? undefined"
     class="ui-media-comparison"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiGalleryHeader v-bind="props" />
+    <UiGalleryHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" />
     <div
       v-if="before || after"
       class="ui-media-comparison__stage"
@@ -33,10 +33,13 @@
   </section>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { SharedMediaGalleryProps } from '../../../primitives/gallery/gallery.types.ts'
+import { computed, ref } from 'vue'
+import type { MediaComparisonProps } from './MediaComparison.types.ts'
 import UiGalleryHeader from '../shared/UiGalleryHeader.vue'
-const props = defineProps<SharedMediaGalleryProps>()
+const props = defineProps<MediaComparisonProps>()
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Before and after comparison',
+)
 const position = ref(50)
 function setPosition(event: Event) {
   position.value = Number((event.target as HTMLInputElement).value)

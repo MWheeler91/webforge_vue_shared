@@ -6,5 +6,4 @@ export const breadcrumbTrailPreview = {
     grouped: {},
     items: [{ label: 'Home', href: '/' }, { label: 'breadcrumb' }],
   },
-  heading: { text: 'breadcrumb' },
 } satisfies BreadcrumbTrailProps

@@ -3,7 +3,7 @@
     v-if="items.length"
     :id="listId ?? undefined"
     class="ui-comparison-list"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="ariaLabel ?? 'Comparison'"
   >
     <article
       v-for="(item, index) in items"
@@ -11,8 +11,8 @@
       :class="{ featured: item.status === 'featured' }"
     >
       <BaseBadge v-if="item.label" :text="item.label">{{ item.label }}</BaseBadge>
-      <h3 v-if="item.heading">{{ item.heading.text }}</h3>
-      <p v-if="item.body">{{ item.body.text }}</p>
+      <UiText v-if="item.heading" :payload="item.heading" fallback="h3" />
+      <UiText v-if="item.body" :payload="item.body" fallback="p" />
       <BaseButton v-if="item.action" v-bind="item.action">{{ item.action.label }}</BaseButton>
       <ul v-if="item.meta?.length">
         <li v-for="(feature, featureIndex) in item.meta" :key="featureIndex">
@@ -26,9 +26,10 @@
 import { computed } from 'vue'
 import BaseBadge from '../../../primitives/badge/BaseBadge.vue'
 import BaseButton from '../../../primitives/button/BaseButton.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedListProps } from '../../../primitives/list/list.types.ts'
-const props = defineProps<SharedListProps>()
+import type { ComparisonListProps } from './ComparisonList.types.ts'
+const props = defineProps<ComparisonListProps>()
 const items = computed(() => collectionItems(props.items))
 </script>
 <style scoped>

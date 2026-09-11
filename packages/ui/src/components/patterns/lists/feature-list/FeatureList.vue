@@ -4,24 +4,25 @@
     :id="listId ?? undefined"
     class="ui-feature-list"
     :class="`ui-feature-list--${safeLayout}`"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="ariaLabel ?? 'Features'"
   >
     <article v-for="(item, index) in items" :key="item.id ?? index">
       <span class="ui-feature-list__marker">{{
         safeLayout === 'check' ? '✓' : (item.icon ?? index + 1)
       }}</span>
       <div>
-        <h3 v-if="item.heading">{{ item.heading.text }}</h3>
-        <p v-if="item.body">{{ item.body.text }}</p>
+        <UiText v-if="item.heading" :payload="item.heading" fallback="h3" />
+        <UiText v-if="item.body" :payload="item.body" fallback="p" />
       </div>
     </article>
   </section>
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types'
-import type { SharedListProps } from '../../../primitives/list/list.types'
-const props = withDefaults(defineProps<SharedListProps>(), { layout: 'icon' })
+import type { FeatureListProps } from './FeatureList.types.ts'
+const props = withDefaults(defineProps<FeatureListProps>(), { layout: 'icon' })
 const items = computed(() => collectionItems(props.items))
 const safeLayout = computed(() =>
   ['icon', 'check'].includes(props.layout ?? '') ? props.layout : 'icon',

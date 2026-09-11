@@ -14,10 +14,12 @@
           v-if="quote"
           :id="quoteId"
           ref="quoteEl"
-          class="ui-quote-card__quote"
+          class="ui-quote-card__quote ui-text"
           :class="{ 'ui-quote-card__quote--clamped': isClamped }"
           :style="clampStyle"
-          :data-emphasis="quote.emphasis"
+          data-tag="p"
+          :data-emphasis="resolvedQuoteEmphasis"
+          :data-align="quote.align ?? undefined"
         >{{ quote.text }}</blockquote>
 
         <button
@@ -36,12 +38,7 @@
             :src="avatar.src"
             :alt="avatar.alt ?? ''"
           />
-          <component
-            :is="author.as ?? 'span'"
-            v-if="author"
-            class="ui-quote-card__author"
-            :data-emphasis="author.emphasis"
-          >{{ author.text }}</component>
+          <UiText v-if="author" :payload="author" fallback="span" class="ui-quote-card__author" />
         </figcaption>
       </figure>
     </BaseCard>
@@ -51,6 +48,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, useId, watch } from 'vue'
 import BaseCard from '../../../primitives/card/BaseCard.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { textPayload } from '../../../primitives/card/card.types.ts'
 import { cn } from '../../../../utils/classNames.ts'
 import type { QuoteCardProps } from './QuoteCard.types.ts'
@@ -73,6 +71,14 @@ const quote = computed(() => textPayload(props.quote))
 const author = computed(() => textPayload(props.author))
 const avatar = computed(() => props.avatar ?? null)
 const classes = computed(() => cn('ui-quote-card', `ui-quote-card--layout-${props.layout}`))
+/**
+ * A pull-quote reads as prominent text by default (the `compact` layout wants a smaller,
+ * standard rung instead) unless the content explicitly picks its own emphasis. Resolved here
+ * rather than via a CSS layout override so it can't lose a specificity fight with `[data-emphasis]`.
+ */
+const resolvedQuoteEmphasis = computed(
+  () => quote.value?.emphasis ?? (props.layout === 'compact' ? 'standard' : 'prominent'),
+)
 
 const quoteId = useId()
 const quoteEl = ref<HTMLElement | null>(null)
@@ -134,11 +140,6 @@ watch(
 }
 
 .ui-quote-card__quote {
-  margin: 0;
-  color: inherit;
-  font-family: var(--font-display);
-  font-size: var(--type-body-lead-size);
-  line-height: var(--type-body-lead-line);
   quotes: '\201C' '\201D' '\2018' '\2019';
 }
 
@@ -225,11 +226,6 @@ watch(
 /* compact: smaller footprint */
 .ui-quote-card--layout-compact .ui-quote-card__figure {
   gap: 0.625rem;
-}
-
-.ui-quote-card--layout-compact .ui-quote-card__quote {
-  font-size: var(--type-body-standard-size);
-  line-height: var(--type-body-standard-line);
 }
 
 .ui-quote-card--layout-compact .ui-quote-card__avatar {

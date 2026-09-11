@@ -4,9 +4,9 @@
     :id="switcherId ?? undefined"
     class="ui-progress-switcher"
     :class="[`ui-progress-switcher--${safeLayout}`]"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiContentSwitcherHeader v-bind="props" />
+    <UiContentSwitcherHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" />
     <ol v-if="items.length" class="ui-progress-switcher__items">
       <li
         v-for="(item, index) in items"
@@ -27,21 +27,24 @@
       class="ui-progress-switcher__content"
     >
       <img v-if="activeItem.media" :src="activeItem.media.src" :alt="activeItem.media.alt ?? ''" />
-      <h3 v-if="activeItem.heading">{{ activeItem.heading.text }}</h3>
-      <p v-if="activeItem.body">{{ activeItem.body.text }}</p>
+      <UiText v-if="activeItem.heading" :payload="activeItem.heading" fallback="h3" />
+      <UiText v-if="activeItem.body" :payload="activeItem.body" fallback="p" />
     </div>
   </section>
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type {
-  SharedContentSwitcherProps,
-  UiSwitcherItemPayload,
-} from '../../../primitives/content-switcher/content-switcher.types.ts'
+import type { UiSwitcherItemPayload } from '../../../primitives/content-switcher/content-switcher.types.ts'
+import type { ProgressSwitcherProps } from './ProgressSwitcher.types.ts'
 import UiContentSwitcherHeader from '../shared/UiContentSwitcherHeader.vue'
-const props = withDefaults(defineProps<SharedContentSwitcherProps>(), { layout: 'stepper' })
+const props = withDefaults(defineProps<ProgressSwitcherProps>(), { layout: 'stepper' })
 const items = computed(() => collectionItems(props.items))
+/** No ariaLabel content key: derived from visible heading/eyebrow copy rather than database-managed. */
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Content switcher',
+)
 const safeLayout = computed(() =>
   ['stepper', 'progress'].includes(props.layout ?? '') ? props.layout : 'stepper',
 )

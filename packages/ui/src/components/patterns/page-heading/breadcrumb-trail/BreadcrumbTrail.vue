@@ -16,7 +16,7 @@ import { computed } from 'vue'
 import BaseBreadcrumb from '../../../primitives/breadcrumb/BaseBreadcrumb.vue'
 import BreadcrumbItem from '../../../primitives/breadcrumb/BreadcrumbItem.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedPageHeadingProps } from '../../../primitives/page-heading/page-heading.types.ts'
-const props = defineProps<SharedPageHeadingProps>()
+import type { BreadcrumbTrailProps } from './BreadcrumbTrail.types.ts'
+const props = defineProps<BreadcrumbTrailProps>()
 const items = computed(() => collectionItems(props.breadcrumbs))
 </script>

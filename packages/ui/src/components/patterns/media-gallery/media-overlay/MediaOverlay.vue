@@ -3,15 +3,13 @@
     v-if="media || label || heading || body || buttons.length"
     :id="galleryId ?? undefined"
     class="ui-media-overlay"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
     <img v-if="media" class="ui-media-overlay__media" :src="media.src" alt="" />
     <div v-if="label || heading || body || buttons.length" class="ui-media-overlay__content">
       <BaseBadge v-if="label" v-bind="label">{{ label.text }}</BaseBadge
-      ><component :is="heading?.as && heading.as !== 'span' ? heading.as : 'h2'" v-if="heading">{{
-        heading.text
-      }}</component>
-      <p v-if="body">{{ body.text }}</p>
+      ><UiText v-if="heading" :payload="heading" fallback="h2" />
+      <UiText v-if="body" :payload="body" fallback="p" />
       <div v-if="buttons.length" class="ui-media-overlay__actions">
         <BaseButton v-for="(button, index) in buttons" :key="index" v-bind="button">{{
           button.label
@@ -24,10 +22,12 @@
 import { computed } from 'vue'
 import BaseBadge from '../../../primitives/badge/BaseBadge.vue'
 import BaseButton from '../../../primitives/button/BaseButton.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedMediaGalleryProps } from '../../../primitives/gallery/gallery.types.ts'
-const props = defineProps<SharedMediaGalleryProps>()
+import type { MediaOverlayProps } from './MediaOverlay.types.ts'
+const props = defineProps<MediaOverlayProps>()
 const buttons = computed(() => collectionItems(props.buttons))
+const resolvedAriaLabel = computed(() => props.ariaLabel ?? props.heading?.text ?? 'Featured media')
 </script>
 <style scoped>
 .ui-media-overlay {

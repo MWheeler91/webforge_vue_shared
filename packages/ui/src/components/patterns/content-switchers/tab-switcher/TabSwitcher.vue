@@ -4,9 +4,9 @@
     :id="switcherId ?? undefined"
     class="ui-tab-switcher"
     :class="[`ui-tab-switcher--${safeLayout}`]"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiContentSwitcherHeader v-bind="props" /><BaseTabs
+    <UiContentSwitcherHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" /><BaseTabs
       v-if="items.length"
       v-model="active"
       :orientation="safeLayout === 'vertical' ? 'vertical' : 'horizontal'"
@@ -25,8 +25,8 @@
         >
           <img v-if="item.media" :src="item.media.src" :alt="item.media.alt ?? ''" />
           <div v-if="item.heading || item.body">
-            <h3 v-if="item.heading">{{ item.heading.text }}</h3>
-            <p v-if="item.body">{{ item.body.text }}</p>
+            <UiText v-if="item.heading" :payload="item.heading" fallback="h3" />
+            <UiText v-if="item.body" :payload="item.body" fallback="p" />
           </div>
           <UiGrid v-if="hasCards(item)" :max-columns="3" gap="md"
             ><TextCard
@@ -45,15 +45,18 @@ import TabPanel from '../../../primitives/tabs/TabPanel.vue'
 import TabTrigger from '../../../primitives/tabs/TabTrigger.vue'
 import TextCard from '../../cards/text-card/TextCard.vue'
 import UiGrid from '../../../primitives/grid/UiGrid.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type {
-  SharedContentSwitcherProps,
-  UiSwitcherItemPayload,
-} from '../../../primitives/content-switcher/content-switcher.types.ts'
+import type { UiSwitcherItemPayload } from '../../../primitives/content-switcher/content-switcher.types.ts'
+import type { TabSwitcherProps } from './TabSwitcher.types.ts'
 import UiContentSwitcherHeader from '../shared/UiContentSwitcherHeader.vue'
-const props = withDefaults(defineProps<SharedContentSwitcherProps>(), { layout: 'tabs' })
+const props = withDefaults(defineProps<TabSwitcherProps>(), { layout: 'tabs' })
 const emit = defineEmits<{ (event: 'update:activeId', value: string): void }>()
 const items = computed(() => collectionItems(props.items))
+/** No ariaLabel content key: derived from visible heading/eyebrow copy rather than database-managed. */
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Content switcher',
+)
 const active = ref(props.activeId ?? props.defaultActiveId ?? '')
 watch(
   () => props.activeId,

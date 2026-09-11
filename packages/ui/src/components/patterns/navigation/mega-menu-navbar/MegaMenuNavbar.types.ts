@@ -1,3 +1,4 @@
-import type { SharedNavbarProps } from '../../../primitives/navigation/navigation.types'
+import type { DisclosureNavbarProps } from '../disclosure-navbar/DisclosureNavbar.types.ts'
 
-export type MegaMenuNavbarProps = SharedNavbarProps
+/** MegaMenuNavbar renders DisclosureNavbar unchanged (see MegaMenuNavbar.vue), so it shares its props exactly. */
+export type MegaMenuNavbarProps = DisclosureNavbarProps

@@ -1,3 +1,9 @@
-import type { SharedListProps } from '../../../primitives/list/list.types'
+import type { UiCollectionInput } from '../../../primitives/card/card.types.ts'
+import type { UiListItemPayload } from '../../../primitives/list/list.types.ts'
 
-export type ContactListProps = SharedListProps
+/** A grid of contact cards, each with an avatar, role, and links (`item.contact`). */
+export interface ContactListProps {
+  items?: UiCollectionInput<UiListItemPayload> | null
+  listId?: string | null
+  ariaLabel?: string | null
+}

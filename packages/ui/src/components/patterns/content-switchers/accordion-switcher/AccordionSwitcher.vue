@@ -3,9 +3,9 @@
     v-if="items.length || heading || body"
     :id="switcherId ?? undefined"
     class="ui-accordion-switcher"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiContentSwitcherHeader v-bind="props" /><BaseAccordion
+    <UiContentSwitcherHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" /><BaseAccordion
       v-if="items.length"
       :default-value="initialOpen"
       :multiple="multiple"
@@ -18,8 +18,8 @@
         ><AccordionPanel v-if="hasPanel(item)"
           ><div class="ui-accordion-switcher__panel">
             <div v-if="item.heading || item.body">
-              <h3 v-if="item.heading">{{ item.heading.text }}</h3>
-              <p v-if="item.body">{{ item.body.text }}</p>
+              <UiText v-if="item.heading" :payload="item.heading" fallback="h3" />
+              <UiText v-if="item.body" :payload="item.body" fallback="p" />
             </div>
             <img v-if="item.media" :src="item.media.src" :alt="item.media.alt ?? ''" /><UiGrid
               v-if="cardItems(item).length"
@@ -36,8 +36,8 @@
                 :value="id(child, childIndex)"
                 ><AccordionTrigger>{{ child.label }}</AccordionTrigger
                 ><AccordionPanel v-if="child.heading || child.body"
-                  ><h4 v-if="child.heading">{{ child.heading.text }}</h4>
-                  <p v-if="child.body">{{ child.body.text }}</p></AccordionPanel
+                  ><UiText v-if="child.heading" :payload="child.heading" fallback="h4" />
+                  <UiText v-if="child.body" :payload="child.body" fallback="p" /></AccordionPanel
                 ></AccordionItem
               ></BaseAccordion
             >
@@ -55,15 +55,18 @@ import AccordionPanel from '../../../primitives/accordion/AccordionPanel.vue'
 import AccordionTrigger from '../../../primitives/accordion/AccordionTrigger.vue'
 import TextCard from '../../cards/text-card/TextCard.vue'
 import UiGrid from '../../../primitives/grid/UiGrid.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type {
-  SharedContentSwitcherProps,
-  UiSwitcherItemPayload,
-} from '../../../primitives/content-switcher/content-switcher.types.ts'
+import type { UiSwitcherItemPayload } from '../../../primitives/content-switcher/content-switcher.types.ts'
+import type { AccordionSwitcherProps } from './AccordionSwitcher.types.ts'
 import UiContentSwitcherHeader from '../shared/UiContentSwitcherHeader.vue'
-const props = withDefaults(defineProps<SharedContentSwitcherProps>(), { multiple: false })
+const props = withDefaults(defineProps<AccordionSwitcherProps>(), { multiple: false })
 const items = computed(() => collectionItems(props.items))
 const initialOpen = computed(() => (props.defaultActiveId ? [props.defaultActiveId] : []))
+/** No ariaLabel content key: derived from visible heading/eyebrow copy rather than database-managed. */
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Content switcher',
+)
 function textValue(value: unknown): string | undefined {
   if (typeof value === 'string') return value
   if (value && typeof value === 'object' && 'text' in value && typeof value.text === 'string') return value.text

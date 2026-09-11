@@ -9,25 +9,11 @@
       v-bind="$attrs"
       class="ui-text-card__card"
     >
-      <component
-        :is="eyebrow?.as ?? 'small'"
-        v-if="eyebrow"
-        class="ui-text-card__eyebrow text-brand"
-        :data-emphasis="eyebrow.emphasis"
-        >{{ eyebrow.text }}</component
-      >
-      <CardTitle v-if="title" :as="title.as ?? 'h3'" :data-emphasis="title.emphasis">{{
-        title.text
-      }}</CardTitle>
-      <component
-        :is="body.as ?? 'p'"
-        v-if="body"
-        class="text-secondary"
-        :data-emphasis="body.emphasis"
-        >{{ body.text }}</component
-      >
+      <UiText v-if="eyebrow" :payload="eyebrow" fallback="span" class="ui-text-card__eyebrow text-brand" />
+      <CardTitle v-if="title" :payload="title" />
+      <UiText v-if="body" :payload="body" class="text-secondary" />
       <CardDivider v-if="divider" />
-      <CardFooter v-if="footer" :data-emphasis="footer.emphasis">{{ footer.text }}</CardFooter>
+      <CardFooter v-if="footer"><UiText :payload="footer" /></CardFooter>
     </BaseCard>
   </div>
 </template>
@@ -38,6 +24,7 @@ import BaseCard from '../../../primitives/card/BaseCard.vue'
 import CardDivider from '../../../primitives/card/CardDivider.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardTitle from '../../../primitives/card/CardTitle.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { textPayload } from '../../../primitives/card/card.types.ts'
 import type { TextCardProps } from './TextCard.types.ts'
 

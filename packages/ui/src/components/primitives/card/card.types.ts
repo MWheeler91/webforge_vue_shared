@@ -65,9 +65,15 @@ export interface UiElementCollection<T> {
 export type UiCollectionInput<T> = UiElementCollection<T> | readonly T[]
 export type UiTextInput = UiTextPayload | string
 
-export type UiTextAs = 'h2' | 'h3' | 'h4' | 'p' | 'span'
+export type UiTextAs = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
 export type UiTextEmphasis = 'prominent' | 'standard' | 'compact'
-export interface UiTextPayload { text: string; as?: UiTextAs; emphasis?: UiTextEmphasis }
+export type UiTextAlign = 'left' | 'right' | 'center' | 'justify'
+export interface UiTextPayload {
+  text: string
+  as?: UiTextAs
+  emphasis?: UiTextEmphasis
+  align?: UiTextAlign
+}
 export interface UiBadgePayload { text: string; variant?: BadgeVariant; tone?: BadgeTone; size?: BadgeSize; leading?: BadgeLeading; unstyled?: boolean }
 export interface UiMediaPayload { src: string; alt?: string }
 export interface UiCardFooterPayload { text?: string; meta?: readonly UiTextPayload[] }

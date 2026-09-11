@@ -22,25 +22,15 @@
             aria-hidden="true"
           />
           <div v-if="eyebrow || badges.length" class="ui-feature-card__meta">
-            <component
-              :is="eyebrow.as ?? 'small'"
-              v-if="eyebrow"
-              class="ui-feature-card__eyebrow"
-              :data-emphasis="eyebrow.emphasis"
-              >{{ eyebrow.text }}</component
-            >
+            <UiText v-if="eyebrow" :payload="eyebrow" fallback="span" class="ui-feature-card__eyebrow" />
             <div v-if="badges.length" class="ui-feature-card__badges">
               <BaseBadge v-for="(badge, index) in badges" :key="index" v-bind="badge">
                 {{ badge.text }}
               </BaseBadge>
             </div>
           </div>
-          <CardTitle v-if="title" :as="title.as ?? 'h3'" :data-emphasis="title.emphasis">{{
-            title.text
-          }}</CardTitle>
-          <CardSubtitle v-if="body" :as="body.as ?? 'p'" :data-emphasis="body.emphasis">{{
-            body.text
-          }}</CardSubtitle>
+          <CardTitle v-if="title" :payload="title" />
+          <CardSubtitle v-if="body" :payload="body" />
         </CardBody>
 
         <CardFooter v-if="actions.length" class="ui-feature-card__actions">
@@ -64,6 +54,7 @@ import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardMedia from '../../../primitives/card/CardMedia.vue'
 import CardSubtitle from '../../../primitives/card/CardSubtitle.vue'
 import CardTitle from '../../../primitives/card/CardTitle.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems, textPayload } from '../../../primitives/card/card.types.ts'
 import { cn } from '../../../../utils/classNames.ts'
 import type { FeatureCardProps } from './FeatureCard.types.ts'

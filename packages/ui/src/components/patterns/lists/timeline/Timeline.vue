@@ -3,25 +3,26 @@
     v-if="items.length"
     :id="listId ?? undefined"
     class="ui-timeline"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="ariaLabel ?? 'Timeline'"
   >
     <li v-for="(item, index) in items" :key="item.id ?? index">
       <time v-if="item.date">{{ item.date }}</time>
       <article>
-        <h3 v-if="item.heading">{{ item.heading.text }}</h3>
-        <p v-if="item.body">{{ item.body.text }}</p>
+        <UiText v-if="item.heading" :payload="item.heading" fallback="h3" />
+        <UiText v-if="item.body" :payload="item.body" fallback="p" />
       </article>
     </li>
   </ol>
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types'
-import type { SharedListProps } from '../../../primitives/list/list.types'
+import type { TimelineProps } from './Timeline.types.ts'
 
 defineOptions({ name: 'TimelinePattern' })
 
-const props = defineProps<SharedListProps>()
+const props = defineProps<TimelineProps>()
 const items = computed(() => collectionItems(props.items))
 </script>
 <style scoped>

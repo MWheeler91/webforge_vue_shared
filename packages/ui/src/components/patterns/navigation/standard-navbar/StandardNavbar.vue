@@ -29,10 +29,10 @@
 import BaseButton from '../../../primitives/button/BaseButton.vue'
 import BaseNavbar from '../../../primitives/navigation/BaseNavbar.vue'
 import NavbarBrand from '../../../primitives/navigation/NavbarBrand.vue'
-import type { SharedNavbarProps } from '../../../primitives/navigation/navigation.types.ts'
+import type { StandardNavbarProps } from './StandardNavbar.types.ts'
 import UiNavbarActions from '../shared/UiNavbarActions.vue'
 import UiNavbarLinks from '../shared/UiNavbarLinks.vue'
-defineProps<SharedNavbarProps>()
+defineProps<StandardNavbarProps>()
 </script>
 <style scoped>
 .ui-standard-navbar__announcement {

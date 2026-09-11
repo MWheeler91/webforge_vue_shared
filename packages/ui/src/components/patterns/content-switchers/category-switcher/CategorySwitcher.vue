@@ -3,9 +3,9 @@
     v-if="items.length || heading || body"
     :id="switcherId ?? undefined"
     class="ui-category-switcher"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiContentSwitcherHeader v-bind="props" />
+    <UiContentSwitcherHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" />
     <div v-if="items.length" class="ui-category-switcher__controls" role="tablist">
       <button
         v-for="(item, index) in items"
@@ -34,8 +34,8 @@
           buttonItems(selected).length
         "
       >
-        <h3 v-if="selected.heading">{{ selected.heading.text }}</h3>
-        <p v-if="selected.body">{{ selected.body.text }}</p>
+        <UiText v-if="selected.heading" :payload="selected.heading" fallback="h3" />
+        <UiText v-if="selected.body" :payload="selected.body" fallback="p" />
         <UiGrid v-if="cardItems(selected).length" :max-columns="2" gap="md"
           ><TextCard v-for="(card, index) in cardItems(selected)" :key="index" :eyebrow="textValue(card.eyebrow)" :title="textValue(card.title ?? card.heading)" :body="textValue(card.body ?? card.description)"
         /></UiGrid>
@@ -56,15 +56,18 @@ import { computed, ref, watch } from 'vue'
 import BaseButton from '../../../primitives/button/BaseButton.vue'
 import TextCard from '../../cards/text-card/TextCard.vue'
 import UiGrid from '../../../primitives/grid/UiGrid.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type {
-  SharedContentSwitcherProps,
-  UiSwitcherItemPayload,
-} from '../../../primitives/content-switcher/content-switcher.types.ts'
+import type { UiSwitcherItemPayload } from '../../../primitives/content-switcher/content-switcher.types.ts'
+import type { CategorySwitcherProps } from './CategorySwitcher.types.ts'
 import UiContentSwitcherHeader from '../shared/UiContentSwitcherHeader.vue'
-const props = defineProps<SharedContentSwitcherProps>()
+const props = defineProps<CategorySwitcherProps>()
 const emit = defineEmits<{ (event: 'update:activeId', value: string): void }>()
 const items = computed(() => collectionItems(props.items))
+/** No ariaLabel content key: derived from visible heading/eyebrow copy rather than database-managed. */
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Content switcher',
+)
 const active = ref(props.activeId ?? props.defaultActiveId ?? '')
 watch(
   () => props.activeId,

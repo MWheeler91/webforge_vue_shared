@@ -25,12 +25,10 @@ import { computed } from 'vue'
 import NavbarBrand from '../../../primitives/navigation/NavbarBrand.vue'
 import NavbarLink from '../../../primitives/navigation/NavbarLink.vue'
 import { collectionItems, type UiElementCollection } from '../../../primitives/card/card.types.ts'
-import type {
-  NavbarLinkItem,
-  SharedNavbarProps,
-} from '../../../primitives/navigation/navigation.types.ts'
+import type { NavbarLinkItem } from '../../../primitives/navigation/navigation.types.ts'
+import type { SidebarNavigationProps } from './SidebarNavigation.types.ts'
 import UiNavbarActions from '../shared/UiNavbarActions.vue'
-const props = defineProps<SharedNavbarProps>()
+const props = defineProps<SidebarNavigationProps>()
 const primary = computed(() => collectionItems(props.links))
 const groups = computed(() => {
   if (!props.links || Array.isArray(props.links)) return {}

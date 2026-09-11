@@ -17,7 +17,7 @@
         <p v-if="flag" class="ui-menu-card__flag">{{ flag }}</p>
 
         <div class="ui-menu-card__head">
-          <CardTitle as="h3" class="ui-menu-card__name">{{ name }}</CardTitle>
+          <CardTitle :payload="{ text: name }" class="ui-menu-card__name" />
           <span v-if="activePrice" class="ui-menu-card__prices">
             <s v-if="originalPrice" class="ui-menu-card__price-was">{{ originalPrice }}</s>
             <span
@@ -35,9 +35,9 @@
 
         <CardSubtitle
           v-if="showDescription"
-          as="p"
+          :payload="{ text: description }"
           class="ui-menu-card__description"
-        >{{ description }}</CardSubtitle>
+        />
       </div>
     </BaseCard>
   </div>

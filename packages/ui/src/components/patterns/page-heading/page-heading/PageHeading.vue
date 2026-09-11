@@ -7,16 +7,14 @@
     :aria-label="ariaLabel ?? undefined"
   >
     <div class="ui-page-heading__content">
-      <BreadcrumbTrail v-bind="props" /><BaseBadge v-if="label" v-bind="label">{{
+      <BreadcrumbTrail :breadcrumbs="breadcrumbs" :aria-label="ariaLabel" /><BaseBadge v-if="label" v-bind="label">{{
         label.text
       }}</BaseBadge>
-      <p v-if="eyebrow">{{ eyebrow.text }}</p>
-      <component v-if="heading" :is="heading.as && heading.as !== 'span' ? heading.as : 'h1'">{{
-        heading.text
-      }}</component>
-      <p v-if="body">{{ body.text }}</p>
+      <UiText v-if="eyebrow" :payload="eyebrow" fallback="p" />
+      <UiText v-if="heading" :payload="heading" fallback="h1" />
+      <UiText v-if="body" :payload="body" fallback="p" />
       <div v-if="meta.length" class="ui-page-heading__meta">
-        <span v-for="(item, index) in meta" :key="index">{{ item.text }}</span>
+        <UiText v-for="(item, index) in meta" :key="index" :payload="item" fallback="span" />
       </div>
     </div>
     <img v-if="media" :src="media.src" :alt="media.alt ?? ''" />
@@ -31,10 +29,11 @@
 import { computed } from 'vue'
 import BaseBadge from '../../../primitives/badge/BaseBadge.vue'
 import BaseButton from '../../../primitives/button/BaseButton.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedPageHeadingProps } from '../../../primitives/page-heading/page-heading.types.ts'
+import type { PageHeadingProps } from './PageHeading.types.ts'
 import BreadcrumbTrail from '../breadcrumb-trail/BreadcrumbTrail.vue'
-const props = withDefaults(defineProps<SharedPageHeadingProps>(), { layout: 'default' })
+const props = withDefaults(defineProps<PageHeadingProps>(), { layout: 'default' })
 const buttons = computed(() => collectionItems(props.buttons))
 const meta = computed(() => collectionItems(props.meta))
 const safeLayout = computed(() =>

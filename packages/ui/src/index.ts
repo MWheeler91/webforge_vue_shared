@@ -80,6 +80,7 @@ export type {
 // ---------------------------------------------------------
 export { default as BaseCard } from './components/primitives/card/BaseCard.vue'
 export { default as CardHeader } from './components/primitives/card/CardHeader.vue'
+export { default as UiText } from './components/primitives/text/UiText.vue'
 export { default as CardTitle } from './components/primitives/card/CardTitle.vue'
 export { default as CardSubtitle } from './components/primitives/card/CardSubtitle.vue'
 export { default as CardBody } from './components/primitives/card/CardBody.vue'
@@ -111,6 +112,7 @@ export type {
   UiCardVerticalAlignment,
   UiElementCollection,
   UiMediaPayload,
+  UiTextAlign,
   UiTextAs,
   UiTextEmphasis,
   UiTextPayload,

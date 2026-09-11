@@ -3,15 +3,15 @@
     v-if="featured || thumbnails.length || heading || body"
     :id="galleryId ?? undefined"
     class="ui-featured-media-gallery"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiGalleryHeader v-bind="props" />
+    <UiGalleryHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" />
     <div v-if="featured || thumbnails.length" class="ui-featured-media-gallery__layout">
       <figure v-if="featured" class="ui-featured-media-gallery__featured">
         <img v-if="featured.media" :src="featured.media.src" :alt="featured.media.alt ?? ''" />
         <figcaption v-if="featured.heading || featured.body">
-          <strong v-if="featured.heading">{{ featured.heading.text }}</strong
-          ><span v-if="featured.body">{{ featured.body.text }}</span>
+          <UiText v-if="featured.heading" :payload="featured.heading" fallback="span" class="ui-featured-media-gallery__caption-heading"
+          /><UiText v-if="featured.body" :payload="featured.body" fallback="span" />
         </figcaption>
       </figure>
       <div v-if="thumbnails.length" class="ui-featured-media-gallery__thumbnails">
@@ -25,10 +25,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedMediaGalleryProps } from '../../../primitives/gallery/gallery.types.ts'
+import type { FeaturedMediaGalleryProps } from './FeaturedMediaGallery.types.ts'
 import UiGalleryHeader from '../shared/UiGalleryHeader.vue'
-const props = defineProps<SharedMediaGalleryProps>()
+import UiText from '../../../primitives/text/UiText.vue'
+const props = defineProps<FeaturedMediaGalleryProps>()
 const thumbnails = computed(() => collectionItems(props.thumbnails ?? props.items))
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Featured media',
+)
 </script>
 <style scoped>
 .ui-featured-media-gallery__layout {
@@ -50,6 +54,10 @@ const thumbnails = computed(() => collectionItems(props.thumbnails ?? props.item
 }
 .ui-featured-media-gallery figcaption {
   padding: 0.75rem;
+}
+.ui-featured-media-gallery__caption-heading {
+  display: block;
+  font-weight: 700;
 }
 .ui-featured-media-gallery__thumbnails {
   display: grid;

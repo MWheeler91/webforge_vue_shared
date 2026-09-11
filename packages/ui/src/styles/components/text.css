@@ -1,0 +1,149 @@
+/* =========================================================
+   UiText
+   `emphasis` selects a rung of the single typography scale
+   (styles/systems/typography/index.css) relative to the tag's
+   own baseline, so text can read bolder/lighter without
+   reaching for a semantically wrong heading tag. `align` is a
+   plain text-align passthrough. Neither introduces new size
+   tokens; both are pack- and typography-preset-aware because
+   they reference --type-* custom properties.
+   ========================================================= */
+
+.ui-text {
+  margin: 0;
+  color: inherit;
+  font-family: var(--font-display);
+}
+
+.ui-text[data-align='left'] {
+  text-align: left;
+}
+.ui-text[data-align='right'] {
+  text-align: right;
+}
+.ui-text[data-align='center'] {
+  text-align: center;
+}
+.ui-text[data-align='justify'] {
+  text-align: justify;
+}
+
+.ui-text[data-tag='h1'][data-emphasis='compact'] {
+  font-size: var(--type-heading-lg-size);
+  line-height: var(--type-heading-lg-line);
+  font-weight: var(--type-heading-lg-weight);
+  letter-spacing: var(--type-heading-lg-letter);
+}
+.ui-text[data-tag='h1'][data-emphasis='standard'] {
+  font-size: var(--type-heading-xl-size);
+  line-height: var(--type-heading-xl-line);
+  font-weight: var(--type-heading-xl-weight);
+  letter-spacing: var(--type-heading-xl-letter);
+}
+.ui-text[data-tag='h1'][data-emphasis='prominent'] {
+  font-size: var(--type-display-xl-size);
+  line-height: var(--type-display-xl-line);
+  font-weight: var(--type-display-xl-weight);
+  letter-spacing: var(--type-display-xl-letter);
+}
+
+.ui-text[data-tag='h2'][data-emphasis='compact'] {
+  font-size: var(--type-heading-md-size);
+  line-height: var(--type-heading-md-line);
+  font-weight: var(--type-heading-md-weight);
+  letter-spacing: var(--type-heading-md-letter);
+}
+.ui-text[data-tag='h2'][data-emphasis='standard'] {
+  font-size: var(--type-heading-lg-size);
+  line-height: var(--type-heading-lg-line);
+  font-weight: var(--type-heading-lg-weight);
+  letter-spacing: var(--type-heading-lg-letter);
+}
+.ui-text[data-tag='h2'][data-emphasis='prominent'] {
+  font-size: var(--type-heading-xl-size);
+  line-height: var(--type-heading-xl-line);
+  font-weight: var(--type-heading-xl-weight);
+  letter-spacing: var(--type-heading-xl-letter);
+}
+
+.ui-text[data-tag='h3'][data-emphasis='compact'] {
+  font-size: var(--type-heading-sm-size);
+  line-height: var(--type-heading-sm-line);
+  font-weight: var(--type-heading-sm-weight);
+  letter-spacing: var(--type-heading-sm-letter);
+}
+.ui-text[data-tag='h3'][data-emphasis='standard'] {
+  font-size: var(--type-heading-md-size);
+  line-height: var(--type-heading-md-line);
+  font-weight: var(--type-heading-md-weight);
+  letter-spacing: var(--type-heading-md-letter);
+}
+.ui-text[data-tag='h3'][data-emphasis='prominent'] {
+  font-size: var(--type-heading-lg-size);
+  line-height: var(--type-heading-lg-line);
+  font-weight: var(--type-heading-lg-weight);
+  letter-spacing: var(--type-heading-lg-letter);
+}
+
+.ui-text[data-tag='h4'][data-emphasis='compact'] {
+  font-size: var(--type-heading-xs-size);
+  line-height: var(--type-heading-xs-line);
+  font-weight: var(--type-heading-xs-weight);
+  letter-spacing: var(--type-heading-xs-letter);
+}
+.ui-text[data-tag='h4'][data-emphasis='standard'] {
+  font-size: var(--type-heading-sm-size);
+  line-height: var(--type-heading-sm-line);
+  font-weight: var(--type-heading-sm-weight);
+  letter-spacing: var(--type-heading-sm-letter);
+}
+.ui-text[data-tag='h4'][data-emphasis='prominent'] {
+  font-size: var(--type-heading-md-size);
+  line-height: var(--type-heading-md-line);
+  font-weight: var(--type-heading-md-weight);
+  letter-spacing: var(--type-heading-md-letter);
+}
+
+.ui-text[data-tag='h5'][data-emphasis='compact'],
+.ui-text[data-tag='h6'][data-emphasis='compact'] {
+  font-size: var(--type-heading-2xs-size);
+  line-height: var(--type-heading-2xs-line);
+  font-weight: var(--type-heading-2xs-weight);
+  letter-spacing: var(--type-heading-2xs-letter);
+}
+.ui-text[data-tag='h5'][data-emphasis='standard'],
+.ui-text[data-tag='h6'][data-emphasis='standard'] {
+  font-size: var(--type-heading-xs-size);
+  line-height: var(--type-heading-xs-line);
+  font-weight: var(--type-heading-xs-weight);
+  letter-spacing: var(--type-heading-xs-letter);
+}
+.ui-text[data-tag='h5'][data-emphasis='prominent'],
+.ui-text[data-tag='h6'][data-emphasis='prominent'] {
+  font-size: var(--type-heading-sm-size);
+  line-height: var(--type-heading-sm-line);
+  font-weight: var(--type-heading-sm-weight);
+  letter-spacing: var(--type-heading-sm-letter);
+}
+
+.ui-text[data-tag='p'][data-emphasis='compact'],
+.ui-text[data-tag='span'][data-emphasis='compact'] {
+  font-size: var(--type-body-small-size);
+  line-height: var(--type-body-small-line);
+  font-weight: var(--type-body-small-weight);
+  letter-spacing: var(--type-body-small-letter);
+}
+.ui-text[data-tag='p'][data-emphasis='standard'],
+.ui-text[data-tag='span'][data-emphasis='standard'] {
+  font-size: var(--type-body-standard-size);
+  line-height: var(--type-body-standard-line);
+  font-weight: var(--type-body-standard-weight);
+  letter-spacing: var(--type-body-standard-letter);
+}
+.ui-text[data-tag='p'][data-emphasis='prominent'],
+.ui-text[data-tag='span'][data-emphasis='prominent'] {
+  font-size: var(--type-body-lead-size);
+  line-height: var(--type-body-lead-line);
+  font-weight: var(--type-body-lead-weight);
+  letter-spacing: var(--type-body-lead-letter);
+}

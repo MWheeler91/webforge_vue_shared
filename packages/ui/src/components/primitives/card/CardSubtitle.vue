@@ -1,23 +1,19 @@
 <template>
-  <component :is="as" class="ui-card__subtitle">
-    <slot />
-  </component>
+  <UiText :payload="payload" :fallback="fallback" class="ui-card__subtitle" />
 </template>
 
 <script setup lang="ts">
-import type { UiTextAs } from './card.types.ts'
+import UiText from '../text/UiText.vue'
+import type { UiTextAs, UiTextPayload } from './card.types.ts'
 
-withDefaults(defineProps<{ as?: UiTextAs }>(), {
-  as: 'p',
+withDefaults(defineProps<{ payload?: UiTextPayload | null; fallback?: UiTextAs }>(), {
+  fallback: 'p',
 })
 </script>
 
 <style scoped>
 .ui-card__subtitle {
-  margin: 0;
   color: var(--ui-current-text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.6;
 }
 
 :global(.ui-card--variant-inverse .ui-card__subtitle) {

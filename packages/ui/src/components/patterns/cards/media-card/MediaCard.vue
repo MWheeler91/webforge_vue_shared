@@ -14,14 +14,14 @@
           <img :src="props.media.src" :alt="props.media.alt ?? ''" />
         </CardMedia>
         <figcaption v-if="caption || credit" class="ui-media-card__figcaption">
-          <component :is="caption.as ?? 'p'" v-if="caption" class="ui-media-card__caption" :data-emphasis="caption.emphasis">{{ caption.text }}</component>
-          <component :is="credit.as ?? 'span'" v-if="credit" class="ui-media-card__credit" :data-emphasis="credit.emphasis">{{ credit.text }}</component>
+          <UiText v-if="caption" :payload="caption" class="ui-media-card__caption" />
+          <UiText v-if="credit" :payload="credit" fallback="span" class="ui-media-card__credit" />
         </figcaption>
       </figure>
       <div class="ui-media-card__content">
         <CardBody class="ui-media-card__body">
-          <CardTitle v-if="title" :as="title.as ?? 'h3'" :data-emphasis="title.emphasis">{{ title.text }}</CardTitle>
-          <CardSubtitle v-if="body" :as="body.as ?? 'p'" :data-emphasis="body.emphasis">{{ body.text }}</CardSubtitle>
+          <CardTitle v-if="title" :payload="title" />
+          <CardSubtitle v-if="body" :payload="body" />
         </CardBody>
         <CardFooter v-if="actions.length" class="ui-media-card__actions">
           <BaseButton v-for="(action, index) in actions" :key="action.id ?? index" v-bind="action">{{ action.label }}</BaseButton>
@@ -40,6 +40,7 @@ import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardMedia from '../../../primitives/card/CardMedia.vue'
 import CardSubtitle from '../../../primitives/card/CardSubtitle.vue'
 import CardTitle from '../../../primitives/card/CardTitle.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { collectionItems, textPayload } from '../../../primitives/card/card.types.ts'
 import { cn } from '../../../../utils/classNames.ts'
 import type { MediaCardProps } from './MediaCard.types.ts'

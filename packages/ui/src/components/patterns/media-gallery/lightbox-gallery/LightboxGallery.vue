@@ -3,9 +3,9 @@
     v-if="items.length || heading || body"
     :id="galleryId ?? undefined"
     class="ui-lightbox-gallery"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiGalleryHeader v-bind="props" />
+    <UiGalleryHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" />
     <div v-if="items.length" class="ui-lightbox-gallery__items">
       <button
         v-for="(item, index) in items"
@@ -29,8 +29,8 @@
         <button type="button" aria-label="Close dialog" @click="close">×</button
         ><img v-if="current.media" :src="current.media.src" :alt="current.media.alt ?? ''" />
         <div v-if="current.heading || current.body">
-          <strong v-if="current.heading">{{ current.heading.text }}</strong>
-          <p v-if="current.body">{{ current.body.text }}</p>
+          <UiText v-if="current.heading" :payload="current.heading" fallback="span" class="ui-lightbox-gallery__caption-heading" />
+          <UiText v-if="current.body" :payload="current.body" fallback="p" />
         </div>
       </div>
     </div>
@@ -39,10 +39,14 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedMediaGalleryProps } from '../../../primitives/gallery/gallery.types.ts'
+import type { LightboxGalleryProps } from './LightboxGallery.types.ts'
 import UiGalleryHeader from '../shared/UiGalleryHeader.vue'
-const props = defineProps<SharedMediaGalleryProps>()
+import UiText from '../../../primitives/text/UiText.vue'
+const props = defineProps<LightboxGalleryProps>()
 const items = computed(() => collectionItems(props.items))
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Media gallery',
+)
 const active = ref<number | null>(null)
 const current = computed(() => (active.value === null ? null : items.value[active.value]))
 function open(index: number) {
@@ -91,5 +95,9 @@ function close() {
   width: 100%;
   max-height: 70vh;
   object-fit: contain;
+}
+.ui-lightbox-gallery__caption-heading {
+  display: block;
+  font-weight: 700;
 }
 </style>

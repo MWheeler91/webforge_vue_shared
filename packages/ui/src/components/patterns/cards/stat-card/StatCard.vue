@@ -13,15 +13,11 @@
         <p v-if="value !== null && value !== undefined" class="ui-stat-card__value">{{ value }}</p>
         <div v-if="label || title || body" class="ui-stat-card__copy">
           <BaseBadge v-if="label" v-bind="label">{{ label.text }}</BaseBadge>
-          <CardTitle v-if="title" :as="title.as ?? 'h4'" :data-emphasis="title.emphasis">{{
-            title.text
-          }}</CardTitle>
-          <CardSubtitle v-if="body" :as="body.as ?? 'p'" :data-emphasis="body.emphasis">{{
-            body.text
-          }}</CardSubtitle>
+          <CardTitle v-if="title" :payload="title" fallback="h4" />
+          <CardSubtitle v-if="body" :payload="body" />
         </div>
       </CardBody>
-      <CardFooter v-if="footer" class="ui-stat-card__footer">{{ footer.text }}</CardFooter>
+      <CardFooter v-if="footer" class="ui-stat-card__footer"><UiText :payload="footer" /></CardFooter>
     </BaseCard>
   </div>
 </template>
@@ -34,6 +30,7 @@ import CardBody from '../../../primitives/card/CardBody.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardSubtitle from '../../../primitives/card/CardSubtitle.vue'
 import CardTitle from '../../../primitives/card/CardTitle.vue'
+import UiText from '../../../primitives/text/UiText.vue'
 import { textPayload } from '../../../primitives/card/card.types.ts'
 import { cn } from '../../../../utils/classNames.ts'
 import type { StatCardProps } from './StatCard.types.ts'

@@ -3,7 +3,7 @@
     v-if="items.length"
     :id="listId ?? undefined"
     class="ui-definition-list"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="ariaLabel ?? 'Definitions'"
   >
     <div v-for="(item, index) in items" :key="item.id ?? index">
       <dt>{{ item.label ?? item.heading?.text }}</dt>
@@ -14,8 +14,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { collectionItems } from '../../../primitives/card/card.types'
-import type { SharedListProps } from '../../../primitives/list/list.types'
-const props = defineProps<SharedListProps>()
+import type { DefinitionListProps } from './DefinitionList.types.ts'
+const props = defineProps<DefinitionListProps>()
 const items = computed(() => collectionItems(props.items))
 </script>
 <style scoped>

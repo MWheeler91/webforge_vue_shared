@@ -3,16 +3,16 @@
     v-if="items.length || heading || body"
     :id="galleryId ?? undefined"
     class="ui-video-gallery"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiGalleryHeader v-bind="props" />
+    <UiGalleryHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" />
     <div v-if="items.length" class="ui-video-gallery__items">
       <article v-for="(item, index) in items" :key="item.id ?? index">
         <video v-if="item.videoSrc" controls :src="item.videoSrc" />
         <img v-else-if="item.media" :src="item.media.src" :alt="item.media.alt ?? ''" />
         <div v-if="item.heading || item.body" class="ui-video-gallery__caption">
-          <strong v-if="item.heading">{{ item.heading.text }}</strong
-          ><span v-if="item.body">{{ item.body.text }}</span>
+          <UiText v-if="item.heading" :payload="item.heading" fallback="span" class="ui-video-gallery__caption-heading"
+          /><UiText v-if="item.body" :payload="item.body" fallback="span" />
         </div>
       </article>
     </div>
@@ -21,10 +21,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedMediaGalleryProps } from '../../../primitives/gallery/gallery.types.ts'
+import type { VideoGalleryProps } from './VideoGallery.types.ts'
 import UiGalleryHeader from '../shared/UiGalleryHeader.vue'
-const props = defineProps<SharedMediaGalleryProps>()
+import UiText from '../../../primitives/text/UiText.vue'
+const props = defineProps<VideoGalleryProps>()
 const items = computed(() => collectionItems(props.items))
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Video gallery',
+)
 </script>
 <style scoped>
 .ui-video-gallery__items {
@@ -46,5 +50,9 @@ const items = computed(() => collectionItems(props.items))
   display: grid;
   gap: 0.25rem;
   padding: 0.75rem;
+}
+.ui-video-gallery__caption-heading {
+  display: block;
+  font-weight: 700;
 }
 </style>

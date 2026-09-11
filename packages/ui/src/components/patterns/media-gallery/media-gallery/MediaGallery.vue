@@ -7,15 +7,15 @@
       `ui-media-gallery--${safeLayout}`,
       `ui-media-gallery--density-${density ?? 'standard'}`,
     ]"
-    :aria-label="ariaLabel ?? undefined"
+    :aria-label="resolvedAriaLabel"
   >
-    <UiGalleryHeader v-bind="props" />
+    <UiGalleryHeader :label="label" :eyebrow="eyebrow" :heading="heading" :body="body" />
     <div v-if="items.length" class="ui-media-gallery__items">
       <figure v-for="(item, index) in items" :key="item.id ?? index" class="ui-media-gallery__item">
         <img v-if="item.media" :src="item.media.src" :alt="item.media.alt ?? ''" />
         <figcaption v-if="item.heading || item.body">
-          <strong v-if="item.heading">{{ item.heading.text }}</strong
-          ><span v-if="item.body">{{ item.body.text }}</span>
+          <UiText v-if="item.heading" :payload="item.heading" fallback="span" class="ui-media-gallery__caption-heading"
+          /><UiText v-if="item.body" :payload="item.body" fallback="span" />
         </figcaption>
       </figure>
     </div>
@@ -24,10 +24,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { collectionItems } from '../../../primitives/card/card.types.ts'
-import type { SharedMediaGalleryProps } from '../../../primitives/gallery/gallery.types.ts'
+import type { MediaGalleryProps } from './MediaGallery.types.ts'
 import UiGalleryHeader from '../shared/UiGalleryHeader.vue'
-const props = withDefaults(defineProps<SharedMediaGalleryProps>(), { layout: 'grid' })
+import UiText from '../../../primitives/text/UiText.vue'
+const props = withDefaults(defineProps<MediaGalleryProps>(), { layout: 'grid' })
 const items = computed(() => collectionItems(props.items))
+const resolvedAriaLabel = computed(
+  () => props.ariaLabel ?? props.heading?.text ?? props.eyebrow?.text ?? 'Media gallery',
+)
 const safeLayout = computed(() =>
   ['grid', 'masonry', 'strip', 'collage'].includes(props.layout ?? '') ? props.layout : 'grid',
 )
@@ -53,6 +57,10 @@ const safeLayout = computed(() =>
   display: grid;
   gap: 0.25rem;
   padding: 0.75rem;
+}
+.ui-media-gallery__caption-heading {
+  display: block;
+  font-weight: 700;
 }
 .ui-media-gallery--masonry .ui-media-gallery__items {
   display: block;

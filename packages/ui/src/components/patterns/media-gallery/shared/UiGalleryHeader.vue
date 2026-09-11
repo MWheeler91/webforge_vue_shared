@@ -1,17 +1,21 @@
 <template>
   <header v-if="label || eyebrow || heading || body" class="ui-gallery-header">
     <BaseBadge v-if="label" v-bind="label">{{ label.text }}</BaseBadge>
-    <p v-if="eyebrow">{{ eyebrow.text }}</p>
-    <component :is="heading?.as && heading.as !== 'span' ? heading.as : 'h2'" v-if="heading">{{
-      heading.text
-    }}</component>
-    <p v-if="body">{{ body.text }}</p>
+    <UiText v-if="eyebrow" :payload="eyebrow" fallback="p" />
+    <UiText v-if="heading" :payload="heading" fallback="h2" />
+    <UiText v-if="body" :payload="body" fallback="p" />
   </header>
 </template>
 <script setup lang="ts">
 import BaseBadge from '../../../primitives/badge/BaseBadge.vue'
-import type { SharedMediaGalleryProps } from '../../../primitives/gallery/gallery.types.ts'
-defineProps<SharedMediaGalleryProps>()
+import UiText from '../../../primitives/text/UiText.vue'
+import type { UiBadgePayload, UiTextPayload } from '../../../primitives/card/card.types.ts'
+defineProps<{
+  label?: UiBadgePayload | null
+  eyebrow?: UiTextPayload | null
+  heading?: UiTextPayload | null
+  body?: UiTextPayload | null
+}>()
 </script>
 <style scoped>
 .ui-gallery-header {
