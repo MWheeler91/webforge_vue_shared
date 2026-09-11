@@ -1,6 +1,6 @@
 <template>
   <component
-    v-if="isValidMediaCard && isValidQuoteCard"
+    v-if="isValidMediaCard && isValidQuoteCard && isValidPricingCard && isValidStatCard && isValidProfileCard"
     :is="cardComponent"
     v-bind="cardProps"
   />
@@ -19,6 +19,9 @@ import type {
 } from '../../primitives/card/card.types.ts'
 import { resolveCardComponent } from './card.registry.ts'
 import type { QuoteCardClamp, QuoteCardLayout } from './quote-card/QuoteCard.types.ts'
+import type { PricingCardLayout } from './pricing-card/PricingCard.types.ts'
+import type { StatCardLayout } from './stat-card/StatCard.types.ts'
+import type { ProfileCardLayout } from './profile-card/ProfileCard.types.ts'
 import type { UiSectionCardData } from '../../primitives/section/section.types.ts'
 
 const props = defineProps<{ card: UiSectionCardData }>()
@@ -140,14 +143,52 @@ const isTextListCard = computed(
     props.card.componentKey === 'text-list-card' ||
     (props.card.componentKey === 'card' && layout.value === 'bulleted'),
 )
+const isPricingCard = computed(() => props.card.componentKey === 'pricing-card')
+const isValidPricingCard = computed(
+  () => !isPricingCard.value || Boolean(scalarText('title')?.text?.trim() || scalarText('price')?.text?.trim()),
+)
+const PRICING_CARD_LAYOUTS = ['default', 'horizontal', 'compact'] as const
+const pricingLayout = computed<PricingCardLayout>(() =>
+  (PRICING_CARD_LAYOUTS as readonly string[]).includes(layout.value)
+    ? (layout.value as PricingCardLayout)
+    : 'default',
+)
+const isStatCard = computed(() => props.card.componentKey === 'stat-card')
+const isValidStatCard = computed(
+  () => !isStatCard.value || Boolean(scalarText('title')?.text?.trim() || scalarText('value')?.text?.trim()),
+)
+const STAT_CARD_LAYOUTS = ['default', 'horizontal'] as const
+const statLayout = computed<StatCardLayout>(() =>
+  (STAT_CARD_LAYOUTS as readonly string[]).includes(layout.value)
+    ? (layout.value as StatCardLayout)
+    : 'default',
+)
+const isProfileCard = computed(() => props.card.componentKey === 'profile-card')
+const isValidProfileCard = computed(
+  () => !isProfileCard.value || Boolean(scalarText('title')?.text?.trim()),
+)
+const PROFILE_CARD_LAYOUTS = ['portrait-top', 'portrait-left', 'compact'] as const
+const profileLayout = computed<ProfileCardLayout>(() =>
+  (PROFILE_CARD_LAYOUTS as readonly string[]).includes(layout.value)
+    ? (layout.value as ProfileCardLayout)
+    : 'portrait-top',
+)
 
 const cardProps = computed(() => ({
   // Dynamic API values are narrowed at the shared renderer boundary.
   ...(isQuoteCard.value ? {} : { as: (config.value.as ?? 'article') as CardAs }),
   variant: (config.value.variant ?? 'surface') as CardVariant,
   padding: (config.value.padding ?? 'md') as CardPadding,
-  ...(!isMediaCard.value && !isQuoteCard.value ? { eyebrow: scalarText('eyebrow') } : {}),
-  ...(isQuoteCard.value ? {} : { title: scalarText('title'), body: scalarText('body') }),
+  ...(!isMediaCard.value &&
+  !isQuoteCard.value &&
+  !isPricingCard.value &&
+  !isStatCard.value &&
+  !isProfileCard.value
+    ? { eyebrow: scalarText('eyebrow') }
+    : {}),
+  ...(isQuoteCard.value || isPricingCard.value
+    ? {}
+    : { title: scalarText('title'), body: scalarText('body') }),
   interactive: Boolean(props.card.interactive),
   ...(isQuoteCard.value
     ? {
@@ -177,15 +218,51 @@ const cardProps = computed(() => ({
             credit: scalarText('credit'),
             actions: normalizeActions(),
           }
-        : {
-            footer: scalarText('footer'),
-          }),
+        : isPricingCard.value
+          ? {
+              layout: pricingLayout.value,
+              featured: Boolean(config.value.featured),
+              label: normalizeBadges()[0] ?? null,
+              title: scalarText('title'),
+              price: scalarText('price')?.text ?? null,
+              body: scalarText('body'),
+              items: groupedText('items').map((item) => ({ title: item.text })),
+              actions: normalizeActions(),
+              divider: Boolean(props.card.divider),
+            }
+          : isStatCard.value
+            ? {
+                layout: statLayout.value,
+                label: normalizeBadges()[0] ?? null,
+                value: scalarText('value')?.text ?? null,
+                footer: scalarText('footer'),
+              }
+            : isProfileCard.value
+              ? {
+                  layout: profileLayout.value,
+                  avatar: normalizeImage('avatar'),
+                  subheading: scalarText('subheading'),
+                  actions: normalizeActions(),
+                }
+              : {
+                  footer: scalarText('footer'),
+                }),
   ...(!isFeatureCard.value &&
   !isTextListCard.value &&
   !isMediaCard.value &&
-  !isQuoteCard.value
+  !isQuoteCard.value &&
+  !isPricingCard.value &&
+  !isStatCard.value &&
+  !isProfileCard.value
     ? { divider: Boolean(props.card.divider) }
     : {}),
-  ...(isTextListCard.value ? { items: groupedText('list'), layout: layout.value } : {}),
+  ...(isTextListCard.value
+    ? {
+        items: groupedText('list'),
+        layout: layout.value === 'divided' ? 'divided' : 'list',
+        marker: String(config.value.marker ?? 'default'),
+        columns: Number(config.value.columns) === 2 ? 2 : 1,
+      }
+    : {}),
 }))
 </script>

@@ -84,3 +84,109 @@ describe('FeaturedSection with QuoteCard', () => {
     expect(wrapper.get('.ui-quote-card .ui-card').element.tagName).toBe('ARTICLE')
   })
 })
+
+describe('FeaturedSection with PricingCard', () => {
+  it('drives a normalized pricing card from UiSectionData through UiCardRenderer', () => {
+    const wrapper = mount(FeaturedSection, {
+      props: {
+        section: {
+          key: 'plans',
+          componentKey: 'featured-section',
+          config: {},
+          elements: { text: { title: [{ text: 'Plans' }] } },
+          cards: {
+            grouped: {
+              plans: [
+                {
+                  key: 'plan-1',
+                  componentKey: 'pricing-card',
+                  config: { layout: 'default', featured: true },
+                  elements: {
+                    text: {
+                      title: [{ text: 'Growth' }],
+                      price: [{ text: '$29/mo' }],
+                      items: [{ text: '10 GB storage' }],
+                    },
+                    buttons: { btn: [{ text: 'Choose plan', href: '/signup' }] },
+                  },
+                },
+              ],
+            },
+          },
+        },
+      },
+    })
+
+    const card = wrapper.get('.ui-pricing-card')
+    expect(card.classes()).toContain('ui-pricing-card--featured')
+    expect(wrapper.get('.ui-card__title').text()).toBe('Growth')
+    expect(wrapper.get('.ui-pricing-card__price').text()).toBe('$29/mo')
+    expect(wrapper.get('.ui-pricing-card__actions').text()).toContain('Choose plan')
+  })
+})
+
+describe('FeaturedSection with StatCard', () => {
+  it('drives a normalized stat card from UiSectionData through UiCardRenderer', () => {
+    const wrapper = mount(FeaturedSection, {
+      props: {
+        section: {
+          key: 'numbers',
+          componentKey: 'featured-section',
+          config: {},
+          elements: { text: { title: [{ text: 'By the numbers' }] } },
+          cards: {
+            grouped: {
+              numbers: [
+                {
+                  key: 'stat-1',
+                  componentKey: 'stat-card',
+                  config: { layout: 'default' },
+                  elements: {
+                    text: { title: [{ text: 'Uptime' }], value: [{ text: '99.98%' }] },
+                  },
+                },
+              ],
+            },
+          },
+        },
+      },
+    })
+
+    expect(wrapper.get('.ui-stat-card__value').text()).toBe('99.98%')
+    expect(wrapper.get('.ui-card__title').text()).toBe('Uptime')
+  })
+})
+
+describe('FeaturedSection with ProfileCard', () => {
+  it('drives a normalized profile card from UiSectionData through UiCardRenderer', () => {
+    const wrapper = mount(FeaturedSection, {
+      props: {
+        section: {
+          key: 'team',
+          componentKey: 'featured-section',
+          config: {},
+          elements: { text: { title: [{ text: 'Team' }] } },
+          cards: {
+            grouped: {
+              team: [
+                {
+                  key: 'person-1',
+                  componentKey: 'profile-card',
+                  config: { layout: 'portrait-top' },
+                  elements: {
+                    text: { title: [{ text: 'Devon Park' }], subheading: [{ text: 'Founder' }] },
+                    images: { avatar: [{ image_url: '/devon.jpg', alt_text: 'Devon Park' }] },
+                  },
+                },
+              ],
+            },
+          },
+        },
+      },
+    })
+
+    expect(wrapper.get('.ui-card__title').text()).toBe('Devon Park')
+    expect(wrapper.get('.ui-card__subtitle').text()).toBe('Founder')
+    expect(wrapper.get('.ui-profile-card__avatar').attributes('alt')).toBe('Devon Park')
+  })
+})

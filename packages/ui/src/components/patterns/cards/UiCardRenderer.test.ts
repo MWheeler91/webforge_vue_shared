@@ -4,6 +4,9 @@ import FeatureCard from './feature-card/FeatureCard.vue'
 import TextListCard from './text-list-card/TextListCard.vue'
 import MediaCard from './media-card/MediaCard.vue'
 import QuoteCard from './quote-card/QuoteCard.vue'
+import PricingCard from './pricing-card/PricingCard.vue'
+import StatCard from './stat-card/StatCard.vue'
+import ProfileCard from './profile-card/ProfileCard.vue'
 import UiCardRenderer from './UiCardRenderer.vue'
 
 describe('UiCardRenderer', () => {
@@ -253,9 +256,155 @@ describe('UiCardRenderer', () => {
       { text: 'Second item', as: 'h4', emphasis: 'prominent' },
     ])
 
-    const items = wrapper.findAll('.text-list-card__item-title')
+    const items = wrapper.findAll('.ui-text-list-card__item-title')
     expect(items.map((item) => item.text())).toEqual(['First item', 'Second item'])
     expect(items.map((item) => item.element.tagName)).toEqual(['P', 'H4'])
     expect(items.map((item) => item.attributes('data-emphasis'))).toEqual(['compact', 'prominent'])
+  })
+
+  it('normalizes a pricing card contract from API-shaped buckets', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'pricing-card',
+          divider: true,
+          config: { layout: 'horizontal', variant: 'outline', padding: 'lg', featured: true },
+          interactive: true,
+          elements: {
+            text: {
+              title: [{ text: 'Growth' }],
+              price: [{ text: '$29/mo' }],
+              body: [{ text: 'For growing teams.' }],
+              items: [{ text: '10 GB storage' }, { text: 'Priority support' }],
+            },
+            badges: { badge: [{ text: 'Most popular', config: { variant: 'brand' } }] },
+            buttons: { btn: [{ text: 'Choose plan', href: '/signup', config: { variant: 'primary' } }] },
+          },
+        },
+      },
+    })
+
+    const card = wrapper.findComponent(PricingCard)
+    expect(card.props('layout')).toBe('horizontal')
+    expect(card.props('featured')).toBe(true)
+    expect(card.props('title')).toEqual({ text: 'Growth' })
+    expect(card.props('price')).toBe('$29/mo')
+    expect(card.props('body')).toEqual({ text: 'For growing teams.' })
+    expect(card.props('items')).toEqual([{ title: '10 GB storage' }, { title: 'Priority support' }])
+    expect(card.props('label')).toEqual({ text: 'Most popular', variant: 'brand' })
+    expect(card.props('actions')).toEqual([{ label: 'Choose plan', href: '/signup', variant: 'primary' }])
+    expect(card.props('divider')).toBe(true)
+    expect(wrapper.get('.ui-pricing-card').classes()).toContain('ui-pricing-card--layout-horizontal')
+    expect(wrapper.get('.ui-card').classes()).toEqual(
+      expect.arrayContaining(['ui-card--variant-outline', 'ui-card--padding-lg', 'ui-card--interactive']),
+    )
+  })
+
+  it('omits an API pricing card when both title and price are absent', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'pricing-card',
+          config: {},
+          elements: { text: { body: [{ text: 'Only a description' }] } },
+        },
+      },
+    })
+    expect(wrapper.find('.ui-pricing-card').exists()).toBe(false)
+  })
+
+  it('normalizes a stat card contract from API-shaped buckets', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'stat-card',
+          config: { layout: 'horizontal', variant: 'elevated', padding: 'sm' },
+          interactive: true,
+          elements: {
+            text: {
+              title: [{ text: 'Average response time' }],
+              value: [{ text: '1.2h' }],
+              body: [{ text: 'Across all support channels.' }],
+              footer: [{ text: 'vs. last quarter' }],
+              eyebrow: [{ text: 'Ignored — stat cards have no eyebrow' }],
+            },
+            badges: { badge: [{ text: 'Support', config: { variant: 'info' } }] },
+          },
+        },
+      },
+    })
+
+    const card = wrapper.findComponent(StatCard)
+    expect(card.props('layout')).toBe('horizontal')
+    expect(card.props('value')).toBe('1.2h')
+    expect(card.props('title')).toEqual({ text: 'Average response time' })
+    expect(card.props('body')).toEqual({ text: 'Across all support channels.' })
+    expect(card.props('footer')).toEqual({ text: 'vs. last quarter' })
+    expect(card.props('label')).toEqual({ text: 'Support', variant: 'info' })
+    expect(card.props('divider')).toBeUndefined()
+    expect(wrapper.get('.ui-stat-card').classes()).toContain('ui-stat-card--layout-horizontal')
+    expect(wrapper.get('.ui-card').classes()).toEqual(
+      expect.arrayContaining(['ui-card--variant-elevated', 'ui-card--padding-sm', 'ui-card--interactive']),
+    )
+    expect(wrapper.text()).not.toContain('Ignored')
+  })
+
+  it('omits an API stat card when both title and value are absent', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'stat-card',
+          config: {},
+          elements: { text: { body: [{ text: 'Only a description' }] } },
+        },
+      },
+    })
+    expect(wrapper.find('.ui-stat-card').exists()).toBe(false)
+  })
+
+  it('normalizes a profile card contract from API-shaped buckets', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'profile-card',
+          config: { layout: 'portrait-left', variant: 'ghost', padding: 'lg' },
+          interactive: true,
+          elements: {
+            text: {
+              title: [{ text: 'Maya Chen' }],
+              subheading: [{ text: 'Support lead' }],
+              body: [{ text: 'Answers the hard tickets.' }],
+              eyebrow: [{ text: 'Ignored — profile cards have no eyebrow' }],
+            },
+            images: { avatar: [{ image_url: '/maya.jpg', alt_text: 'Portrait of Maya Chen' }] },
+            buttons: { btn: [{ text: 'Contact', href: '/contact/maya' }] },
+          },
+        },
+      },
+    })
+
+    const card = wrapper.findComponent(ProfileCard)
+    expect(card.props('layout')).toBe('portrait-left')
+    expect(card.props('avatar')).toEqual({ src: '/maya.jpg', alt: 'Portrait of Maya Chen' })
+    expect(card.props('title')).toEqual({ text: 'Maya Chen' })
+    expect(card.props('subheading')).toEqual({ text: 'Support lead' })
+    expect(card.props('body')).toEqual({ text: 'Answers the hard tickets.' })
+    expect(card.props('actions')).toEqual([{ label: 'Contact', href: '/contact/maya' }])
+    expect(card.props('divider')).toBeUndefined()
+    expect(wrapper.get('.ui-profile-card').classes()).toContain('ui-profile-card--layout-portrait-left')
+    expect(wrapper.text()).not.toContain('Ignored')
+  })
+
+  it('omits an API profile card when its name is absent', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'profile-card',
+          config: {},
+          elements: { text: { subheading: [{ text: 'Only a role' }] } },
+        },
+      },
+    })
+    expect(wrapper.find('.ui-profile-card').exists()).toBe(false)
   })
 })
