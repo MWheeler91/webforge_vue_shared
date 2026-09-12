@@ -1,7 +1,7 @@
 export { default as TabSwitcher } from './tab-switcher/TabSwitcher.vue'
 export { tabSwitcherPreview } from './tab-switcher/TabSwitcher.preview.ts'
 export { tabSwitcherSchema } from './tab-switcher/TabSwitcher.schema.ts'
-export type { TabSwitcherProps } from './tab-switcher/TabSwitcher.types.ts'
+export type { TabSwitcherProps, TabSwitcherLayout } from './tab-switcher/TabSwitcher.types.ts'
 
 export { default as AccordionSwitcher } from './accordion-switcher/AccordionSwitcher.vue'
 export { accordionSwitcherPreview } from './accordion-switcher/AccordionSwitcher.preview.ts'
@@ -11,7 +11,7 @@ export type { AccordionSwitcherProps } from './accordion-switcher/AccordionSwitc
 export { default as ProgressSwitcher } from './progress-switcher/ProgressSwitcher.vue'
 export { progressSwitcherPreview } from './progress-switcher/ProgressSwitcher.preview.ts'
 export { progressSwitcherSchema } from './progress-switcher/ProgressSwitcher.schema.ts'
-export type { ProgressSwitcherProps } from './progress-switcher/ProgressSwitcher.types.ts'
+export type { ProgressSwitcherProps, ProgressSwitcherLayout } from './progress-switcher/ProgressSwitcher.types.ts'
 
 export { default as SegmentedSwitcher } from './segmented-switcher/SegmentedSwitcher.vue'
 export { segmentedSwitcherPreview } from './segmented-switcher/SegmentedSwitcher.preview.ts'

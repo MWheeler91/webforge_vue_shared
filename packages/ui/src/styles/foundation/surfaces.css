@@ -17,6 +17,9 @@
 .ui-card--variant-surface,
 .ui-card--variant-muted,
 .ui-card--variant-elevated,
+.ui-accordion-pattern--variant-surface,
+.ui-accordion-pattern--variant-muted,
+.ui-accordion-pattern--variant-elevated,
 .ui-navbar--variant-surface,
 .ui-navbar--variant-bordered,
 .ui-navbar--variant-floating,
@@ -41,6 +44,7 @@
 .bg-inverse,
 .ui-section--variant-inverse,
 .ui-card--variant-inverse,
+.ui-accordion-pattern--variant-inverse,
 .ui-navbar--variant-inverse,
 .ui-footer--variant-inverse {
   --ui-current-text-primary: var(--text_inverse);
@@ -118,6 +122,36 @@
 }
 
 .ui-card.ui-card--variant-inverse {
+  background: var(--bg_inverse);
+  border-color: var(--ui-current-border-muted);
+}
+
+.ui-accordion.ui-accordion-pattern--variant-surface {
+  background: var(--bg_surface);
+  border-color: var(--border_default);
+}
+
+.ui-accordion.ui-accordion-pattern--variant-muted {
+  background: var(--bg_muted);
+  border-color: var(--border_muted);
+}
+
+.ui-accordion.ui-accordion-pattern--variant-elevated {
+  background: var(--bg_elevated);
+  border-color: var(--border_default);
+}
+
+.ui-accordion.ui-accordion-pattern--variant-outline {
+  background: transparent;
+  border-color: var(--ui-current-border);
+}
+
+.ui-accordion.ui-accordion-pattern--variant-ghost {
+  background: transparent;
+  border-color: transparent;
+}
+
+.ui-accordion.ui-accordion-pattern--variant-inverse {
   background: var(--bg_inverse);
   border-color: var(--ui-current-border-muted);
 }

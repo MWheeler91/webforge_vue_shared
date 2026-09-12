@@ -174,7 +174,7 @@ export type {
   SectionTitleWrap, SectionLayout, SectionGrid, SectionGap, SharedSectionProps, SectionCardCollection,
   SectionCardInputCollection, SectionCardInput, ResolvedSectionCard, ResolvedSectionCardCollection,
   ResolvedSectionProps, UiSectionData, UiSectionCardData, UiSectionCardCollection,
-  UiSectionCardElements,
+  UiSectionCardElements, UiSectionComponentData, UiSectionComponentCollection,
 } from './components/primitives/section/section.types.ts'
 export { sectionCollectionItems } from './components/primitives/section/section.types.ts'
 
@@ -317,6 +317,14 @@ export {
   accordionPreview,
   accordionPackPreview,
 } from './components/primitives/accordion/Accordion.preview.ts'
+export { default as AccordionPattern } from './components/patterns/accordion/accordion-pattern/AccordionPattern.vue'
+export type { AccordionPatternProps } from './components/patterns/accordion/accordion-pattern/AccordionPattern.types.ts'
+export { default as AccordionLeaf } from './components/patterns/accordion/accordion-leaf/AccordionLeaf.vue'
+export type { AccordionLeafProps } from './components/patterns/accordion/accordion-leaf/AccordionLeaf.types.ts'
+export type {
+  AccordionPatternIndicator,
+  AccordionPatternOpenMode,
+} from './components/patterns/accordion/accordion.types.ts'
 
 // Alert
 export { default as BaseAlert } from './components/primitives/alert/BaseAlert.vue'

@@ -1,0 +1,5 @@
+export { default as AccordionPattern } from './accordion-pattern/AccordionPattern.vue'
+export type { AccordionPatternProps } from './accordion-pattern/AccordionPattern.types.ts'
+export { default as AccordionLeaf } from './accordion-leaf/AccordionLeaf.vue'
+export type { AccordionLeafProps } from './accordion-leaf/AccordionLeaf.types.ts'
+export type { AccordionPatternIndicator, AccordionPatternOpenMode } from './accordion.types.ts'

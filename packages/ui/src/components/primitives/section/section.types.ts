@@ -31,8 +31,28 @@ export interface UiSectionData {
   config?: Record<string, unknown>
   elements?: Record<string, unknown>
   cards?: UiSectionCardCollection | null
+  /**
+   * Standalone, non-card component placements nested in the section (any
+   * active, non-primitive component - an accordion, a button block, etc.),
+   * keyed by their placement key. Each key holds an ordered array so several
+   * placements can share one key, e.g. a repeated accordion-leaf item.
+   */
+  components?: UiSectionComponentCollection | null
   metaData?: Record<string, unknown> | null
 }
+
+/** A standalone component node placed directly in a section (not a card). */
+export interface UiSectionComponentData {
+  name?: string | null
+  key?: string | null
+  componentKey: string
+  componentType?: string | null
+  config?: Record<string, unknown>
+  elements?: UiSectionCardElements
+  metaData?: Record<string, unknown> | null
+}
+
+export type UiSectionComponentCollection = Record<string, UiSectionComponentData[]>
 
 /** A nested card node selected by the API's component key. */
 export interface UiSectionCardData {
