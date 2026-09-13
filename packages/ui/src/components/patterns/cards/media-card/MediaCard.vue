@@ -1,11 +1,13 @@
 <template>
   <div :class="classes">
-    <BaseCard
+    <CardRoot
       :as="props.as"
       :variant="props.variant"
       :padding="props.padding"
       :interactive="props.interactive"
       :unstyled="props.unstyled"
+      :href="props.href"
+      :to="props.to"
       v-bind="$attrs"
       class="ui-media-card__card"
     >
@@ -22,20 +24,22 @@
         <CardBody class="ui-media-card__body">
           <CardTitle v-if="title" :payload="title" />
           <CardSubtitle v-if="body" :payload="body" />
+          <CardDivider v-if="props.divider" />
         </CardBody>
         <CardFooter v-if="actions.length" class="ui-media-card__actions">
           <BaseButton v-for="(action, index) in actions" :key="action.id ?? index" v-bind="action">{{ action.label }}</BaseButton>
         </CardFooter>
       </div>
-    </BaseCard>
+    </CardRoot>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import BaseButton from '../../../primitives/button/BaseButton.vue'
-import BaseCard from '../../../primitives/card/BaseCard.vue'
+import CardRoot from '../../../primitives/card/CardRoot.vue'
 import CardBody from '../../../primitives/card/CardBody.vue'
+import CardDivider from '../../../primitives/card/CardDivider.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardMedia from '../../../primitives/card/CardMedia.vue'
 import CardSubtitle from '../../../primitives/card/CardSubtitle.vue'
@@ -49,7 +53,7 @@ defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<MediaCardProps>(), {
   as: 'article', variant: 'surface', padding: 'md', interactive: false, unstyled: false,
-  layout: 'framed', actions: null,
+  layout: 'framed', actions: null, divider: false,
 })
 const title = computed(() => textPayload(props.title))
 const body = computed(() => textPayload(props.body))

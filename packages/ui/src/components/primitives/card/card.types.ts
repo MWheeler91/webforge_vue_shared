@@ -7,7 +7,7 @@ import type {
 } from '../button/button.types'
 import type { BadgeLeading, BadgeSize, BadgeTone, BadgeVariant } from '../badge/badge.types'
 
-export type CardVariant = 'surface' | 'muted' | 'outline' | 'elevated' | 'ghost' | 'inverse'
+export type CardVariant = 'default' | 'surface' | 'muted' | 'outline' | 'elevated' | 'ghost' | 'inverse'
 
 export type CardPadding = 'none' | 'sm' | 'md' | 'lg'
 
@@ -21,6 +21,10 @@ export interface BaseCardProps {
   padding?: CardPadding
   interactive?: boolean
   unstyled?: boolean
+  /** External link target. Used when `interactive` is true and `to` is not set. */
+  href?: string | null
+  /** Vue Router target. Used when `interactive` is true; takes precedence over `href`. */
+  to?: string | Record<string, unknown> | null
 }
 
 export interface BaseCardLinkProps {

@@ -11,7 +11,7 @@
       <li
         v-for="(item, index) in items"
         :key="id(item, index)"
-        :class="`ui-progress-switcher__item--${item.status ?? 'upcoming'}`"
+        :class="['ui-progress-switcher__item', `ui-progress-switcher__item--${item.status ?? 'upcoming'}`]"
       >
         <span class="ui-progress-switcher__marker">{{
           item.status === 'complete' ? '✓' : index + 1

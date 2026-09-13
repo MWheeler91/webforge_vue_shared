@@ -1,11 +1,13 @@
 <template>
   <div class="ui-text-card">
-    <BaseCard
+    <CardRoot
       :as="props.as"
       :variant="props.variant"
       :padding="props.padding"
       :interactive="props.interactive"
       :unstyled="props.unstyled"
+      :href="props.href"
+      :to="props.to"
       v-bind="$attrs"
       class="ui-text-card__card"
     >
@@ -14,13 +16,13 @@
       <UiText v-if="body" :payload="body" class="text-secondary" />
       <CardDivider v-if="divider" />
       <CardFooter v-if="footer"><UiText :payload="footer" /></CardFooter>
-    </BaseCard>
+    </CardRoot>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import BaseCard from '../../../primitives/card/BaseCard.vue'
+import CardRoot from '../../../primitives/card/CardRoot.vue'
 import CardDivider from '../../../primitives/card/CardDivider.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardTitle from '../../../primitives/card/CardTitle.vue'

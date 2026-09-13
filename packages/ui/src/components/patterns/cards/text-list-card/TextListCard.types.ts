@@ -26,6 +26,8 @@ export interface TextListCardProps extends BaseCardProps {
   title?: UiTextInput | null
   body?: UiTextInput | null
   items?: readonly (UiTextInput | TextListCardItem)[]
+  /** Show a divider between the body and the item list. Default false. */
+  divider?: boolean
   footer?: UiTextInput | null
   layout?: TextListCardLayout | null
   marker?: TextListCardMarker

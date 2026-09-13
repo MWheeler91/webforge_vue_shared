@@ -28,4 +28,6 @@ export interface ProfileCardProps extends BaseCardProps {
   /** e.g. social/contact links. */
   actions?: UiCollectionInput<CardAction> | null
   layout?: ProfileCardLayout
+  /** Show a divider between the copy and the actions. Default false. */
+  divider?: boolean
 }

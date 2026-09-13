@@ -190,6 +190,9 @@ const cardProps = computed(() => ({
     ? {}
     : { title: scalarText('title'), body: scalarText('body') }),
   interactive: Boolean(props.card.interactive),
+  divider: Boolean(props.card.divider),
+  href: props.card.href ?? undefined,
+  to: props.card.to ?? undefined,
   ...(isQuoteCard.value
     ? {
         layout: quoteLayout.value,
@@ -228,7 +231,6 @@ const cardProps = computed(() => ({
               body: scalarText('body'),
               items: groupedText('items').map((item) => ({ title: item.text })),
               actions: normalizeActions(),
-              divider: Boolean(props.card.divider),
             }
           : isStatCard.value
             ? {
@@ -247,15 +249,6 @@ const cardProps = computed(() => ({
               : {
                   footer: scalarText('footer'),
                 }),
-  ...(!isFeatureCard.value &&
-  !isTextListCard.value &&
-  !isMediaCard.value &&
-  !isQuoteCard.value &&
-  !isPricingCard.value &&
-  !isStatCard.value &&
-  !isProfileCard.value
-    ? { divider: Boolean(props.card.divider) }
-    : {}),
   ...(isTextListCard.value
     ? {
         items: groupedText('list'),

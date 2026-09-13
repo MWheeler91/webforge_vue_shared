@@ -61,6 +61,10 @@ export interface UiSectionCardData {
   config?: Record<string, unknown>
   interactive?: boolean
   divider?: boolean
+  /** External link target. Used when `interactive` is true and `to` is not set. */
+  href?: string | null
+  /** Vue Router target. Used when `interactive` is true; takes precedence over `href`. */
+  to?: string | Record<string, unknown> | null
   elements?: UiSectionCardElements
   metaData?: Record<string, unknown> | null
 }

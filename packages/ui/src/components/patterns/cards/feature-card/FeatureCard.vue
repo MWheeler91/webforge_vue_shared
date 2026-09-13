@@ -1,11 +1,13 @@
 <template>
   <div :class="classes">
-    <BaseCard
+    <CardRoot
       :as="props.as"
       :variant="props.variant"
       :padding="props.padding"
       :interactive="props.interactive"
       :unstyled="props.unstyled"
+      :href="props.href"
+      :to="props.to"
       v-bind="$attrs"
       class="ui-feature-card__card"
     >
@@ -33,13 +35,15 @@
           <CardSubtitle v-if="body" :payload="body" />
         </CardBody>
 
+        <CardDivider v-if="props.divider" />
+
         <CardFooter v-if="actions.length" class="ui-feature-card__actions">
           <BaseButton v-for="(action, index) in actions" :key="action.id ?? index" v-bind="action">
             {{ action.label }}
           </BaseButton>
         </CardFooter>
       </div>
-    </BaseCard>
+    </CardRoot>
   </div>
 </template>
 
@@ -48,8 +52,9 @@ import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
 import BaseButton from '../../../primitives/button/BaseButton.vue'
 import BaseBadge from '../../../primitives/badge/BaseBadge.vue'
-import BaseCard from '../../../primitives/card/BaseCard.vue'
+import CardRoot from '../../../primitives/card/CardRoot.vue'
 import CardBody from '../../../primitives/card/CardBody.vue'
+import CardDivider from '../../../primitives/card/CardDivider.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardMedia from '../../../primitives/card/CardMedia.vue'
 import CardSubtitle from '../../../primitives/card/CardSubtitle.vue'
@@ -69,6 +74,7 @@ const props = withDefaults(defineProps<FeatureCardProps>(), {
   unstyled: false,
   layout: 'stacked',
   mediaAspect: 'auto',
+  divider: false,
   badges: null,
   actions: null,
   media: null,

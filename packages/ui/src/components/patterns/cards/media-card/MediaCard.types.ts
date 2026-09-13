@@ -16,4 +16,6 @@ export interface MediaCardProps extends BaseCardProps {
   media: UiMediaPayload
   actions?: UiCollectionInput<CardAction> | null
   layout?: MediaCardLayout
+  /** Show a divider between the title/body and the actions. Default false. */
+  divider?: boolean
 }

@@ -20,4 +20,6 @@ export interface StatCardProps extends BaseCardProps {
   /** Optional trailing note, e.g. "vs. last quarter". */
   footer?: UiTextInput | null
   layout?: StatCardLayout
+  /** Show a divider between the content and the footer. Default false. */
+  divider?: boolean
 }

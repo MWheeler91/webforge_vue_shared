@@ -1,11 +1,13 @@
 <template>
   <div :class="classes">
-    <BaseCard
+    <CardRoot
       :as="props.as"
       :variant="props.variant"
       :padding="props.padding"
       :interactive="props.interactive"
       :unstyled="props.unstyled"
+      :href="props.href"
+      :to="props.to"
       v-bind="$attrs"
       class="ui-stat-card__card"
     >
@@ -17,16 +19,18 @@
           <CardSubtitle v-if="body" :payload="body" />
         </div>
       </CardBody>
+      <CardDivider v-if="props.divider" />
       <CardFooter v-if="footer" class="ui-stat-card__footer"><UiText :payload="footer" /></CardFooter>
-    </BaseCard>
+    </CardRoot>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import BaseBadge from '../../../primitives/badge/BaseBadge.vue'
-import BaseCard from '../../../primitives/card/BaseCard.vue'
+import CardRoot from '../../../primitives/card/CardRoot.vue'
 import CardBody from '../../../primitives/card/CardBody.vue'
+import CardDivider from '../../../primitives/card/CardDivider.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'
 import CardSubtitle from '../../../primitives/card/CardSubtitle.vue'
 import CardTitle from '../../../primitives/card/CardTitle.vue'
@@ -44,6 +48,7 @@ const props = withDefaults(defineProps<StatCardProps>(), {
   interactive: false,
   unstyled: false,
   layout: 'default',
+  divider: false,
   label: null,
   value: null,
   title: null,

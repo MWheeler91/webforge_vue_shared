@@ -28,4 +28,6 @@ export interface QuoteCardProps extends Omit<BaseCardProps, 'as'> {
    * the text actually overflows that many lines at its rendered width.
    */
   clamp?: QuoteCardClamp | null
+  /** Show a divider between the quote and the attribution. Default false. */
+  divider?: boolean
 }

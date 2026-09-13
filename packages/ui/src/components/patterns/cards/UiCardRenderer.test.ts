@@ -341,7 +341,7 @@ describe('UiCardRenderer', () => {
     expect(card.props('body')).toEqual({ text: 'Across all support channels.' })
     expect(card.props('footer')).toEqual({ text: 'vs. last quarter' })
     expect(card.props('label')).toEqual({ text: 'Support', variant: 'info' })
-    expect(card.props('divider')).toBeUndefined()
+    expect(card.props('divider')).toBe(false)
     expect(wrapper.get('.ui-stat-card').classes()).toContain('ui-stat-card--layout-horizontal')
     expect(wrapper.get('.ui-card').classes()).toEqual(
       expect.arrayContaining(['ui-card--variant-elevated', 'ui-card--padding-sm', 'ui-card--interactive']),
@@ -390,7 +390,7 @@ describe('UiCardRenderer', () => {
     expect(card.props('subheading')).toEqual({ text: 'Support lead' })
     expect(card.props('body')).toEqual({ text: 'Answers the hard tickets.' })
     expect(card.props('actions')).toEqual([{ label: 'Contact', href: '/contact/maya' }])
-    expect(card.props('divider')).toBeUndefined()
+    expect(card.props('divider')).toBe(false)
     expect(wrapper.get('.ui-profile-card').classes()).toContain('ui-profile-card--layout-portrait-left')
     expect(wrapper.text()).not.toContain('Ignored')
   })

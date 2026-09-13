@@ -1,11 +1,13 @@
 <template>
   <div :class="classes">
-    <BaseCard
+    <CardRoot
       :as="props.as"
       :variant="props.variant"
       :padding="props.padding"
       :interactive="props.interactive"
       :unstyled="props.unstyled"
+      :href="props.href"
+      :to="props.to"
       v-bind="$attrs"
       class="ui-pricing-card__card"
     >
@@ -37,7 +39,7 @@
           action.label
         }}</BaseButton>
       </CardFooter>
-    </BaseCard>
+    </CardRoot>
   </div>
 </template>
 
@@ -45,7 +47,7 @@
 import { computed } from 'vue'
 import BaseBadge from '../../../primitives/badge/BaseBadge.vue'
 import BaseButton from '../../../primitives/button/BaseButton.vue'
-import BaseCard from '../../../primitives/card/BaseCard.vue'
+import CardRoot from '../../../primitives/card/CardRoot.vue'
 import CardBody from '../../../primitives/card/CardBody.vue'
 import CardDivider from '../../../primitives/card/CardDivider.vue'
 import CardFooter from '../../../primitives/card/CardFooter.vue'

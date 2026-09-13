@@ -123,8 +123,8 @@ const classes = computed(() => {
     `ui-card--density-${card.density}`,
     card.motion && `ui-card--motion-${card.motion}`,
 
-    // Component props.
-    `ui-card--variant-${props.variant}`,
+    // Component props. 'default' applies no variant modifier - the card keeps its base look.
+    props.variant !== 'default' && `ui-card--variant-${props.variant}`,
     `ui-card--padding-${props.padding}`,
 
     // Link card state.

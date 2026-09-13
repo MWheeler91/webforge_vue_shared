@@ -70,11 +70,13 @@ function select(value: string) {
   flex-wrap: wrap;
   padding: 0.25rem;
   border: 1px solid var(--border_default);
+  border-radius: var(--ui-composite-radius, 0.375rem);
 }
 .ui-segmented-switcher__controls button {
   min-height: 2.5rem;
   padding: 0.5rem 1rem;
   border: 0;
+  border-radius: calc(var(--ui-composite-radius, 0.375rem) - 0.25rem);
   background: transparent;
 }
 .ui-segmented-switcher__controls button.active {
@@ -87,6 +89,7 @@ function select(value: string) {
   margin-top: 1rem;
   padding: 1rem;
   border: 1px solid var(--border_default);
+  border-radius: var(--ui-composite-radius, 0.375rem);
 }
 .ui-segmented-switcher__content > * {
   margin: 0;

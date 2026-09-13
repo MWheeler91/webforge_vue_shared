@@ -13,7 +13,7 @@
         v-for="(item, index) in items"
         :key="id(item, index)"
         :value="id(item, index)"
-        :disabled="item.disabled"
+        :disabled="item.disabled || !hasPanel(item)"
         ><AccordionTrigger>{{ item.label }}</AccordionTrigger
         ><AccordionPanel v-if="hasPanel(item)"
           ><div class="ui-accordion-switcher__panel">

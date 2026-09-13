@@ -1,11 +1,13 @@
 <template>
   <div :class="classes">
-    <BaseCard
+    <CardRoot
       as="article"
       :variant="props.variant"
       :padding="props.padding"
       :interactive="props.interactive"
       :unstyled="props.unstyled"
+      :href="props.href"
+      :to="props.to"
       v-bind="$attrs"
       class="ui-quote-card__card"
     >
@@ -31,6 +33,8 @@
           @click="expanded = !expanded"
         >{{ expanded ? 'Show less' : 'Show more' }}</button>
 
+        <CardDivider v-if="props.divider" />
+
         <figcaption v-if="author || avatar" class="ui-quote-card__attribution">
           <img
             v-if="avatar"
@@ -41,13 +45,14 @@
           <UiText v-if="author" :payload="author" fallback="span" class="ui-quote-card__author" />
         </figcaption>
       </figure>
-    </BaseCard>
+    </CardRoot>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, useId, watch } from 'vue'
-import BaseCard from '../../../primitives/card/BaseCard.vue'
+import CardRoot from '../../../primitives/card/CardRoot.vue'
+import CardDivider from '../../../primitives/card/CardDivider.vue'
 import UiText from '../../../primitives/text/UiText.vue'
 import { textPayload } from '../../../primitives/card/card.types.ts'
 import { cn } from '../../../../utils/classNames.ts'
@@ -61,6 +66,7 @@ const props = withDefaults(defineProps<QuoteCardProps>(), {
   interactive: false,
   unstyled: false,
   layout: 'default',
+  divider: false,
   quote: null,
   author: null,
   avatar: null,

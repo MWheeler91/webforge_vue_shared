@@ -20,4 +20,6 @@ export interface FeatureCardProps extends BaseCardProps {
   badges?: UiCollectionInput<UiBadgePayload> | null
   actions?: UiCollectionInput<CardAction> | null
   layout?: FeatureCardLayout
+  /** Show a divider between the content and the actions. Default false. */
+  divider?: boolean
 }
