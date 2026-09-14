@@ -1,12 +1,6 @@
 <template>
-  <div
-    v-if="hasChrome"
-    :class="shellClasses"
-  >
-    <span
-      v-if="$slots.leading"
-      class="ui-select__leading"
-    >
+  <div v-if="hasChrome" :class="shellClasses">
+    <span v-if="$slots.leading" class="ui-select__leading">
       <slot name="leading" />
     </span>
 
@@ -25,11 +19,7 @@
       @focus="handleFocus"
       @blur="handleBlur"
     >
-      <option
-        v-if="placeholder"
-        value=""
-        :disabled="placeholderDisabled"
-      >
+      <option v-if="placeholder" value="" :disabled="placeholderDisabled">
         {{ placeholder }}
       </option>
 
@@ -45,10 +35,7 @@
       </slot>
     </select>
 
-    <span
-      v-if="$slots.trailing"
-      class="ui-select__trailing"
-    >
+    <span v-if="$slots.trailing" class="ui-select__trailing">
       <slot name="trailing" />
     </span>
   </div>
@@ -69,11 +56,7 @@
     @focus="handleFocus"
     @blur="handleBlur"
   >
-    <option
-      v-if="placeholder"
-      value=""
-      :disabled="placeholderDisabled"
-    >
+    <option v-if="placeholder" value="" :disabled="placeholderDisabled">
       {{ placeholder }}
     </option>
 
@@ -93,12 +76,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs, useSlots } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type {
-  InputVariant,
-  InputSize,
-  SelectOption,
-} from './input.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { InputVariant, InputSize, SelectOption } from './input.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -179,7 +158,6 @@ const normalizedAriaInvalid = computed(() => {
 
   return props.ariaInvalid
 })
-
 
 const shellClasses = computed(() => {
   const input = uiConfig.input

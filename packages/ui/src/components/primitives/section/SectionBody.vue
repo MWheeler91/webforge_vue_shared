@@ -7,8 +7,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type { SectionGap, SectionGrid, SectionLayout } from './section.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { SectionGap, SectionGrid, SectionLayout } from './section.types.ts'
 
 interface Props {
   layout?: SectionLayout
@@ -22,7 +22,6 @@ const props = withDefaults(defineProps<Props>(), {
   gap: 'md',
 })
 const uiConfig = useUiConfig()
-
 
 const classes = computed(() => {
   const section = uiConfig.section

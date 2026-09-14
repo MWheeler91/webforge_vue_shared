@@ -13,7 +13,7 @@
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
-import { collectionItems } from '../../../primitives/card/card.types'
+import { collectionItems } from '../../../primitives/card/card.types.ts'
 import type { DefinitionListProps } from './DefinitionList.types.ts'
 const props = defineProps<DefinitionListProps>()
 const items = computed(() => collectionItems(props.items))

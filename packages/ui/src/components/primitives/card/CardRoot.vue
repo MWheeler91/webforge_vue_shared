@@ -27,7 +27,7 @@
 import { computed } from 'vue'
 import BaseCard from './BaseCard.vue'
 import CardLink from './CardLink.vue'
-import type { BaseCardProps } from './card.types'
+import type { BaseCardProps } from './card.types.ts'
 
 defineOptions({ inheritAttrs: false })
 

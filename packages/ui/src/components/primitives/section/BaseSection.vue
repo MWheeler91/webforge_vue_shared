@@ -11,8 +11,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type { SectionAlign, SectionSpacing, SectionVariant, SectionWidth } from './section.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { SectionAlign, SectionSpacing, SectionVariant, SectionWidth } from './section.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -45,7 +45,6 @@ const sectionAttrs = computed(() => {
   delete rest.class
   return rest
 })
-
 
 const classes = computed(() => {
   const externalClass = attrs.class as string | undefined

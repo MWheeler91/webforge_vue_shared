@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import UiText from '../../../primitives/text/UiText.vue'
-import { collectionItems } from '../../../primitives/card/card.types'
+import { collectionItems } from '../../../primitives/card/card.types.ts'
 import type { FeatureListProps } from './FeatureList.types.ts'
 const props = withDefaults(defineProps<FeatureListProps>(), { layout: 'icon' })
 const items = computed(() => collectionItems(props.items))

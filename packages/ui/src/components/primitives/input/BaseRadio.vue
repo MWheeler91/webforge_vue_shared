@@ -18,26 +18,17 @@
         @blur="handleBlur"
       />
 
-      <span
-        class="ui-radio__control"
-        aria-hidden="true"
-      >
+      <span class="ui-radio__control" aria-hidden="true">
         <span class="ui-radio__dot" />
       </span>
     </span>
 
-    <span
-      v-if="$slots.default || label || description"
-      class="ui-radio__content"
-    >
+    <span v-if="$slots.default || label || description" class="ui-radio__content">
       <span class="ui-radio__label">
         <slot>{{ label }}</slot>
       </span>
 
-      <span
-        v-if="description"
-        class="ui-radio__description"
-      >
+      <span v-if="description" class="ui-radio__description">
         {{ description }}
       </span>
     </span>
@@ -47,12 +38,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, inject, useAttrs } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type {
-  InputVariant,
-  InputSize,
-  RadioValue,
-} from './input.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { InputVariant, InputSize, RadioValue } from './input.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -169,7 +156,6 @@ const normalizedAriaInvalid = computed(() => {
 
   return props.ariaInvalid
 })
-
 
 const radioClasses = computed(() => {
   const externalClass = attrs.class as string | undefined

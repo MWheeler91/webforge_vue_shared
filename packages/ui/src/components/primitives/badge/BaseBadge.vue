@@ -1,13 +1,6 @@
 <template>
-  <span
-    v-bind="badgeAttrs"
-    :class="classes"
-  >
-    <span
-      v-if="leading === 'dot'"
-      class="ui-badge__dot"
-      aria-hidden="true"
-    />
+  <span v-bind="badgeAttrs" :class="classes">
+    <span v-if="leading === 'dot'" class="ui-badge__dot" aria-hidden="true" />
 
     <span class="ui-badge__content">
       <slot />
@@ -18,13 +11,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type {
-  BadgeVariant,
-  BadgeTone,
-  BadgeSize,
-  BadgeLeading,
-} from './badge.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { BadgeVariant, BadgeTone, BadgeSize, BadgeLeading } from './badge.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -49,7 +37,6 @@ const props = withDefaults(defineProps<Props>(), {
 const attrs = useAttrs()
 const uiConfig = useUiConfig()
 
-
 const badgeAttrs = computed(() => {
   const { class: _class, ...rest } = attrs
   return rest
@@ -59,10 +46,7 @@ const classes = computed(() => {
   const externalClass = attrs.class as string | undefined
 
   if (props.unstyled) {
-    return cn(
-      'ui-badge-unstyled',
-      externalClass,
-    )
+    return cn('ui-badge-unstyled', externalClass)
   }
 
   const badge = uiConfig.badge

@@ -1,13 +1,7 @@
 <template>
   <!-- Shell mode: used when leading/trailing slots exist -->
-  <div
-    v-if="hasShell"
-    :class="shellClasses"
-  >
-    <span
-      v-if="hasLeading"
-      class="ui-input__leading"
-    >
+  <div v-if="hasShell" :class="shellClasses">
+    <span v-if="hasLeading" class="ui-input__leading">
       <slot name="leading" />
     </span>
 
@@ -31,10 +25,7 @@
       @change="emit('change', $event)"
     />
 
-    <span
-      v-if="hasTrailing"
-      class="ui-input__trailing"
-    >
+    <span v-if="hasTrailing" class="ui-input__trailing">
       <slot name="trailing" />
     </span>
   </div>
@@ -65,8 +56,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs, useSlots } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type { InputVariant, InputSize, InputType } from './input.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { InputVariant, InputSize, InputType } from './input.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -120,18 +111,12 @@ const attrs = useAttrs()
 const slots = useSlots()
 const uiConfig = useUiConfig()
 
-
 const hasLeading = computed(() => Boolean(slots.leading))
 const hasTrailing = computed(() => Boolean(slots.trailing))
 const hasShell = computed(() => hasLeading.value || hasTrailing.value)
 
 const inputAttrs = computed(() => {
-  const {
-    class: _class,
-    type: _type,
-    value: _value,
-    ...rest
-  } = attrs
+  const { class: _class, type: _type, value: _value, ...rest } = attrs
 
   return rest
 })

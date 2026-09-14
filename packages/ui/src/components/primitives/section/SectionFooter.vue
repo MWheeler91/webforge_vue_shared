@@ -7,8 +7,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type { SectionAlign } from './section.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { SectionAlign } from './section.types.ts'
 
 interface Props {
   align?: 'inherit' | SectionAlign
@@ -18,7 +18,6 @@ const props = withDefaults(defineProps<Props>(), {
   align: 'inherit',
 })
 const uiConfig = useUiConfig()
-
 
 const classes = computed(() => {
   const section = uiConfig.section

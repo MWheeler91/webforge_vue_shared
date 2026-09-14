@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import UiText from '../../../primitives/text/UiText.vue'
-import { collectionItems } from '../../../primitives/card/card.types'
+import { collectionItems } from '../../../primitives/card/card.types.ts'
 import type { TimelineProps } from './Timeline.types.ts'
 
 defineOptions({ name: 'TimelinePattern' })

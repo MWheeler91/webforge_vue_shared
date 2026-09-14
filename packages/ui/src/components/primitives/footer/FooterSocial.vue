@@ -9,12 +9,7 @@
       :rel="(item.external ?? true) ? 'noopener noreferrer' : undefined"
       :aria-label="item.label"
     >
-      <Icon
-        v-if="item.icon"
-        class="ui-footer-social__icon"
-        :icon="item.icon"
-        aria-hidden="true"
-      />
+      <Icon v-if="item.icon" class="ui-footer-social__icon" :icon="item.icon" aria-hidden="true" />
 
       <span v-else class="ui-footer-social__text">
         {{ item.label }}
@@ -27,7 +22,7 @@
 import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
 import { Icon } from '@iconify/vue'
-import type { FooterSocialItem } from './footer.types'
+import type { FooterSocialItem } from './footer.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -52,7 +47,6 @@ const socialAttrs = computed(() => {
 
   return rest
 })
-
 
 const classes = computed(() => {
   const externalClass = attrs.class as string | undefined

@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
-import type { NavbarBrandImagePosition } from './navigation.types'
+import type { NavbarBrandImagePosition } from './navigation.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -60,7 +60,6 @@ const resolvedImageAlt = computed(() => {
 
   return props.imageAlt ?? props.label ?? ''
 })
-
 
 const classes = computed(() => {
   const externalClass = attrs.class as string | undefined

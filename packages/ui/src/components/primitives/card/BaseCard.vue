@@ -8,8 +8,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type { BaseCardProps } from './card.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { BaseCardProps } from './card.types.ts'
 
 defineOptions({
   // Fallthrough attrs are applied manually so class can be merged cleanly.
@@ -26,7 +26,6 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
 
 const attrs = useAttrs()
 const uiConfig = useUiConfig()
-
 
 // External class is merged into the computed class string.
 const externalClass = computed(() => attrs.class as string | undefined)

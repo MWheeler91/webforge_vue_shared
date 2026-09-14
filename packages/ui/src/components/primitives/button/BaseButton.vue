@@ -18,11 +18,7 @@
           stroke="currentColor"
           stroke-width="4"
         />
-        <path
-          class="ui-btn__spinner-fill"
-          fill="currentColor"
-          d="M4 12a8 8 0 018-8v8H4z"
-        />
+        <path class="ui-btn__spinner-fill" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
       </svg>
     </span>
 
@@ -36,7 +32,7 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, resolveComponent, useAttrs } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
 import type {
   ButtonVariant,
   ButtonSize,
@@ -44,7 +40,7 @@ import type {
   ButtonHtmlType,
   ButtonAs,
   ButtonLabelWrap,
-} from './button.types'
+} from './button.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -91,7 +87,6 @@ const emit = defineEmits<{
 
 const attrs = useAttrs()
 const uiConfig = useUiConfig()
-
 
 const isDisabled = computed(() => props.disabled || props.loading)
 
@@ -145,7 +140,7 @@ const classes = computed(() => {
     `ui-btn--pack-${button.pack}`,
     `ui-btn--radius-${button.radius}`,
     `ui-btn--density-${button.density}`,
-    
+
     button.motion && `ui-btn--motion-${button.motion}`,
 
     // Component props.

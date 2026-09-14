@@ -1,7 +1,5 @@
 <template>
-  <label
-    :class="wrapperClasses"
-  >
+  <label :class="wrapperClasses">
     <span class="ui-checkbox__control-wrap">
       <input
         v-bind="checkboxAttrs"
@@ -21,36 +19,23 @@
         @blur="handleBlur"
       />
 
-      <span
-        class="ui-checkbox__control"
-        aria-hidden="true"
-      >
+      <span class="ui-checkbox__control" aria-hidden="true">
         <span class="ui-checkbox__check">
-          <slot name="checkmark">
-            ✓
-          </slot>
+          <slot name="checkmark"> ✓ </slot>
         </span>
 
         <span class="ui-checkbox__indeterminate">
-          <slot name="indeterminate">
-            —
-          </slot>
+          <slot name="indeterminate"> — </slot>
         </span>
       </span>
     </span>
 
-    <span
-      v-if="$slots.default || label"
-      class="ui-checkbox__content"
-    >
+    <span v-if="$slots.default || label" class="ui-checkbox__content">
       <span class="ui-checkbox__label">
         <slot>{{ label }}</slot>
       </span>
 
-      <span
-        v-if="description"
-        class="ui-checkbox__description"
-      >
+      <span v-if="description" class="ui-checkbox__description">
         {{ description }}
       </span>
     </span>
@@ -60,11 +45,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, onMounted, ref, useAttrs, watch } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type {
-  InputVariant,
-  InputSize,
-} from './input.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { InputVariant, InputSize } from './input.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -143,7 +125,6 @@ const normalizedAriaInvalid = computed(() => {
   return props.ariaInvalid
 })
 
-
 const wrapperClasses = computed(() => {
   const externalClass = attrs.class as string | undefined
 
@@ -178,9 +159,7 @@ const wrapperClasses = computed(() => {
 })
 
 const inputClasses = computed(() => {
-  return cn(
-    'ui-checkbox__input',
-  )
+  return cn('ui-checkbox__input')
 })
 
 function syncIndeterminate() {
@@ -206,8 +185,5 @@ function handleBlur(event: FocusEvent) {
 
 onMounted(syncIndeterminate)
 
-watch(
-  () => props.indeterminate,
-  syncIndeterminate,
-)
+watch(() => props.indeterminate, syncIndeterminate)
 </script>

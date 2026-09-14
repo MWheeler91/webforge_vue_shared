@@ -33,8 +33,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type { ToastPack, ToastVariant } from './toast.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { ToastPack, ToastVariant } from './toast.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -89,7 +89,6 @@ const resolvedIcon = computed(() => {
       return ''
   }
 })
-
 
 const classes = computed(() => {
   const externalClass = attrs.class as string | undefined

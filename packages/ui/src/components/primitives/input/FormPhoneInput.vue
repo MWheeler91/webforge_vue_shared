@@ -26,7 +26,7 @@
 import { computed, nextTick, ref, watch } from 'vue'
 import FormInput from './FormInput.vue'
 import type { InputSize, InputVariant } from './input.types.ts'
-import { phoneDigits } from '../../../utils/formatPhone'
+import { phoneDigits } from '../../../utils/formatPhone.ts'
 
 defineOptions({ inheritAttrs: false })
 

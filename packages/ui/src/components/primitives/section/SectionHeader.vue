@@ -30,8 +30,13 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type { SectionAlign, SectionTitleAs, SectionTitleEmphasis, SectionTitleWrap } from './section.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type {
+  SectionAlign,
+  SectionTitleAs,
+  SectionTitleEmphasis,
+  SectionTitleWrap,
+} from './section.types.ts'
 
 interface Props {
   eyebrow?: string
@@ -53,7 +58,6 @@ const props = withDefaults(defineProps<Props>(), {
   titleWrap: 'inherit',
 })
 const uiConfig = useUiConfig()
-
 
 const classes = computed(() => {
   const section = uiConfig.section

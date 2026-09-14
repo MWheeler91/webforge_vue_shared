@@ -13,10 +13,12 @@
       />
       <div>
         <UiText v-if="item.heading" :payload="item.heading" fallback="h3" />
-        <UiText v-if="item.role" :payload="item.role" fallback="span"
-        /><a v-for="(link, linkIndex) in contacts(item)" :key="linkIndex" :href="link.href">{{
-          link.label
-        }}</a>
+        <UiText v-if="item.role" :payload="item.role" fallback="span" /><a
+          v-for="(link, linkIndex) in contacts(item)"
+          :key="linkIndex"
+          :href="link.href"
+          >{{ link.label }}</a
+        >
       </div>
     </article>
   </section>
@@ -24,8 +26,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import UiText from '../../../primitives/text/UiText.vue'
-import { collectionItems } from '../../../primitives/card/card.types'
-import type { UiListItemPayload } from '../../../primitives/list/list.types'
+import { collectionItems } from '../../../primitives/card/card.types.ts'
+import type { UiListItemPayload } from '../../../primitives/list/list.types.ts'
 import type { ContactListProps } from './ContactList.types.ts'
 const props = defineProps<ContactListProps>()
 const items = computed(() => collectionItems(props.items))

@@ -6,24 +6,12 @@
     :aria-describedby="ariaDescribedby"
     :disabled="disabled"
   >
-    <legend
-      v-if="label"
-      class="ui-radio-group__legend"
-    >
+    <legend v-if="label" class="ui-radio-group__legend">
       {{ label }}
-      <span
-        v-if="required"
-        class="ui-radio-group__required"
-        aria-hidden="true"
-      >
-        *
-      </span>
+      <span v-if="required" class="ui-radio-group__required" aria-hidden="true"> * </span>
     </legend>
 
-    <p
-      v-if="description"
-      class="ui-radio-group__description"
-    >
+    <p v-if="description" class="ui-radio-group__description">
       {{ description }}
     </p>
 
@@ -36,13 +24,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, provide, useAttrs } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type {
-  InputVariant,
-  InputSize,
-  RadioGroupOrientation,
-  RadioValue,
-} from './input.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { InputVariant, InputSize, RadioGroupOrientation, RadioValue } from './input.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -97,7 +80,6 @@ const normalizedAriaInvalid = computed(() => {
 
   return props.ariaInvalid
 })
-
 
 const groupClasses = computed(() => {
   const externalClass = attrs.class as string | undefined

@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, useAttrs } from 'vue'
-import type { ContainerWidth, ContainerPadding } from './container.types'
+import type { ContainerWidth, ContainerPadding } from './container.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -41,7 +41,6 @@ const containerAttrs = computed(() => {
 
   return rest
 })
-
 
 const classes = computed(() => {
   const externalClass = attrs.class as string | undefined

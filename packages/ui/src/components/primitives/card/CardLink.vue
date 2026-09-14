@@ -8,8 +8,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, resolveComponent, useAttrs } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type { BaseCardLinkProps, CardLinkAs } from './card.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { BaseCardLinkProps, CardLinkAs } from './card.types.ts'
 
 defineOptions({
   // Fallthrough attrs are applied manually so class can be merged cleanly.
@@ -30,7 +30,6 @@ const emit = defineEmits<{
 
 const attrs = useAttrs()
 const uiConfig = useUiConfig()
-
 
 // Allow `to` to infer RouterLink when as is left as the default.
 const resolvedAs = computed<CardLinkAs>(() => {

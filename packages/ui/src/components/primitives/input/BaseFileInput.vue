@@ -18,10 +18,7 @@
     />
 
     <span class="ui-file-input__control">
-      <span
-        v-if="$slots.leading"
-        class="ui-file-input__leading"
-      >
+      <span v-if="$slots.leading" class="ui-file-input__leading">
         <slot name="leading" />
       </span>
 
@@ -30,18 +27,12 @@
           {{ buttonText }}
         </span>
 
-        <span
-          v-if="displayText"
-          class="ui-file-input__filename"
-        >
+        <span v-if="displayText" class="ui-file-input__filename">
           {{ displayText }}
         </span>
       </span>
 
-      <span
-        v-if="$slots.trailing"
-        class="ui-file-input__trailing"
-      >
+      <span v-if="$slots.trailing" class="ui-file-input__trailing">
         <slot name="trailing" />
       </span>
     </span>
@@ -51,11 +42,8 @@
 <script setup lang="ts">
 import { cn } from '../../../utils/classNames.ts'
 import { computed, ref, useAttrs } from 'vue'
-import { useUiConfig } from '../../../config/ui.runtime'
-import type {
-  InputVariant,
-  InputSize,
-} from './input.types'
+import { useUiConfig } from '../../../config/ui.runtime.ts'
+import type { InputVariant, InputSize } from './input.types.ts'
 
 defineOptions({
   inheritAttrs: false,
@@ -145,7 +133,6 @@ const displayText = computed(() => {
 
   return `${selectedFiles.value.length} files selected`
 })
-
 
 const wrapperClasses = computed(() => {
   const externalClass = attrs.class as string | undefined
