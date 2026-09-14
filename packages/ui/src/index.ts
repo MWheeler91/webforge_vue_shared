@@ -173,7 +173,7 @@ export type {
   SectionVariant, SectionWidth, SectionSpacing, SectionAlign, SectionTitleAs, SectionTitleEmphasis,
   SectionTitleWrap, SectionLayout, SectionGrid, SectionGap, SharedSectionProps, SectionCardCollection,
   SectionCardInputCollection, SectionCardInput, ResolvedSectionCard, ResolvedSectionCardCollection,
-  ResolvedSectionProps, UiSectionData, UiSectionCardData, UiSectionCardCollection,
+  ResolvedSectionProps, UiSectionData, UiSectionCardData,
   UiSectionCardElements, UiSectionComponentData, UiSectionComponentCollection,
 } from './components/primitives/section/section.types.ts'
 export { sectionCollectionItems } from './components/primitives/section/section.types.ts'

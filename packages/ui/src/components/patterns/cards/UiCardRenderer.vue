@@ -26,6 +26,11 @@ import type { UiSectionCardData } from '../../primitives/section/section.types.t
 
 const props = defineProps<{ card: UiSectionCardData }>()
 
+/** Config props arrive as strings (e.g. `"true"`/`"false"`) - never coerce with `Boolean()`, which treats the string `"false"` as truthy. */
+function toConfigBool(value: unknown): boolean {
+  return value === 'true' || value === true
+}
+
 type ElementValue = {
   text?: string | null
   image_url?: string | null
@@ -203,7 +208,7 @@ const cardProps = computed(() => ({
       }
     : isFeatureCard.value
       ? {
-          unstyled: Boolean(config.value.unstyled),
+          unstyled: toConfigBool(config.value.unstyled),
           icon: scalarText('icon')?.text ?? null,
           layout: layout.value === 'split' ? 'split' : 'stacked',
           mediaAspect: config.value.media_aspect === 'square' ? 'square' : 'auto',
@@ -224,7 +229,7 @@ const cardProps = computed(() => ({
         : isPricingCard.value
           ? {
               layout: pricingLayout.value,
-              featured: Boolean(config.value.featured),
+              featured: toConfigBool(config.value.featured),
               label: normalizeBadges()[0] ?? null,
               title: scalarText('title'),
               price: scalarText('price')?.text ?? null,

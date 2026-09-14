@@ -1,5 +1,4 @@
 import type {
-  UiSectionCardCollection,
   UiSectionCardData,
   UiSectionCardElements,
   UiSectionComponentData,
@@ -17,13 +16,9 @@ export function sectionElement(section: UiSectionData, key: string): UiSectionEl
   return text?.[key]?.[0] ?? null
 }
 
+/** Reads the section's "card" slot. For patterns where that slot always means real cards. */
 export function sectionCards(section: UiSectionData): UiSectionCardData[] {
-  const cards = section.cards as UiSectionCardCollection | undefined
-  return [
-    ...Object.values(cards?.keyed ?? {}),
-    ...Object.values(cards?.grouped ?? {}).flat(),
-    ...(cards?.items ?? []),
-  ]
+  return section.components?.card ?? []
 }
 
 /** Read one scalar text element off a card or standalone component node. */

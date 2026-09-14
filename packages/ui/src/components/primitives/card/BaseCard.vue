@@ -56,8 +56,8 @@ const classes = computed(() => {
     `ui-card--density-${card.density}`,
     card.motion && `ui-card--motion-${card.motion}`,
 
-    // Component props. 'default' applies no variant modifier - the card keeps its base look.
-    props.variant !== 'default' && `ui-card--variant-${props.variant}`,
+    // Component props. 'default' renders the same bordered surface look as 'surface'.
+    `ui-card--variant-${props.variant === 'default' ? 'surface' : props.variant}`,
     `ui-card--padding-${props.padding}`,
 
     // Visual-only affordance.

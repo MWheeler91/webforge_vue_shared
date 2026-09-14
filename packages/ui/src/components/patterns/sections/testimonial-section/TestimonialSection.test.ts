@@ -23,7 +23,7 @@ function sectionWith(cards: Record<string, unknown>[], extra: Partial<UiSectionD
     componentKey: 'testimonial-section',
     config: {},
     elements: { text: { title: [{ text: 'What people say' }] } },
-    cards: { items: cards as never },
+    components: { card: cards as never },
     ...extra,
   }
 }

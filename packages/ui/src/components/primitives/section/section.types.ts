@@ -30,18 +30,28 @@ export interface UiSectionData {
   variant?: SectionVariant | null
   config?: Record<string, unknown>
   elements?: Record<string, unknown>
-  cards?: UiSectionCardCollection | null
   /**
-   * Standalone, non-card component placements nested in the section (any
-   * active, non-primitive component - an accordion, a button block, etc.),
-   * keyed by their placement key. Each key holds an ordered array so several
-   * placements can share one key, e.g. a repeated accordion-leaf item.
+   * Every component nested in the section, keyed by its placement/slot key
+   * (e.g. "card", "accordion", "item"). Each key holds an ordered array so
+   * several placements can share one key, e.g. a repeated card or
+   * accordion-leaf item. There is no separate "cards" concept: a node's own
+   * `componentKey`/`componentType` says what it is and which Vue component
+   * consumes it - the slot key alone is not a reliable family signal (a
+   * `generic-section`'s `"card"` slot can hold non-card items). Each shared
+   * pattern component knows which of its own slots to read, e.g.
+   * `sectionCards()` reads the `"card"` slot for patterns that always mean
+   * real cards there.
    */
   components?: UiSectionComponentCollection | null
   metaData?: Record<string, unknown> | null
 }
 
-/** A standalone component node placed directly in a section (not a card). */
+/**
+ * A component node nested in a section. Every nested component - a card, an
+ * accordion leaf, a future form field - has this same shape; the resolver
+ * does not special-case any family. `interactive`/`divider`/`href`/`to` are
+ * only ever populated when `componentType === 'card'`.
+ */
 export interface UiSectionComponentData {
   name?: string | null
   key?: string | null
@@ -50,33 +60,21 @@ export interface UiSectionComponentData {
   config?: Record<string, unknown>
   elements?: UiSectionCardElements
   metaData?: Record<string, unknown> | null
-}
-
-export type UiSectionComponentCollection = Record<string, UiSectionComponentData[]>
-
-/** A nested card node selected by the API's component key. */
-export interface UiSectionCardData {
-  key?: string | null
-  componentKey: string
-  config?: Record<string, unknown>
   interactive?: boolean
   divider?: boolean
   /** External link target. Used when `interactive` is true and `to` is not set. */
   href?: string | null
   /** Vue Router target. Used when `interactive` is true; takes precedence over `href`. */
   to?: string | Record<string, unknown> | null
-  elements?: UiSectionCardElements
-  metaData?: Record<string, unknown> | null
 }
+
+export type UiSectionComponentCollection = Record<string, UiSectionComponentData[]>
+
+/** Alias for readability at call sites that only ever consume card-family nodes. */
+export type UiSectionCardData = UiSectionComponentData
 
 export interface UiSectionCardElements extends Record<string, unknown> {
   text?: Record<string, import('../card/card.types').UiTextPayload[]>
-}
-
-export interface UiSectionCardCollection {
-  keyed?: Record<string, UiSectionCardData>
-  grouped?: Record<string, UiSectionCardData[]>
-  items?: UiSectionCardData[]
 }
 
 export interface BaseSectionProps {

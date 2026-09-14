@@ -300,6 +300,34 @@ describe('UiCardRenderer', () => {
     )
   })
 
+  it('coerces string config booleans instead of treating "false" as truthy', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'feature-card',
+          config: { unstyled: 'false' },
+          elements: { text: { title: [{ text: 'Reliable system' }] } },
+        },
+      },
+    })
+
+    expect(wrapper.findComponent(FeatureCard).props('unstyled')).toBe(false)
+  })
+
+  it('coerces a pricing card\'s string "featured" config instead of treating "false" as truthy', () => {
+    const wrapper = mount(UiCardRenderer, {
+      props: {
+        card: {
+          componentKey: 'pricing-card',
+          config: { featured: 'false' },
+          elements: { text: { title: [{ text: 'Growth' }] } },
+        },
+      },
+    })
+
+    expect(wrapper.findComponent(PricingCard).props('featured')).toBe(false)
+  })
+
   it('omits an API pricing card when both title and price are absent', () => {
     const wrapper = mount(UiCardRenderer, {
       props: {
