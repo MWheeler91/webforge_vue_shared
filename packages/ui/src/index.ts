@@ -217,6 +217,7 @@ export { default as BaseNavbar } from './components/primitives/navigation/BaseNa
 export { default as NavbarBrand } from './components/primitives/navigation/NavbarBrand.vue'
 export { default as NavbarNav } from './components/primitives/navigation/NavbarNav.vue'
 export { default as NavbarLink } from './components/primitives/navigation/NavbarLink.vue'
+export { default as NavbarLinkGroup } from './components/primitives/navigation/NavbarLinkGroup.vue'
 export { default as NavbarActions } from './components/primitives/navigation/NavbarActions.vue'
 export { default as NavbarToggle } from './components/primitives/navigation/NavbarToggle.vue'
 

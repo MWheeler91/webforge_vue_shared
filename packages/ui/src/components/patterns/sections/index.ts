@@ -20,6 +20,14 @@ export { default as TestimonialSection } from './testimonial-section/Testimonial
 export type { TestimonialSectionDensity, TestimonialSectionLayout, TestimonialSectionProps } from './testimonial-section/TestimonialSection.types.ts'
 export { default as FaqSection } from './faq-section/FaqSection.vue'
 export type { FaqSectionProps } from './faq-section/FaqSection.types.ts'
+export { default as TrustStripSection } from './trust-strip-section/TrustStripSection.vue'
+export {
+  TRUST_STRIP_MAX_CARDS,
+} from './trust-strip-section/TrustStripSection.types.ts'
+export type {
+  TrustStripSectionLayout,
+  TrustStripSectionProps,
+} from './trust-strip-section/TrustStripSection.types.ts'
 
 // WIP — not implemented yet. See each component's file header for details.
 export { default as LogoStripSection } from './logo-strip-section/LogoStripSection.vue'

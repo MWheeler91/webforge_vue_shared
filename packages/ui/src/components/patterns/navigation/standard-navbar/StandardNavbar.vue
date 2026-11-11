@@ -14,7 +14,7 @@
       :position="position ?? 'static'"
       :container-width="containerWidth"
       layout="simple"
-      :collapsible="collapsible ?? true"
+      :collapsible="collapsible"
       ><template #brand>
         <slot name="brand">
           <NavbarBrand v-bind="brand ?? {}" />
@@ -32,7 +32,9 @@ import NavbarBrand from '../../../primitives/navigation/NavbarBrand.vue'
 import type { StandardNavbarProps } from './StandardNavbar.types.ts'
 import UiNavbarActions from '../shared/UiNavbarActions.vue'
 import UiNavbarLinks from '../shared/UiNavbarLinks.vue'
-defineProps<StandardNavbarProps>()
+withDefaults(defineProps<StandardNavbarProps>(), {
+  collapsible: true,
+})
 </script>
 <style scoped>
 .ui-standard-navbar__announcement {

@@ -25,9 +25,7 @@ imply automatic bootstrap/configuration behavior.
 
 ## Architecture documentation
 
-Start with [the shared-package overview](./docs/shared-package-overview.md). Focused guides are
-available for [site-core](./docs/site-core.md) and the [UI architecture](./docs/ui/architecture.md),
-[components](./docs/ui/components.md), [card pattern development](./docs/ui/cards.md),
-[Django section/card payload example](./docs/ui/example_api_payload.md),
-[styling](./docs/ui/styling-system.md), [configuration](./docs/ui/configuration.md), and
-[UI packs](./docs/ui/ui-packs.md). Contributors should also read [AGENTS.md](./AGENTS.md).
+Canonical architecture, consumer references, and package-development guidance live in the workspace
+[`_docs/projects/webforge-shared-packages/`](../../../_docs/projects/webforge-shared-packages/CONTEXT.md).
+Start with its `CONTEXT.md` and follow only the relevant task route. Contributors should also read
+the local [AGENTS.md](./AGENTS.md), which points to those focused guides.

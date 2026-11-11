@@ -100,8 +100,18 @@ export type ApiNavbarImage = {
   animation: number
 }
 
+/**
+ * `nav-link` groups buttons that share a DB key and are ordered by `display_order`. A group of
+ * length 1 is a plain link; a group of length > 1 is a dropdown, where the first entry is the
+ * parent (shown on the navbar) and the rest are its children. A parent that only exists to host a
+ * dropdown (no page of its own) uses the `vue_route: "display-only"` sentinel instead of a real
+ * destination - Django's `href` field does not accept this sentinel, only `vue_route` does.
+ */
 export type ApiNavbarElements = {
-  buttons: Record<string, ApiNavbarButton[]>
+  buttons: {
+    'nav-link': ApiNavbarButton[][]
+    'nav-action': ApiNavbarButton[]
+  }
   images: Record<string, ApiNavbarImage[]>
 }
 
@@ -158,6 +168,8 @@ export type NavbarLink = {
   to?: string
   external?: boolean
   disabled?: boolean
+  /** Present only for a dropdown parent; see `ApiNavbarElements.buttons['nav-link']`. */
+  children?: NavbarLink[]
 }
 
 export type NavbarAction = NavbarLink & {

@@ -7,7 +7,7 @@
     :position="position ?? 'static'"
     :container-width="containerWidth"
     layout="split"
-    :collapsible="collapsible ?? true"
+    :collapsible="collapsible"
     class="ui-split-navbar"
     ><template #brand><NavbarBrand v-bind="brand ?? {}" /></template
     ><template #nav
@@ -24,7 +24,9 @@ import NavbarBrand from '../../../primitives/navigation/NavbarBrand.vue'
 import type { SplitNavbarProps } from './SplitNavbar.types.ts'
 import UiNavbarActions from '../shared/UiNavbarActions.vue'
 import UiNavbarLinks from '../shared/UiNavbarLinks.vue'
-defineProps<SplitNavbarProps>()
+withDefaults(defineProps<SplitNavbarProps>(), {
+  collapsible: true,
+})
 </script>
 <style scoped>
 .ui-split-navbar__groups {

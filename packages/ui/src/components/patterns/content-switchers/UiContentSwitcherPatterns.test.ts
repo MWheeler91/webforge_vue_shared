@@ -3,7 +3,6 @@ import { describe, expect, it } from 'vitest'
 import AccordionSwitcher from './accordion-switcher/AccordionSwitcher.vue'
 import CategorySwitcher from './category-switcher/CategorySwitcher.vue'
 import ProgressSwitcher from './progress-switcher/ProgressSwitcher.vue'
-import SegmentedSwitcher from './segmented-switcher/SegmentedSwitcher.vue'
 import TabSwitcher from './tab-switcher/TabSwitcher.vue'
 
 describe('Ui content switcher patterns', () => {
@@ -33,19 +32,14 @@ describe('Ui content switcher patterns', () => {
     expect(accordion.find('.ui-accordion').exists()).toBe(true)
   })
 
-  it('supports progress, segmented, and category selection without payload keys', async () => {
+  it('supports progress and category selection without payload keys', async () => {
     const progress = mount(ProgressSwitcher, {
       props: { items: { ...empty, items: [{ ...items[0]!, status: 'active' }] } },
-    })
-    const segmented = mount(SegmentedSwitcher, {
-      props: { defaultActiveId: 'one', items: { ...empty, items } },
     })
     const category = mount(CategorySwitcher, {
       props: { defaultActiveId: 'one', items: { ...empty, items } },
     })
-    await segmented.findAll('button')[1]!.trigger('click')
     expect(progress.find('.ui-progress-switcher__item--active').exists()).toBe(true)
-    expect(segmented.text()).toContain('Second')
     expect(category.find('[role="tabpanel"]').exists()).toBe(true)
   })
 })

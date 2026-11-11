@@ -7,7 +7,7 @@
     :position="position ?? 'static'"
     :container-width="containerWidth"
     layout="simple"
-    :collapsible="collapsible ?? true"
+    :collapsible="collapsible"
     ><template #brand><NavbarBrand v-bind="brand ?? {}" /></template
     ><template #nav
       ><NavbarNav
@@ -32,7 +32,9 @@ import { collectionItems } from '../../../primitives/card/card.types.ts'
 import type { DisclosureNavbarProps } from './DisclosureNavbar.types.ts'
 import UiNavbarActions from '../shared/UiNavbarActions.vue'
 import UiNavbarLinks from '../shared/UiNavbarLinks.vue'
-const props = defineProps<DisclosureNavbarProps>()
+const props = withDefaults(defineProps<DisclosureNavbarProps>(), {
+  collapsible: true,
+})
 const menuItems = computed(() => collectionItems(props.menus))
 </script>
 <style scoped>

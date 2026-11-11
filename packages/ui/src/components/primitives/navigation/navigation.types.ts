@@ -64,6 +64,13 @@ export interface NavbarLinkItem {
   external?: boolean
   active?: boolean
   disabled?: boolean
+  /**
+   * Optional nested links rendered as a dropdown/flyout under this item. The item itself may
+   * still be a real destination (if it has an `href`/`to`) or may be a label-only trigger that
+   * only opens the dropdown (if it has neither) - the consuming app decides which, this package
+   * only reacts to whether `href`/`to` is present.
+   */
+  children?: NavbarLinkItem[]
 }
 
 export interface NavbarBrandData {

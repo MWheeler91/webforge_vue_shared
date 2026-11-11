@@ -7,7 +7,7 @@
     :position="position ?? 'static'"
     :container-width="containerWidth"
     layout="centered"
-    :collapsible="collapsible ?? true"
+    :collapsible="collapsible"
     class="ui-centered-navbar"
     ><template #brand><NavbarBrand v-bind="brand ?? {}" /></template
     ><template #nav
@@ -24,7 +24,9 @@ import NavbarBrand from '../../../primitives/navigation/NavbarBrand.vue'
 import type { CenteredNavbarProps } from './CenteredNavbar.types.ts'
 import UiNavbarActions from '../shared/UiNavbarActions.vue'
 import UiNavbarLinks from '../shared/UiNavbarLinks.vue'
-defineProps<CenteredNavbarProps>()
+withDefaults(defineProps<CenteredNavbarProps>(), {
+  collapsible: true,
+})
 </script>
 <style scoped>
 .ui-centered-navbar__groups {

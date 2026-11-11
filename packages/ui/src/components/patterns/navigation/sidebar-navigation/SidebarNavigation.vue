@@ -2,9 +2,25 @@
   <aside class="ui-sidebar-navigation" :aria-label="ariaLabel ?? 'Application navigation'">
     <NavbarBrand v-if="brand" v-bind="brand" />
     <nav v-if="primary.length" class="ui-sidebar-navigation__primary">
-      <NavbarLink v-for="(link, index) in primary" :key="link.href ?? index" v-bind="link">{{
-        link.label
-      }}</NavbarLink>
+      <template v-for="(link, index) in primary" :key="link.href ?? index">
+        <NavbarLink
+          :label="link.label"
+          :href="link.href"
+          :to="link.to"
+          :active="link.active"
+          :external="link.external"
+          :disabled="link.disabled"
+          >{{ link.label }}</NavbarLink
+        >
+        <div v-if="link.children?.length" class="ui-sidebar-navigation__children">
+          <NavbarLink
+            v-for="(child, childIndex) in link.children"
+            :key="child.href ?? childIndex"
+            v-bind="child"
+            >{{ child.label }}</NavbarLink
+          >
+        </div>
+      </template>
     </nav>
     <nav
       v-for="(group, name) in groups"
@@ -12,10 +28,26 @@
       class="ui-sidebar-navigation__group"
       :aria-label="name"
     >
-      <strong>{{ name }}</strong
-      ><NavbarLink v-for="(link, index) in group" :key="link.href ?? index" v-bind="link">{{
-        link.label
-      }}</NavbarLink>
+      <strong>{{ name }}</strong>
+      <template v-for="(link, index) in group" :key="link.href ?? index">
+        <NavbarLink
+          :label="link.label"
+          :href="link.href"
+          :to="link.to"
+          :active="link.active"
+          :external="link.external"
+          :disabled="link.disabled"
+          >{{ link.label }}</NavbarLink
+        >
+        <div v-if="link.children?.length" class="ui-sidebar-navigation__children">
+          <NavbarLink
+            v-for="(child, childIndex) in link.children"
+            :key="child.href ?? childIndex"
+            v-bind="child"
+            >{{ child.label }}</NavbarLink
+          >
+        </div>
+      </template>
     </nav>
     <UiNavbarActions :actions="actions" />
   </aside>
@@ -52,5 +84,12 @@ const groups = computed(() => {
 .ui-sidebar-navigation__group {
   border-block-start: 1px solid var(--border_default);
   padding-block-start: 1rem;
+}
+.ui-sidebar-navigation__children {
+  display: grid;
+  gap: 0.25rem;
+  margin-inline-start: 1rem;
+  padding-inline-start: 0.75rem;
+  border-inline-start: 1px solid var(--border_default);
 }
 </style>

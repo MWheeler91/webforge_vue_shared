@@ -13,11 +13,6 @@ export { progressSwitcherPreview } from './progress-switcher/ProgressSwitcher.pr
 export { progressSwitcherSchema } from './progress-switcher/ProgressSwitcher.schema.ts'
 export type { ProgressSwitcherProps, ProgressSwitcherLayout } from './progress-switcher/ProgressSwitcher.types.ts'
 
-export { default as SegmentedSwitcher } from './segmented-switcher/SegmentedSwitcher.vue'
-export { segmentedSwitcherPreview } from './segmented-switcher/SegmentedSwitcher.preview.ts'
-export { segmentedSwitcherSchema } from './segmented-switcher/SegmentedSwitcher.schema.ts'
-export type { SegmentedSwitcherProps } from './segmented-switcher/SegmentedSwitcher.types.ts'
-
 export { default as CategorySwitcher } from './category-switcher/CategorySwitcher.vue'
 export { categorySwitcherPreview } from './category-switcher/CategorySwitcher.preview.ts'
 export { categorySwitcherSchema } from './category-switcher/CategorySwitcher.schema.ts'

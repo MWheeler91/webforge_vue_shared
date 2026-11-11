@@ -17,13 +17,13 @@ client-specific content.
 Consuming applications integrate this package explicitly through its public exports, stylesheet, runtime
 configuration calls, and Theme/font/typography application paths.
 
-## Component-development boundary
+## Documentation
 
-Read [`docs/ui/architecture.md`](../../docs/ui/architecture.md),
-[`docs/ui/component-development.md`](../../docs/ui/component-development.md), and, for cards,
-[`docs/ui/cards.md`](../../docs/ui/cards.md) before adding a component. A normal pattern owns its Vue contract and
-scoped structural/layout CSS. It does not own UI-pack treatment, Theme colors, typography/font systems,
-radius/density/motion systems, global configuration, or shared family-root CSS.
+Canonical architecture, public contracts, and development guidance live in the workspace
+[`_docs/projects/webforge-shared-packages/ui/CONTEXT.md`](../../../../../_docs/projects/webforge-shared-packages/ui/CONTEXT.md).
+Use that guide to select only the relevant reference or workflow for a task. A normal pattern owns
+its Vue contract and scoped structural/layout CSS. It does not own UI-pack treatment, Theme colors,
+typography/font systems, radius/density/motion systems, global configuration, or shared family-root CSS.
 
 For cards, `src/styles/components/base-card.css` is limited to the shared `BaseCard`/`CardLink` surface contract;
 individual card-pattern layouts stay with their patterns. Validate shared changes from `shared/` with

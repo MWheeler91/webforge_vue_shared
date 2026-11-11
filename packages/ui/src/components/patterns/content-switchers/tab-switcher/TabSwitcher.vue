@@ -112,9 +112,32 @@ function hasCards(item: UiSwitcherItemPayload) {
   max-height: 24rem;
   object-fit: cover;
 }
-@media (max-width: 700px) {
+@media (max-width: 36rem) {
   .ui-tab-switcher--vertical :deep(.ui-tabs) {
     grid-template-columns: 1fr;
+  }
+  /*
+   * BaseTabs' own overflow-x: auto strip (and, for vertical, its collapse to
+   * a horizontal row at this same breakpoint) reads as "half the tabs are
+   * missing" once there's no room to show them all at once. Wrap into rows
+   * instead, matching the fix already proven in CascadeFiberCapabilities.vue.
+   * This has to be plain CSS, not a Tailwind utility, per docs/ui-package/
+   * styling-system.md: the package's own unlayered CSS always wins over
+   * Tailwind's @layer utilities regardless of specificity.
+   */
+  .ui-tab-switcher :deep(.ui-tabs__list) {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+  /*
+   * white-space: nowrap on the trigger is meant for the horizontal-scroll
+   * fallback; with wrapping enabled instead, it makes long labels overflow
+   * their now-fixed-width cell instead of wrapping onto a second line.
+   */
+  .ui-tab-switcher :deep(.ui-tabs__trigger) {
+    flex: 1 1 calc(50% - 0.125rem);
+    white-space: normal;
+    text-align: center;
   }
 }
 </style>

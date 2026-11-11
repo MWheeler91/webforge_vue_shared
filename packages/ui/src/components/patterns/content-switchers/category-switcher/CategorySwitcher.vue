@@ -101,6 +101,8 @@ function select(value: string) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   border: 1px solid var(--border_default);
+  border-radius: var(--ui-composite-radius, 0.375rem);
+  overflow: hidden;
 }
 .ui-category-switcher__controls button {
   display: grid;
@@ -112,6 +114,7 @@ function select(value: string) {
   border: 0;
   border-right: 1px solid var(--border_default);
   background: transparent;
+  font: inherit;
   text-align: left;
 }
 .ui-category-switcher__controls button.active {
@@ -123,6 +126,7 @@ function select(value: string) {
   height: 3rem;
   place-items: center;
   border: 1px solid var(--border_default);
+  border-radius: var(--ui-composite-radius, 0.375rem);
 }
 .ui-category-switcher__content {
   display: grid;
